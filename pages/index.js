@@ -25,8 +25,8 @@ export default function Home({ latest, allCategoryPosts, websiteDetails }) {
 
 export async function getServerSideProps(context) {
     let subdomain = context.req.headers.host.split('.')[0]; 
-    if (subdomain === 'localhost:3000' || subdomain === 'newzy' || subdomain === 'www'){
-        subdomain = "saran";
+    if (subdomain === 'localhost:3000' || subdomain === 'themasalakhabar' || subdomain === 'www'){
+        subdomain = "newsazamgarh";
     }
     const url = `https://www.themasalakhabar.com/api/hello?subdomain=${subdomain}`;
     
