@@ -1,0 +1,49 @@
+.navigationIconContainer {
+    display: none;
+}
+.mobileNavigationContainer {
+    min-width: 70%;
+}
+
+.downloadContainer {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 250px;
+    height: 50px;
+    object-fit: contain;
+    margin: 5px 20px;
+    margin-top: 15px;
+}
+
+.actionContainer {
+    width: 100%;
+    
+}
+.topActionContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.bottomActionContainer {
+    display: flex;
+    justify-content: center;
+    color: #E9494B;
+    margin-top: 10px;
+}
+
+.navigationItems {
+    margin-top: 30px;
+    padding: 0 20px;
+    text-align: right;
+}
+
+@media (max-width:500px) {
+    .navigationIconContainer {
+        display: flex;
+    }
+}

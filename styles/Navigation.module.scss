@@ -1,0 +1,67 @@
+.navigationContainer {
+   
+    .topSection {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 95%;
+        margin: 0 auto;
+        .iconContainer {
+            cursor: pointer;
+            .icon {
+                width: 80px;
+                height: 80px;
+                object-fit: contain;
+                margin-top: 10px;
+                margin-bottom: 5px;
+            }
+        }
+        
+        .loginButtonContainer {
+           display: flex;
+        }
+    }
+
+    .buttomSection {
+        width: 95%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        align-items: center;
+
+        .loginButtonContainer {
+            .socialIcons {
+                margin-right: 25px;
+                margin-top: 5px;
+                cursor: pointer;
+                
+            }
+        }
+
+        .changeLocation {
+            display: none;
+        }
+    }
+}
+
+
+@media (max-width:500px) {
+    .navigationContainer {
+        .topSection {
+            .loginButtonContainer {
+               display: none;
+            }
+        }
+        .buttomSection {
+            .iconContainer {
+                display: none;
+               
+            }
+            .changeLocation {
+                display: flex;
+            }
+        }
+    
+    }
+}

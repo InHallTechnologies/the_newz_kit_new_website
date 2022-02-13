@@ -1,0 +1,134 @@
+.heroSpaceContainer {
+    width: 95%;
+    margin: 0 auto;
+    .categoriesList {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        padding: 10px 0;
+        overflow-x: scroll;
+        display: flex;
+        flex-direction: row;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    .contentContainer {
+        display: flex;
+        margin-top: 10px;
+        .latestPostContainer {
+            display: flex;
+            flex: 0.7;
+            max-height: 550px;
+            background-color: rgba(204, 204, 204, 0.151);
+            .latestPostImage {
+                width: 60%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .latestPostContent {
+                padding: 20px;
+                .category {
+                    background-color: #e9494b;
+                    width: 100px;
+                    text-align: center;
+                    padding: 10px;
+                    border-radius: 5px;
+                    font-weight: 600;
+                    color: white;
+                }
+
+                .headline {
+                    margin-top: 20px;
+                }
+
+                .content {
+                    margin-top: 10px;
+                    
+                }
+                .releasedOnLabel {
+                    margin-top: 10px;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .latestPostListContainer {
+            padding: 0 20px;
+            flex: 0.3;
+            max-height: 550px;
+            overflow-y: hidden;
+
+            .sectionTitle {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+            .latestListContainer {
+                overflow-y: scroll;
+                height: 100%;
+                .latestListArch {
+                    display: flex;
+                    cursor: pointer;
+                    .latestImage {
+                        height: 100px;
+                    }
+                    .latestHeadline {
+                        margin: 0 10px;
+                        font-size: 1.1rem;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1177px) {
+    .heroSpaceContainer {
+        .contentContainer {
+            .latestPostContainer {
+                display: flex;
+                flex: 0.7;
+                background-color: rgba(204, 204, 204, 0.151);
+                flex-direction: column;
+                .latestPostImage {
+                    width: 100%;
+                    height: 45%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .latestPostListContainer {
+            flex: 0.4;
+           
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .heroSpaceContainer {
+        .contentContainer {
+            flex-direction: column;
+            .latestPostContainer {
+                display: flex;
+                max-height: unset;
+                .latestPostImage {
+                    height: 350px;
+                }
+            }
+
+            .latestPostListContainer {
+                padding: 0;
+                margin-top: 20px;
+                overflow-y: unset;
+                max-height: unset;
+                .latestListContainer {
+                    overflow-y: unset;
+                }
+            }
+        }
+    }
+}
