@@ -51,7 +51,7 @@ const CategoryWisePosts = ({ category, data, websiteDetails }) => {
 
 export async function getServerSideProps(context) {
     let subdomain = context.req.headers.host.split('.')[0]; 
-	const url = `http://localhost:3000/api/category_wise_posts?category=${context.query.category}&subdomain=${subdomain}`;
+	const url = `https://www.themasalakhabar.com/api/category_wise_posts?category=${context.query.category}&subdomain=${subdomain}`;
 	const dataResponse = await fetch(url);
 	const data = await dataResponse.json();
 	

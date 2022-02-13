@@ -28,7 +28,7 @@ export async function getServerSideProps(context) {
     if (subdomain === 'localhost:3000' || subdomain === 'newzy' || subdomain === 'www'){
         subdomain = "saran";
     }
-    const url = `http://localhost:3000/api/hello?subdomain=${subdomain}`;
+    const url = `https://www.themasalakhabar.com/api/hello?subdomain=${subdomain}`;
     
     const dataResponse = await fetch(url);
     const data = await dataResponse.json();
