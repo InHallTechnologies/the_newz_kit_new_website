@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Router from 'next/router';
 import React from 'react';
 import Navigation from '../../components/Navigation.component';
+import PostArch from '../../components/PostArch.component';
 import Styles from '../../styles/CategoryWisePosts.module.scss';
 
 const CategoryWisePosts = ({ category, data, websiteDetails }) => {
@@ -30,17 +31,7 @@ const CategoryWisePosts = ({ category, data, websiteDetails }) => {
 
                     <div className={Styles.contentList} >
                         {
-                            data.map(item => {
-                                return (
-                                    <Link passHref key={item.postId} href={`https://${item.channelName}.thenewzkit.com/${item.category}/${item.slug?item.slug:item.postId}`}>
-                                        <div className={Styles.categoryItem} >
-                                            <p className={Styles.category}>{item.category}</p>
-                                            <img className={Styles.categoryItemImage} src={item.bannerPhoto} alt={item.bannerName ? item.bannerName: item.headline} />
-                                            <h3 className={Styles.headline}>{item.headline.substring(0, 100)}...</h3>
-                                        </div>
-                                    </Link>
-                                )
-                            })
+                            data.map(item => <PostArch key={item.postId} item={item}  />)
                         }
                     </div>
                 </div>

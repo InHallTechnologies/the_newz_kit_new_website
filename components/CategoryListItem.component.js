@@ -3,12 +3,11 @@ import Styles from '../styles/CategoryListItem.module.scss';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import Link from 'next/link';
 import router from 'next/router';
+import PostArch from './PostArch.component';
 
 const CategoryListItem = ({ item }) => {
 
-    const visitPost = (item) => {
-        window.open(`https://${item.channelName}.thenewzkit.com/${item.category}/${item.slug?item.slug:item.postId}`);
-    }
+   
 
     const handleCategoryClick = (category) => {
         router.push(category)
@@ -28,16 +27,7 @@ const CategoryListItem = ({ item }) => {
             </div>
             <div className={Styles.categoryListItemList}>
                 {
-                    item.data.map(item => {
-                        return (
-                            <div key={item.postId} className={Styles.categoryItem} onClick={_ => visitPost(item)} >
-                                <p className={Styles.category}>{item.category}</p>
-                                <img className={Styles.categoryItemImage} src={item.bannerPhoto} alt={item.bannerName ? item.bannerName: item.headline} />
-                               
-                                <h3 className={Styles.headline}>{item.headline.substring(0, 100)}...</h3>
-                            </div>
-                        )
-                    })
+                    item.data.map(item => <PostArch key={item.postId} item={item} />)
                 }
             </div>
         </div>

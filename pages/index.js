@@ -6,7 +6,6 @@ import Navigation from "../components/Navigation.component";
 import styles from "../styles/Home.module.css";
 
 export default function Home({ latest, allCategoryPosts, websiteDetails }) {
-    console.log(websiteDetails);
     return (
         <div className={styles.container}>
             <Head>

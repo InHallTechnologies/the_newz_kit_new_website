@@ -31,7 +31,7 @@ const HeroSpace = ({ latestData, selectedCategories }) => {
                         <h2 className={Styles.headline} >{latestPost.headline}</h2>
                         <p className={Styles.content}>{latestData.content}</p>
 
-                        <p className={Styles.releasedOnLabel}>Released On: {latestPost.postReleaseDate}</p>
+                        <p className={Styles.releasedOnLabel}>Published On: {latestPost.postReleaseDate}</p>
                     </div>
                 </div>
                 <div className={Styles.latestPostListContainer}>

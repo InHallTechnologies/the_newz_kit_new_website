@@ -21,4 +21,13 @@ export const fetchWebsiteDetails = async (firebaseUID) => {
     }
 }
 
+export const fetchPostId = async (postSlug) => {
+    const postSlugRef = ref(firebaseDatabase, `SLUG_MAP/${postSlug}`);
+    const postSlugSnapshot = await get(postSlugRef);
+    if (postSlugSnapshot.exists()){
+        const postId = await postSlugSnapshot.val();
+        return postId;
+    }
+}
+
 export default fetchFirebaseUID;

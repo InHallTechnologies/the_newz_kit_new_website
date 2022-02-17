@@ -30,29 +30,6 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         grid-gap: 40px;
-        .categoryItem {
-            cursor: pointer;
-            .categoryItemImage {
-                width: 100%;
-                height: 200px;
-                object-fit: cover;
-            }
-            .category {
-                background-color: #e9494b;
-                width: 110px;
-                text-align: center;
-                font-weight: bold;
-                color: white;
-                padding: 5px 0;
-                border-radius: 10px;
-                margin-bottom: 5px;
-                margin-left: auto;
-                margin-right: 5px;
-                
-            }
-            .headline {
-                margin-top: 10px;
-            }
-        }
+        
     }
 }
