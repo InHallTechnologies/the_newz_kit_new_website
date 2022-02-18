@@ -1,9 +1,9 @@
-import { Button, Divider } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { Divider } from "@mui/material";
+import React from "react";
 import Styles from "../styles/HeroSpace.module.scss";
 import router from 'next/router';
-import { ref, get } from 'firebase/database';
-import { firebaseDatabase } from "../backend/firebaseHandler";
+import CategoryListContainer from "./CategoryListContianer.component";
+
 
 const HeroSpace = ({ latestData, selectedCategories }) => {
     const latestPost = latestData[0];
@@ -13,16 +13,12 @@ const HeroSpace = ({ latestData, selectedCategories }) => {
     }
    
     const handleClick = (data) => {
-        window.open(`https://${data.channelName}.thenewzkit.com/${data.category}/${data.slug?data.slug:data.postId}`,"_blank")
+        router.push(`${data.category}/${data.slug?data.slug:data.postId}`)
     }
 
     return (
         <div className={Styles.heroSpaceContainer}>
-            <div className={Styles.categoriesList}>
-                    {
-                        selectedCategories.map(item => <Button onClick={_ => handleCategorySelect(item)} key={item} sx={{marginRight:'10px', fontSize:'0.8rem', color:'black', minWidth:'110px'}} >{item}</Button>)
-                    }
-            </div>
+           <CategoryListContainer selectedCategories={selectedCategories} />
             <div className={Styles.contentContainer} >
                 <div className={Styles.latestPostContainer} style={{ cursor:'pointer' }} onClick={ _ => handleClick(latestPost)}>
                     <img className={Styles.latestPostImage} src={latestPost.bannerPhoto} alt={latestPost.bannerName ? latestPost.bannerName: latestPost.headline} />
