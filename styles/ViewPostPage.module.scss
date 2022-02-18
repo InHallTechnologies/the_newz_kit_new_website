@@ -22,6 +22,12 @@
                 margin-top: 20px;
             }
         }
+
+        .dividerContainer {
+            margin: 20px 0;
+            margin-top: 30px;
+        }
+
         .similarCategoryNewsListContainer {
             flex: 0.3;
             margin-left: 20px;
@@ -90,7 +96,7 @@
                 margin-left: 0;
                 .moreFromCategoryLabel {
                     font-size: 1.5rem;
-                    margin-top: 50px;
+                   
                 }
                
                 .moreCategoryList {
@@ -103,12 +109,11 @@
                         margin-bottom: 20px;
                         width: 100%;
                         .latestImage {
-                            
                             height: 140px;
                             object-fit: cover;
                         }
                         .latestHeadline {
-                            font-size: 1.3rem;
+                            font-size: 1.1rem;
                         }
                     }
                     .dividerContainer {
@@ -120,3 +125,46 @@
     }
 }
 
+@media (max-width:536px) {
+    .ViewPostPageContainer {
+        .viewPostContent {
+            display: flex;
+            width: 95%;
+            margin: 0 auto;
+            margin-top: 50px;
+            flex-direction: column;
+            .mainPost {
+                flex: 1;
+            }
+            .similarCategoryNewsListContainer {
+                margin-left: 0;
+                .moreFromCategoryLabel {
+                    font-size: 1.5rem;
+                   
+                }
+               
+                .moreCategoryList {
+                    margin-top: 20px;
+                    max-height: unset;
+                    
+                    .latestListArch {
+                        display: flex;
+                        cursor: pointer;
+                        margin-bottom: 20px;
+                        width: 100%;
+                        .latestImage {
+                            height: 100px;
+                            object-fit: cover;
+                        }
+                        .latestHeadline {
+                            font-size: 1rem;
+                        }
+                    }
+                    .dividerContainer {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

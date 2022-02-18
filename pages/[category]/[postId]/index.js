@@ -74,6 +74,10 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
 
                         </div>
                     </div>
+
+                   <div className={Styles.dividerContainer} >
+                    <Divider />
+                   </div>
                     
                     <div className={Styles.similarCategoryNewsListContainer} >
                         <h2 className={Styles.moreFromCategoryLabel} >More {category} News</h2>
