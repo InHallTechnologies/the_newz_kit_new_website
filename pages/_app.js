@@ -5,6 +5,9 @@ import { Provider } from "../context/appContext";
 import "../styles/globals.css";
 import NProgress from "nprogress";
 import Router from "next/router";
+import ProgressBar from "@badrap/bar-of-progress";
+
+
 
 const theme = createTheme({
     palette: {
@@ -18,22 +21,20 @@ const theme = createTheme({
 });
 
 function MyApp({ Component, pageProps }) {
+
+    const progress = new ProgressBar({
+        size: 5,
+        color: "#E9494B",
+        className: "bar-of-progress",
+        delay: 100,
+    });
+
     useEffect(() => {
-        const delay = 500; // in milliseconds
-        let timer;
-        const load = () => {
-            timer = setTimeout(function () {
-                NProgress.start();
-            }, delay);
-        };
-        const stop = () => {
-            clearTimeout(timer);
-            NProgress.done();
-        };
-        Router.events.on("routeChangeStart", () => NProgress.start());
-        Router.events.on("routeChangeComplete", () => NProgress.done());
-        Router.events.on("routeChangeError", () => NProgress.done());
+        Router.events.on("routeChangeStart", progress.start);
+        Router.events.on("routeChangeComplete", progress.finish);
+        Router.events.on("routeChangeError", progress.finish);
     }, []);
+
     return (
         <Provider>
             <ThemeProvider theme={theme}>

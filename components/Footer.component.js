@@ -4,10 +4,10 @@ import { BsFacebook, BsTwitter, BsYoutube } from "react-icons/bs";
 import Link from 'next/link';
 
 
-const Footer = () => {
+const Footer = ({style}) => {
 
     return (
-        <footer className={Styles.footerContainer}>
+        <footer style={style} className={Styles.footerContainer}>
             <div className={Styles.topContainer}>
                 <div className={Styles.socialIconsContainer}>
                     <BsFacebook size={25} color="#fff" />

@@ -24,7 +24,7 @@ const Navigation = ({ logo }) => {
 
                 <div className={Styles.loginButtonContainer}>
                     <Button sx={{ marginRight: "20px" }}>Privacy Policy</Button>
-                    <Button>Contact Us</Button>
+                    <Button href="/contact-us" >Contact Us</Button>
 
                 </div>
                <MobileNavigation />
