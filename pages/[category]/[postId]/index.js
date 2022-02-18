@@ -75,7 +75,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                         </div>
                     </div>
 
-                   <div className={Styles.dividerContainer} >
+                   <div className={Styles.segmentDividerContainer} >
                     <Divider />
                    </div>
                     
