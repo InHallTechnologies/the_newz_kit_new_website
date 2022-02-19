@@ -1,4 +1,8 @@
 .ViewPostPageContainer {
+    .categoryListContainer {
+        width: 95%;
+        margin: 0 auto;
+    }
     .viewPostContent {
         display: flex;
         width: 95%;
@@ -9,6 +13,10 @@
             .headline {
                 font-size: 1.7rem;
                 font-weight: 600;
+            }
+            .reporterContainer {
+                display: flex;
+                margin-top: 15px;
             }
             .mainPostImage {
                 width: 100%;

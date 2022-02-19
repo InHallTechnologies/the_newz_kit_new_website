@@ -8,12 +8,14 @@ import Footer from '../../../components/Footer.component';
 import Navigation from '../../../components/Navigation.component';
 import PostArch from '../../../components/PostArch.component';
 import Styles from '../../../styles/ViewPostPage.module.scss';
+import CategoryListContainer from '../../../components/CategoryListContianer.component'
 
 const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => {
     const [crimeNewsList, setCrimeNewsList] = useState([]);
     const [latestPost, setLatestPost] = useState([]);
     const [loading, setLoading] = useState(true);
-    const { headline, bannerName, bannerPhoto, content } = post;
+    const { headline, bannerName, bannerPhoto, content, reporterName, postReleaseDate, postReleaseTime } = post;
+    console.log(post);
   
     const fetchCategoryNews = async () => {
         const categoryNewsRef = ref(firebaseDatabase, `CATEGORY_WISE_POSTS/${firebaseUID}/${category}`);
@@ -64,11 +66,22 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
             </Head>
             <header>
                 <Navigation logo={websiteDetails.logo} />
+               
             </header>
             <main>
+                <div className={Styles.categoryListContainer}>
+                    <CategoryListContainer selectedCategories={websiteDetails.selectedCategories}  />
+                </div>
+                
                 <div className={Styles.viewPostContent}>
                     <div className={Styles.mainPost}>
                         <h1 className={Styles.headline} >{headline}</h1>
+                        <div className={Styles.reporterContainer}>
+                            <p style={{color:'#E9494B', marginRight:'15px', fontWeight:'bold'}} >{reporterName? `${reporterName} ` : `Reporter `}</p>
+                            
+                            <p style={{color:'#444'}}>{postReleaseDate}</p>
+                            <p style={{marginLeft:'15px', color:'#444'}}>{postReleaseTime} IST</p>
+                        </div>
                         <img className={Styles.mainPostImage} src={bannerPhoto} alt={bannerName?bannerName:headline} />
                         <div className={Styles.contentContainer} dangerouslySetInnerHTML={{__html:content}}>
 

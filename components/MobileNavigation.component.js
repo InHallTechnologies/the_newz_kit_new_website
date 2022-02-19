@@ -4,7 +4,7 @@ import Styles from '../styles/MobileNavigation.module.css';
 import { BiMenu } from 'react-icons/bi';
 
 
-const MobileNavigation = () => {
+const MobileNavigation = ({ logo }) => {
     const [state, setState] = React.useState({
         top: false,
         left: false,
@@ -39,7 +39,7 @@ const MobileNavigation = () => {
             onOpen={toggleDrawer('right', true)}
           >
             <div className={Styles.mobileNavigationContainer}>
-                <img className={Styles.logo} src='/newzy_logo.png' />
+                <img className={Styles.logo} src={logo} />
                 <div className={Styles.actionContainer}>
                     <div className={Styles.bottomActionContainer}>
                         <p>Login</p>
@@ -48,11 +48,11 @@ const MobileNavigation = () => {
                     </div>
 
                     <div className={Styles.navigationItems}>
-                        <Button>Conctact Us</Button>
+                        <Button href='/contact-us' >Contact Us</Button>
                         <Divider />
-                        <Button>About Us</Button>
+                        <Button href='/privacy-policy'>Privacy Policy</Button>
                         <Divider />
-                        <Button>Privacy Policy</Button>
+                        <Button href='/support-us'>Support Us</Button>
                     </div>
                 </div>
             </div>

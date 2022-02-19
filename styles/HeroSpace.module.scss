@@ -19,7 +19,7 @@
                 padding: 20px;
                 .category {
                     background-color: #e9494b;
-                    width: 100px;
+                    width: 140px;
                     text-align: center;
                     padding: 10px;
                     border-radius: 5px;
@@ -34,6 +34,10 @@
                 .content {
                     margin-top: 10px;
                     
+                }
+                .reporterContainer {
+                    display: flex;
+                    margin-top: 20px;
                 }
                 .releasedOnLabel {
                     margin-top: 10px;
@@ -58,14 +62,26 @@
                 .latestListArch {
                     display: flex;
                     cursor: pointer;
+                    
                     .latestImage {
                         height: 100px;
                     }
                     .latestHeadline {
                         margin: 0 10px;
                         font-size: 1.1rem;
-                        margin-top: 10px;
+                        
                     }
+                    .latestReporterContainer {
+                        display: flex;
+                        margin: 0 10px;
+                        margin-top:5px;
+                        align-items: center;
+
+                    }
+                }
+                .reporterContainer{
+                    display: flex;
+                    margin-top: 10px;
                 }
             }
         }

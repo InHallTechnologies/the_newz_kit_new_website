@@ -27,7 +27,12 @@ const HeroSpace = ({ latestData, selectedCategories }) => {
                         <h2 className={Styles.headline} >{latestPost.headline}</h2>
                         <p className={Styles.content}>{latestData.content}</p>
 
-                        <p className={Styles.releasedOnLabel}>Published On: {latestPost.postReleaseDate}</p>
+                        <div className={Styles.reporterContainer}>
+                            <p style={{color:'#E9494B', marginRight:'15px', fontWeight:'bold'}} >{latestPost.reporterName? `${latestPost.reporterName} ` : `Reporter `}</p>
+                            
+                            <p style={{color:'#444'}}>{latestPost.postReleaseDate}</p>
+                            <p style={{marginLeft:'15px', color:'#444'}}>{latestPost.postReleaseTime} IST</p>
+                        </div>
                     </div>
                 </div>
                 <div className={Styles.latestPostListContainer}>
@@ -39,7 +44,15 @@ const HeroSpace = ({ latestData, selectedCategories }) => {
                                     <>
                                         <div className={Styles.latestListArch} key={item.postId} onClick={ _ => handleClick(item)} >
                                             <img className={Styles.latestImage} src={item.bannerPhoto} alt={item.bannerName ? item.bannerName: item.headline} />
-                                            <h2 className={Styles.latestHeadline} >{item.headline}</h2>
+                                            <div>
+                                                <h2 className={Styles.latestHeadline} >{item.headline.substring(0, 90)} ...</h2>
+                                                <div className={Styles.latestReporterContainer}>
+                                                    <p style={{color:'#E9494B', marginRight:'15px', fontWeight:'bold', fontSize:'0.9rem'}} >{item.reporterName? `${item.reporterName} ` : `Reporter `}</p>
+                                                    <p style={{color:'#444', fontSize:'0.8rem'}}>{item.postReleaseDate}</p>
+                                                </div>
+                                            </div>
+                                            
+                                            
                                         </div>
                                         <Divider sx={{margin: "10px 0"}} />
                                     </>

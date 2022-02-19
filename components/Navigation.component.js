@@ -27,7 +27,7 @@ const Navigation = ({ logo }) => {
                     <Button href="/contact-us" >Contact Us</Button>
 
                 </div>
-               <MobileNavigation />
+               <MobileNavigation logo={logo} />
             </div>
             <Divider />
             <div className={Styles.buttomSection}>

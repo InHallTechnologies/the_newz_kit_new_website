@@ -3,11 +3,15 @@ import fetchFirebaseUID, { fetchUPI, fetchWebsiteDetails } from '../../backend/f
 import Navigation from '../../components/Navigation.component';
 import Styles from '../../styles/SupportUs.module.scss';
 import QRCode from 'react-qr-code';
+import Head from 'next/head';
 
 const SupportUs = ({upiAddress, websiteDetails}) => {
 
     return (
         <div className={Styles.SupportUsContainer} >
+            <Head>
+                <title>Support Us - {websiteDetails.fullName}</title>
+            </Head>
             <Navigation logo={websiteDetails.logo} />
             <div className={Styles.mainContent}>
                 <h1 className={Styles.headline} >Support journalism. Support free voice</h1>
