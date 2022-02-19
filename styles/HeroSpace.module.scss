@@ -37,7 +37,8 @@
                 }
                 .reporterContainer {
                     display: flex;
-                    margin-top: 20px;
+                    
+                    flex-wrap: wrap;
                 }
                 .releasedOnLabel {
                     margin-top: 10px;

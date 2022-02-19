@@ -110,7 +110,14 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                                         <div key={item.postId}>
                                             <div className={Styles.latestListArch}  onClick={ _ => handleClick(item)} >
                                                 <img className={Styles.latestImage} src={item.bannerPhoto} alt={item.bannerName ? item.bannerName: item.headline} />
-                                                <h2 className={Styles.latestHeadline} >{item.headline}</h2>
+                                                <div>
+                                                <h2 className={Styles.latestHeadline} >{item.headline.substring(0, 90)} ...</h2>
+                                                <div className={Styles.latestReporterContainer}>
+                                                    <p style={{color:'#E9494B', marginRight:'15px', fontWeight:'bold', fontSize:'0.9rem'}} >{item.reporterName? `${item.reporterName} ` : `Reporter `}</p>
+                                                    <p style={{color:'#444', fontSize:'0.8rem'}}>{item.postReleaseDate}</p>
+                                                </div>
+                                            </div>
+                                            
                                             </div>
                                             <div className={Styles.dividerContainer} >
                                                 <Divider sx={{margin: "10px 0"}} />

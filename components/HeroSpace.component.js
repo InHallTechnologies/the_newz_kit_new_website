@@ -28,10 +28,10 @@ const HeroSpace = ({ latestData, selectedCategories }) => {
                         <p className={Styles.content}>{latestData.content}</p>
 
                         <div className={Styles.reporterContainer}>
-                            <p style={{color:'#E9494B', marginRight:'15px', fontWeight:'bold'}} >{latestPost.reporterName? `${latestPost.reporterName} ` : `Reporter `}</p>
+                            <p style={{color:'#E9494B', marginRight:'15px', fontWeight:'bold', marginTop:'10px'}} >{latestPost.reporterName? `${latestPost.reporterName} ` : `Reporter `}</p>
                             
-                            <p style={{color:'#444'}}>{latestPost.postReleaseDate}</p>
-                            <p style={{marginLeft:'15px', color:'#444'}}>{latestPost.postReleaseTime} IST</p>
+                            <p style={{color:'#444', marginTop:'10px',marginRight:'15px',}}>{latestPost.postReleaseDate}</p>
+                            <p style={{color:'#444', marginTop:'10px'}}>{latestPost.postReleaseTime} IST</p>
                         </div>
                     </div>
                 </div>
