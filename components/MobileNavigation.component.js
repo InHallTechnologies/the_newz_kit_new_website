@@ -28,7 +28,7 @@ const MobileNavigation = () => {
         <div className={Styles.navigationIconContainer}>
           <div className={Styles.downloadContainer} >
             <div >
-              <a href='https://play.google.com/store/apps/details?id=com.obuv.newzy&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img style={{height:"40px", marginRight:'10px', marginTop:'5px'}} alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+              
             </div>
             <BiMenu size={30} color='#000' onClick={toggleDrawer('right', true)}/>
           </div>

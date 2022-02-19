@@ -14,7 +14,7 @@ const PostArch = ({ item, }) => {
             <p className={Styles.category}>{item.category}</p>
             <img className={Styles.categoryItemImage} src={item.bannerPhoto} alt={item.bannerName ? item.bannerName: item.headline} />
            
-            <h3 className={Styles.headline}>{item.headline.substring(0, 100)}...</h3>
+            <h3 className={Styles.headline}>{item.headline?item.headline.substring(0, 100): ""}...</h3>
         </div>
     )
 }

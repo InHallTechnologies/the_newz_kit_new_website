@@ -1,0 +1,28 @@
+.SupportUsContainer {
+    .mainContent {
+        max-width: 600px;
+        border: 1px solid black;
+        padding: 20px;
+        margin: 0 auto;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 10px;
+        align-items: center;
+        min-height: 60vh;
+        .headline {
+
+        }
+        .subHeadline {
+            margin-top: 10px;
+        }
+        .qrCodeContainer {
+            margin-top: 40px;
+            .upiAddress {
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
+    }
+}

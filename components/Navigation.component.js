@@ -23,7 +23,7 @@ const Navigation = ({ logo }) => {
                 </div>
 
                 <div className={Styles.loginButtonContainer}>
-                    <Button sx={{ marginRight: "20px" }}>Privacy Policy</Button>
+                    <Button sx={{ marginRight: "20px" }} href='/privacy-policy' >Privacy Policy</Button>
                     <Button href="/contact-us" >Contact Us</Button>
 
                 </div>
@@ -49,10 +49,10 @@ const Navigation = ({ logo }) => {
                     />
                 </div>
                 <div className={Styles.iconContainer}>
-                    <Button sx={{ marginLeft: "20px" }} variant='contained' >Donate</Button>
+                    <Button sx={{ marginLeft: "20px" }} variant='contained' >Support Us</Button>
                 </div>
                 <div className={Styles.changeLocation}>
-                    <LocationAlert noMargin />
+                    <Button variant={'contained'}>Support Us</Button>
                 </div>
             </div>
             <Divider />

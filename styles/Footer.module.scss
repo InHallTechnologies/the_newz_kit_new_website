@@ -18,5 +18,14 @@
         margin-top: 20px;
         color: white;
         font-size: 0.9rem;
+
+        .poweredBy {
+            .hyperLink {
+                text-decoration: none;
+                color: white;
+                font-weight: bold;
+            }
+            
+        }
     }
 }

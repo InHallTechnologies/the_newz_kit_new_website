@@ -29,8 +29,9 @@ const Footer = ({style}) => {
                 </div>
                 <div className={Styles.copyrightContainer}>
                     <p>
-                        &copy; Copyright 2018, Obuv Network Private Limited
+                        Copyright © 2022. All rights reserved.
                     </p>
+                    <p className={Styles.poweredBy} style={{textAlign:'center', marginTop:'10px'}}>Powered By <a className={Styles.hyperLink} href='https://www.thenewzkit.com'>NewzKit</a>  </p>
                 </div>
             </div>
         </footer>

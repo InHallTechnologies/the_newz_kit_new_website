@@ -30,4 +30,16 @@ export const fetchPostId = async (postSlug) => {
     }
 }
 
+
+export const fetchUPI = async (firebaseUID) => {
+    const upiRef = ref(firebaseDatabase, `UPI_ARCHIVE/${firebaseUID}`);
+    const upiSnapshot = await get(upiRef);
+    if (upiSnapshot.exists()) {
+        const upi = upiSnapshot.val();
+        return upi;
+    }else {
+        return false;
+    }
+}
+
 export default fetchFirebaseUID;
