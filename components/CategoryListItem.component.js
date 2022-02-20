@@ -39,12 +39,13 @@ const CategoryListItem = ({ item }) => {
                     item.data.map(item => <PostArch key={item.postId} item={item} />)
                 }
             </div>
-            <div style={{margin:'50px 0'}} >
+            <div align={'center'} style={{margin:'50px 0'}} >
                 <ins className="adsbygoogle"
                      style={{display:'block', marginTop:'20px'}}
                      data-ad-client="ca-pub-2505151384138527"
                      data-ad-slot="7050275925"
                      data-ad-format="auto"
+                     align="center"
                      data-full-width-responsive="true"></ins>
             </div>
         </div>
