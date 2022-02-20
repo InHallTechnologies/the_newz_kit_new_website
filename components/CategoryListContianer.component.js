@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import Router from "next/router";
 import React from "react";
 import Styles from "../styles/CategoryListContainer.module.scss";
+import { BiHomeAlt } from 'react-icons/bi';
 
 const CategoryListContainer = ({ selectedCategories }) => {
 
@@ -11,7 +12,9 @@ const CategoryListContainer = ({ selectedCategories }) => {
 
     return (
         <div className={Styles.categoriesList}>
-            
+           <div className={Styles.homeButtonContainer} onClick={_=> handleCategorySelect("")} >
+               <BiHomeAlt size={20} color={'#000'} />
+           </div>
             {selectedCategories.map((item) => (
                 <Button
                     onClick={(_) => handleCategorySelect(item)}

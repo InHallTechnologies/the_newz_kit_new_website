@@ -142,6 +142,12 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                                 })
                             }
                         </div>
+                        <ins className="adsbygoogle"
+                             style={{display:"block", textAlign:'center', marginBottom:'20px'}}
+                             data-ad-layout="in-article"
+                             data-ad-format="fluid"
+                             data-ad-client="ca-pub-2505151384138527"
+                             data-ad-slot="3697455905"></ins>
                     </div>
                 </div>
                 <Divider sx={{marginTop:'20px'}} />

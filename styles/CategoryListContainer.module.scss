@@ -8,6 +8,15 @@
     flex-direction: row;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    align-items: center;
+    .homeButtonContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        cursor: pointer;
+        margin-bottom: 2px;
+    }
     &::-webkit-scrollbar {
         display: none;
     }
