@@ -21,7 +21,7 @@ const CategoryListItem = ({ item }) => {
     const handleCategoryClick = (category) => {
         router.push(category)
     }
-    
+
     if (item.data.length === 0) {
         return null;
     }
@@ -46,6 +46,7 @@ const CategoryListItem = ({ item }) => {
                      data-ad-slot="7050275925"
                      data-ad-format="auto"
                      data-full-width-responsive="true"
+
                 />
             </div>
         </div>
