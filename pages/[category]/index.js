@@ -8,7 +8,14 @@ import Styles from '../../styles/CategoryWisePosts.module.scss';
 const CategoryWisePosts = ({ category, data, websiteDetails }) => {
 
     useEffect(() => {
+        var ads = document.getElementsByClassName("adsbygoogle").length;
+        for (var i = 0; i < ads; i++) {
+            try {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {
 
+            }
+        }
     }, [])
    
 
