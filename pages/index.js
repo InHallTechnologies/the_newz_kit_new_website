@@ -32,9 +32,9 @@ export default function Home({ latest, allCategoryPosts, websiteDetails }) {
             <header>
                 <Navigation logo={websiteDetails.logo} />
             </header>
-            <div>
+            <div className={styles.homeAdsContainer}>
                 <ins className="adsbygoogle"
-                     style={{display:'inline-block', margin:'20px 0',width:'350px', height:'90px'}}
+                     style={{display:'inline-block', margin:'20px auto',width:'350px', height:'90px', border:'1px solid black'}}
                      data-ad-client="ca-pub-2505151384138527"
                      data-ad-slot="1655269971"
                 />
