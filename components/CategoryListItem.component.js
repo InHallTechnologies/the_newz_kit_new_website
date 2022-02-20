@@ -41,7 +41,7 @@ const CategoryListItem = ({ item }) => {
             </div>
             <div className={styles.homeAdsContainer}>
                 <ins className="adsbygoogle"
-                     style={{display:'inline-block', margin:'20px auto', border:'1px solid black'}}
+                     style={{display:'block', margin:'20px auto', border:'1px solid black'}}
                      data-ad-client="ca-pub-2505151384138527"
                      data-ad-slot="7050275925"
                      data-ad-format="auto"
