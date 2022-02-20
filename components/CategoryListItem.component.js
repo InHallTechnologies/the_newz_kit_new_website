@@ -4,6 +4,7 @@ import { AiOutlineArrowRight } from 'react-icons/ai';
 import Link from 'next/link';
 import router from 'next/router';
 import PostArch from './PostArch.component';
+import styles from "../styles/Home.module.css";
 
 const CategoryListItem = ({ item }) => {
 
@@ -29,6 +30,13 @@ const CategoryListItem = ({ item }) => {
                 {
                     item.data.map(item => <PostArch key={item.postId} item={item} />)
                 }
+            </div>
+            <div className={styles.homeAdsContainer}>
+                <ins className="adsbygoogle"
+                     style={{display:'inline-block', margin:'20px auto', border:'1px solid black'}}
+                     data-ad-client="ca-pub-2505151384138527"
+                     data-ad-slot="7050275925"
+                />
             </div>
         </div>
     );
