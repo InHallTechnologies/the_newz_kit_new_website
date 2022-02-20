@@ -1,0 +1,20 @@
+.NoPostUploadedContainer {
+    min-height: 70vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    margin:0 auto;
+
+    flex-direction: column;
+
+    .illustation {
+        max-width: 200px;
+    }
+    .label {
+        margin-top: 20px;
+        font-weight: 500;
+        color: #414141;
+    }
+}
