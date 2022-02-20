@@ -16,7 +16,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
     const [loading, setLoading] = useState(true);
     const { headline, bannerName, bannerPhoto, content, reporterName, postReleaseDate, postReleaseTime } = post;
     console.log(post);
-  
+
     const fetchCategoryNews = async () => {
         const categoryNewsRef = ref(firebaseDatabase, `CATEGORY_WISE_POSTS/${firebaseUID}/${category}`);
         const categoryNewsQuery = query(categoryNewsRef, limitToLast(10));
@@ -29,7 +29,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
             }
             data.reverse()
             setCrimeNewsList(data);
-            
+
         }
         setLoading(false);
     }
@@ -47,10 +47,18 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
             setLatestPost(data);
         }
     }
-    
+
     useEffect(() => {
-       fetchCategoryNews();
-       fetchLatestpost();
+        fetchCategoryNews();
+        fetchLatestpost();
+        var ads = document.getElementsByClassName("adsbygoogle").length;
+        for (var i = 0; i < ads; i++) {
+            try {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {
+
+            }
+        }
     }, []);
 
 
@@ -66,19 +74,19 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
             </Head>
             <header>
                 <Navigation logo={websiteDetails.logo} />
-               
+
             </header>
             <main>
                 <div className={Styles.categoryListContainer}>
                     <CategoryListContainer selectedCategories={websiteDetails.selectedCategories}  />
                 </div>
-                
+
                 <div className={Styles.viewPostContent}>
                     <div className={Styles.mainPost}>
                         <h1 className={Styles.headline} >{headline}</h1>
                         <div className={Styles.reporterContainer}>
                             <p style={{color:'#E9494B', marginRight:'15px', fontWeight:'bold'}} >{reporterName? `${reporterName} ` : `Reporter `}</p>
-                            
+
                             <p style={{color:'#444'}}>{postReleaseDate}</p>
                             <p style={{marginLeft:'15px', color:'#444'}}>{postReleaseTime} IST</p>
                         </div>
@@ -88,21 +96,27 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                         </div>
                     </div>
 
-                   <div className={Styles.segmentDividerContainer} >
-                    <Divider />
-                   </div>
-                    
+                    <div className={Styles.segmentDividerContainer} >
+                        <Divider />
+                    </div>
+
                     <div className={Styles.similarCategoryNewsListContainer} >
+                        <ins className="adsbygoogle"
+                             style={{display:"block", textAlign:'center', marginBottom:'20px'}}
+                             data-ad-layout="in-article"
+                             data-ad-format="fluid"
+                             data-ad-client="ca-pub-2505151384138527"
+                             data-ad-slot="3697455905"></ins>
                         <h2 className={Styles.moreFromCategoryLabel} >More {category} News</h2>
                         <div className={Styles.moreCategoryList}>
                             {
                                 loading
-                                ?
-                                <div style={{display:'flex', justifyContent:'center', alignItems:'center', margin:'20px 0'}} >
-                                    <CircularProgress size='20px' />
-                                </div>
-                                :
-                                null
+                                    ?
+                                    <div style={{display:'flex', justifyContent:'center', alignItems:'center', margin:'20px 0'}} >
+                                        <CircularProgress size='20px' />
+                                    </div>
+                                    :
+                                    null
                             }
                             {
                                 crimeNewsList.map(item => {
@@ -111,18 +125,18 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                                             <div className={Styles.latestListArch}  onClick={ _ => handleClick(item)} >
                                                 <img className={Styles.latestImage} src={item.bannerPhoto} alt={item.bannerName ? item.bannerName: item.headline} />
                                                 <div>
-                                                <h2 className={Styles.latestHeadline} >{item.headline.substring(0, 90)} ...</h2>
-                                                <div className={Styles.latestReporterContainer}>
-                                                    <p style={{color:'#E9494B', marginRight:'15px', fontWeight:'bold', fontSize:'0.9rem'}} >{item.reporterName? `${item.reporterName} ` : `Reporter `}</p>
-                                                    <p style={{color:'#444', fontSize:'0.8rem'}}>{item.postReleaseDate}</p>
+                                                    <h2 className={Styles.latestHeadline} >{item.headline.substring(0, 90)} ...</h2>
+                                                    <div className={Styles.latestReporterContainer}>
+                                                        <p style={{color:'#E9494B', marginRight:'15px', fontWeight:'bold', fontSize:'0.9rem'}} >{item.reporterName? `${item.reporterName} ` : `Reporter `}</p>
+                                                        <p style={{color:'#444', fontSize:'0.8rem'}}>{item.postReleaseDate}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            
+
                                             </div>
                                             <div className={Styles.dividerContainer} >
                                                 <Divider sx={{margin: "10px 0"}} />
                                             </div>
-                                           
+
                                         </div>
                                     )
                                 })
@@ -139,7 +153,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                         }
                     </div>
                 </div>
-                
+
             </main>
             <Footer />
         </div>
@@ -147,7 +161,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
 }
 
 export async function getServerSideProps(context) {
-    let subdomain = context.req.headers.host.split('.')[0]; 
+    let subdomain = context.req.headers.host.split('.')[0];
     if (subdomain === 'localhost:3000' || subdomain === 'themasalakhabar' || subdomain === 'www'){
         subdomain = "newsazamgarh";
     }
@@ -157,9 +171,9 @@ export async function getServerSideProps(context) {
     const responseData = await response.json();
     const { websiteDetails, post, firebaseUID } = responseData;
     return {
-      props: {websiteDetails, post, postId, category, firebaseUID},
+        props: {websiteDetails, post, postId, category, firebaseUID},
     }
-  }
-  
+}
+
 
 export default ViewPostPage;
