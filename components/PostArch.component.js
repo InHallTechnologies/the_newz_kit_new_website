@@ -3,7 +3,7 @@ import Styles from '../styles/PostArch.module.scss';
 import router from 'next/router';
 import { Divider } from '@mui/material';
 
-const PostArch = ({ item, }) => {
+const PostArch = ({ item, index}) => {
 
     const visitPost = (item) => {
         console.log(`${item.category}/${item.slug?item.slug:item.postId}`);
@@ -12,6 +12,7 @@ const PostArch = ({ item, }) => {
 
     return (
         <div key={item.postId} className={Styles.categoryItem} onClick={_ => visitPost(item)} >
+
             <p className={Styles.category}>{item.category}</p>
             <img className={Styles.categoryItemImage} src={item.bannerPhoto} alt={item.bannerName ? item.bannerName: item.headline} />
            
