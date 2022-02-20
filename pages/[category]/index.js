@@ -30,15 +30,21 @@ const CategoryWisePosts = ({ category, data, websiteDetails }) => {
                                 return (
                                     <>
                                         <PostArch key={item.postId} item={item} index={index} />
-                                        <div align={'center'}>
-                                            <ins className="adsbygoogle"
-                                                 style="display:block; text-align:center;"
-                                                 data-ad-layout="in-article"
-                                                 data-ad-format="fluid"
-                                                 data-ad-client="ca-pub-2505151384138527"
-                                                 align="center"
-                                                 data-ad-slot="3697455905"></ins>
-                                        </div>
+                                        {
+                                            index % 9 === 0
+                                            ?
+                                                <div align={'center'}>
+                                                    <ins className="adsbygoogle"
+                                                         style={{display:"block", textAlign:"center"}}
+                                                         data-ad-layout="in-article"
+                                                         data-ad-format="fluid"
+                                                         data-ad-client="ca-pub-2505151384138527"
+                                                         align="center"
+                                                         data-ad-slot="3697455905"></ins>
+                                                </div>
+                                                :
+                                                null
+                                        }
                                     </>
 
 
