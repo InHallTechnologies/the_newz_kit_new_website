@@ -15,7 +15,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
     const [latestPost, setLatestPost] = useState([]);
     const [loading, setLoading] = useState(true);
     const { headline, bannerName, bannerPhoto, content, reporterName, postReleaseDate, postReleaseTime } = post;
-    console.log(post);
+
 
     const fetchCategoryNews = async () => {
         const categoryNewsRef = ref(firebaseDatabase, `CATEGORY_WISE_POSTS/${firebaseUID}/${category}`);
@@ -149,7 +149,26 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                     <h2 className={Styles.latestPostLabel}>Latest News</h2>
                     <div className={Styles.latestPostList} >
                         {
-                            latestPost.map(item => <PostArch key={item.postId} item={item} />)
+                            latestPost.map((item, index) => {
+                                return (
+                                    <>
+                                        <PostArch key={item.postId} item={item} />
+                                        {
+                                            index % 3 ===0
+                                                ?
+                                                <div align={'center'}>
+                                                    <ins className="adsbygoogle"
+                                                         style={{display:"inline-block",width:"250px",height:"250px"}}
+                                                         data-ad-client="ca-pub-2505151384138527"
+                                                         align='center'
+                                                         data-ad-slot="9168079861"></ins>
+                                                </div>
+                                                :
+                                                null
+                                        }
+                                    </>
+                                )
+                            })
                         }
                     </div>
                 </div>

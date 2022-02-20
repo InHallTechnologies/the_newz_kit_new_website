@@ -21,6 +21,7 @@ const CategoryListContainer = ({ selectedCategories }) => {
                         fontSize: "0.8rem",
                         color: "black",
                         minWidth: "110px",
+                        fontWeight:'bold'
                     }}
                 >
                     {item}
