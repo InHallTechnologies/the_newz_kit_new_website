@@ -23,7 +23,7 @@ export default function Home({ latest, allCategoryPosts, websiteDetails }) {
     if (!latest.length) {
         return (<NoPostUploaded websiteDetails={websiteDetails} />)
     }
-    
+
     return (
         <div className={styles.container}>
             <Head>
@@ -34,11 +34,9 @@ export default function Home({ latest, allCategoryPosts, websiteDetails }) {
             </header>
             <div>
                 <ins className="adsbygoogle"
-                     style={{display:'block', margin:'20px 0'}}
+                     style={{display:'block', margin:'5px 0'}}
                      data-ad-client="ca-pub-2505151384138527"
-                     data-ad-slot="7050275925"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
+                     data-ad-slot="1655269971"/>
             </div>
             <HeroSpace latestData={latest} selectedCategories={websiteDetails.selectedCategories} />
             <CategoriesList list={allCategoryPosts} />
@@ -48,12 +46,12 @@ export default function Home({ latest, allCategoryPosts, websiteDetails }) {
 }
 
 export async function getServerSideProps(context) {
-    let subdomain = context.req.headers.host.split('.')[0]; 
+    let subdomain = context.req.headers.host.split('.')[0];
     if (subdomain === 'localhost:3000' || subdomain === 'themasalakhabar' || subdomain === 'www'){
         subdomain = "newsazamgarh";
     }
     const url = `https://www.thenewzkit.com/api/hello?subdomain=${subdomain}`;
-    
+
     const dataResponse = await fetch(url);
     const data = await dataResponse.json();
     return {
