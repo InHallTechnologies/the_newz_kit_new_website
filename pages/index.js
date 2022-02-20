@@ -34,9 +34,10 @@ export default function Home({ latest, allCategoryPosts, websiteDetails }) {
             </header>
             <div>
                 <ins className="adsbygoogle"
-                     style={{display:'block', margin:'5px 0'}}
+                     style={{display:'inline-block', margin:'20px 0',width:'350px', height:'90px'}}
                      data-ad-client="ca-pub-2505151384138527"
-                     data-ad-slot="1655269971"/>
+                     data-ad-slot="1655269971"
+                />
             </div>
             <HeroSpace latestData={latest} selectedCategories={websiteDetails.selectedCategories} />
             <CategoriesList list={allCategoryPosts} />
