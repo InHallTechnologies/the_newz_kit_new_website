@@ -40,10 +40,11 @@ const CategoryWisePosts = ({ category, data, websiteDetails }) => {
                                         {
                                             index % 9 === 0
                                             ?
-                                                <div>
+                                                <div align={'center'}>
                                                     <ins className="adsbygoogle"
                                                          style={{display:"inline-block",width:"250px",height:"250px"}}
                                                          data-ad-client="ca-pub-2505151384138527"
+                                                         align='center'
                                                          data-ad-slot="9168079861"></ins>
                                                 </div>
                                                 :
