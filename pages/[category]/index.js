@@ -35,12 +35,9 @@ const CategoryWisePosts = ({ category, data, websiteDetails }) => {
                                             ?
                                                 <div align={'center'}>
                                                     <ins className="adsbygoogle"
-                                                         style={{display:"block", textAlign:"center"}}
-                                                         data-ad-layout="in-article"
-                                                         data-ad-format="fluid"
+                                                         style={{display:"inline-block",width:"250px",height:"250px"}}
                                                          data-ad-client="ca-pub-2505151384138527"
-                                                         align="center"
-                                                         data-ad-slot="3697455905"></ins>
+                                                         data-ad-slot="9168079861"></ins>
                                                 </div>
                                                 :
                                                 null
