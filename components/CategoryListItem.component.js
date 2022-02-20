@@ -1,14 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Styles from '../styles/CategoryListItem.module.scss';
 import { AiOutlineArrowRight } from 'react-icons/ai';
-import Link from 'next/link';
 import router from 'next/router';
 import PostArch from './PostArch.component';
 import styles from "../styles/Home.module.css";
 
 const CategoryListItem = ({ item }) => {
 
-   
+    useEffect(() => {
+        var ads = document.getElementsByClassName("adsbygoogle").length;
+        for (var i = 0; i < ads; i++) {
+            try {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {
+
+            }
+        }
+    }, [])
 
     const handleCategoryClick = (category) => {
         router.push(category)
@@ -36,6 +44,8 @@ const CategoryListItem = ({ item }) => {
                      style={{display:'inline-block', margin:'20px auto', border:'1px solid black'}}
                      data-ad-client="ca-pub-2505151384138527"
                      data-ad-slot="7050275925"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"
                 />
             </div>
         </div>
