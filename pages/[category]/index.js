@@ -40,7 +40,7 @@ export async function getServerSideProps(context) {
     if (subdomain === 'localhost:3000' || subdomain === 'themasalakhabar' || subdomain === 'www'){
         subdomain = "newsazamgarh";
     }
-	const url = `https://www.themasalakhabar.com/api/category_wise_posts?category=${context.query.category}&subdomain=${subdomain}`;
+	const url = `https://www.thenewzkit.com/api/category_wise_posts?category=${context.query.category}&subdomain=${subdomain}`;
 	const dataResponse = await fetch(url);
 	const data = await dataResponse.json();
 	

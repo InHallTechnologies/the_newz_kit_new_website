@@ -3,9 +3,11 @@ import { ThemeProvider } from "@mui/system";
 import { useEffect } from "react";
 import { Provider } from "../context/appContext";
 import "../styles/globals.css";
-import NProgress from "nprogress";
 import Router from "next/router";
 import ProgressBar from "@badrap/bar-of-progress";
+import {analytics} from "../backend/firebaseHandler";
+import { logEvent, setCurrentScreen } from 'firebase/analytics';
+import { hotjar } from 'react-hotjar'
 
 
 
@@ -30,9 +32,26 @@ function MyApp({ Component, pageProps }) {
     });
 
     useEffect(() => {
+        const logCurrentEvents = (url) => {
+            logEvent(analytics, 'screen_view');
+            setCurrentScreen(analytics, url);
+            logEvent(analytics, window.location.hostname);
+        }
+        logCurrentEvents(window.location.pathname)
+        hotjar.initialize(2726846,6)
+
         Router.events.on("routeChangeStart", progress.start);
-        Router.events.on("routeChangeComplete", progress.finish);
+        Router.events.on("routeChangeComplete", (url) => {
+            progress.finish();
+            logCurrentEvents(url);
+        });
         Router.events.on("routeChangeError", progress.finish);
+
+        return () => {
+            Router.events.off("routeChangeComplete", () => {
+                logCurrentEvents(url);
+            });
+        };
     }, []);
 
     return (

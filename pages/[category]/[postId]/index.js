@@ -152,7 +152,7 @@ export async function getServerSideProps(context) {
         subdomain = "newsazamgarh";
     }
     const { category, postId } = context.query
-    const fetchURL = `https://www.themasalakhabar.com/api/fetch_post?subdomain=${subdomain}&category=${category}&postId=${postId}`
+    const fetchURL = `https://www.thenewzkit.com/api/fetch_post?subdomain=${subdomain}&category=${category}&postId=${postId}`
     const response = await fetch(fetchURL);
     const responseData = await response.json();
     const { websiteDetails, post, firebaseUID } = responseData;

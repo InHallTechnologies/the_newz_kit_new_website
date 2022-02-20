@@ -14,12 +14,21 @@ const SupportUs = ({upiAddress, websiteDetails}) => {
             </Head>
             <Navigation logo={websiteDetails.logo} />
             <div className={Styles.mainContent}>
-                <h1 className={Styles.headline} >Support journalism. Support free voice</h1>
-                <p className={Styles.subHeadline} >Independent journalism that speaks truth to power and is free of corporate and political control is possible only when people start contributing towards the same.</p>
-                <div className={Styles.qrCodeContainer}>
-                    <QRCode value={`upi://pay?pa=${upiAddress}&pn=${websiteDetails.fullName}&mc=0000&mode=02&purpose=00`}   />
-                    <p className={Styles.upiAddress}>{upiAddress}</p>
-                </div>
+                {
+                    upiAddress
+                    ?
+                    <>
+                        <h1 className={Styles.headline} >Support journalism. Support free voice</h1>
+                        <p className={Styles.subHeadline} >Independent journalism that speaks truth to power and is free of corporate and political control is possible only when people start contributing towards the same.</p>
+                        <div className={Styles.qrCodeContainer}>
+                            <QRCode value={`upi://pay?pa=${upiAddress}&pn=${websiteDetails.fullName}&mc=0000&mode=02&purpose=00`}   />
+                            <p className={Styles.upiAddress}>{upiAddress}</p>
+                        </div>
+                    </>
+                    :
+                    <p><strong>{websiteDetails.fullName}</strong> has not updated there bank details.</p>
+                }
+                
             </div>
         </div>
     )

@@ -19,11 +19,11 @@ const Footer = ({style}) => {
                         <p style={{cursor:'pointer'}} >Terms of Use</p>
                     </Link>
                     <p style={{margin:'0px 10px'}}>•</p>
-                    <Link href='#' >
+                    <Link href='/privacy-policy' >
                         <p style={{cursor:'pointer'}}>Privacy Policy</p>
                     </Link>
                     <p style={{margin:'0px 10px'}}>•</p>
-                    <Link href='#' >
+                    <Link href='/contact-us' >
                         <p style={{cursor:'pointer'}}>Contact Us</p>
                     </Link>
                 </div>

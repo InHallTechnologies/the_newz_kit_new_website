@@ -8,10 +8,21 @@ export default function Document() {
                     rel="stylesheet"
                     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
                 />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap"
+                    rel="stylesheet"
+                />
+
             </Head>
             <body>
-                <Main />
-                <NextScript />
+            <Main />
+            <NextScript />
+            <script
+                data-ad-client="ca-pub-2505151384138527"
+                async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
             </body>
         </Html>
     );

@@ -49,10 +49,10 @@ const Navigation = ({ logo }) => {
                     />
                 </div>
                 <div className={Styles.iconContainer}>
-                    <Button sx={{ marginLeft: "20px" }} variant='contained' >Support Us</Button>
+                    <Button href="/support-us" sx={{ marginLeft: "20px" }} variant='contained' >Support Us</Button>
                 </div>
                 <div className={Styles.changeLocation}>
-                    <Button variant={'contained'}>Support Us</Button>
+                    <Button href="/support-us" variant={'contained'}  >Support Us</Button>
                 </div>
             </div>
             <Divider />
