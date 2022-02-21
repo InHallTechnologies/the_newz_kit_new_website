@@ -63,12 +63,13 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
             }
         }
 
-        // let tmp = document.createElement("DIV");
-        // tmp.innerHTML = content;
-        // setContentDescription(tmp.substring(0, 100))
+        let tmp = document.createElement("DIV");
+        tmp.innerHTML = content;
+        setContentDescription(`${tmp.innerText.substring(0, 100)} ...`)
 
     }, []);
 
+    
 
     const handleClick = (item) => {
         router.push(`/${item.category}/${item.slug?item.slug:item.postId}`);
@@ -83,7 +84,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                 <meta property="og:url"                content={`https://${websiteDetails.name}.thenewzkit.com/${category}/${post.slug?post.slug:post.postId}`} />
                 <meta property="og:type"               content="article" />
                 <meta property="og:title"              content={`${headline} | ${category} | ${websiteDetails.fullName}`} />
-                {/* <meta property="og:description"        content={RemoveHTMLTags(post.content).substring(0, 100)} /> */}
+                <meta property="og:description"        content={contentDescription} />
                 <meta property="og:image"              content={post.bannerPhoto} />
             </Head>
             <header>
