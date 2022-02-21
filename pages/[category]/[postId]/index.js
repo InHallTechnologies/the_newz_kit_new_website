@@ -16,6 +16,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
     const [loading, setLoading] = useState(true);
     const { headline, bannerName, bannerPhoto, content, reporterName, postReleaseDate, postReleaseTime } = post;
     const [contentDescription, setContentDescription] = useState('');
+    const []
     
    
 
@@ -49,11 +50,8 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
             }
             setLatestPost(data);
         }
-    }
 
-    useEffect(() => {
-        fetchCategoryNews();
-        fetchLatestpost();
+        
         var ads = document.getElementsByClassName("adsbygoogle").length;
         for (var i = 0; i < ads; i++) {
             try {
@@ -62,14 +60,19 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
 
             }
         }
+    }
 
+    useEffect(() => {
+        fetchCategoryNews();
+        fetchLatestpost();
+        
         let tmp = document.createElement("DIV");
         tmp.innerHTML = content;
         setContentDescription(`${tmp.innerText.substring(0, 100)} ...`)
 
     }, []);
 
-    
+
 
     const handleClick = (item) => {
         router.push(`/${item.category}/${item.slug?item.slug:item.postId}`);
@@ -158,7 +161,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                             }
                         </div>
                         <ins className="adsbygoogle"
-                             style={{display:"block", textAlign:'center', marginBottom:'20px'}}
+                             style={{display:"block", textAlign:'center', marginTop:'20px'}}
                              data-ad-layout="in-article"
                              data-ad-format="fluid"
                              data-ad-client="ca-pub-2505151384138527"
