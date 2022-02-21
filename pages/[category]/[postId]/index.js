@@ -2,7 +2,7 @@ import { CircularProgress, Divider } from '@mui/material';
 import { get, limitToLast, query, ref } from 'firebase/database';
 import Head from 'next/head';
 import router from 'next/router';
-import React, { createElement, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { firebaseDatabase } from '../../../backend/firebaseHandler';
 import Footer from '../../../components/Footer.component';
 import Navigation from '../../../components/Navigation.component';
@@ -107,9 +107,19 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                 <Navigation logo={websiteDetails.logo} />
 
             </header>
+            
             <main>
                 <div className={Styles.categoryListContainer}>
                     <CategoryListContainer selectedCategories={websiteDetails.selectedCategories}  />
+                </div>
+
+                <div className={Styles.homeAdsContainer}>
+                    <ins className="adsbygoogle"
+                         style={{display:'inline-block', margin:'20px auto',width:'350px', height:'90px', border:'1px solid black'}}
+                         data-ad-client="ca-pub-2505151384138527"
+                         data-ad-slot="1655269971"
+
+                    />
                 </div>
 
                 <div className={Styles.viewPostContent}>
@@ -181,7 +191,17 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                              data-ad-slot="3697455905"></ins>
                     </div>
                 </div>
-                <Divider sx={{marginTop:'20px'}} />
+
+                <Divider sx={{marginTop:'10px'}} />
+                <div className={Styles.homeAdsContainer}>
+                    <ins className="adsbygoogle"
+                         style={{display:'inline-block', margin:'20px auto',width:'350px', height:'90px', border:'1px solid black'}}
+                         data-ad-client="ca-pub-2505151384138527"
+                         data-ad-slot="1655269971"
+        
+                    />
+                </div>
+                <Divider sx={{marginTop:'10px'}} />
                 <div className={Styles.latestNewsContainer}>
                     <h2 className={Styles.latestPostLabel}>Latest News</h2>
                     <div className={Styles.latestPostList} >

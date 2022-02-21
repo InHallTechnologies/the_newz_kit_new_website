@@ -43,7 +43,7 @@ export default function Home({ latest, allCategoryPosts, websiteDetails }) {
                      style={{display:'inline-block', margin:'20px auto',width:'350px', height:'90px', border:'1px solid black'}}
                      data-ad-client="ca-pub-2505151384138527"
                      data-ad-slot="1655269971"
-
+                    
                 />
             </div>
             <HeroSpace latestData={latest} selectedCategories={websiteDetails.selectedCategories} />

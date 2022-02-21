@@ -1,4 +1,9 @@
 .ViewPostPageContainer {
+    .homeAdsContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .categoryListContainer {
         width: 95%;
         margin: 0 auto;
@@ -7,7 +12,7 @@
         display: flex;
         width: 95%;
         margin: 0 auto;
-        margin-top: 50px;
+        margin-top: 10px;
         .mainPost {
             flex: 0.7;
             .headline {
