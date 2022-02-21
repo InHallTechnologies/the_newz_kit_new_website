@@ -44,7 +44,6 @@ export default function Home({ latest, allCategoryPosts, websiteDetails }) {
                      data-ad-slot="1655269971"
 
                 />
-
             </div>
             <HeroSpace latestData={latest} selectedCategories={websiteDetails.selectedCategories} />
             <CategoriesList list={allCategoryPosts} />

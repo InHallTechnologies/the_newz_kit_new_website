@@ -14,9 +14,17 @@ export default async function handler(req, res) {
         if (allPostSnapshot.exists()) {
            post = await allPostSnapshot.val();
            post.content = post.content.split("font-size: 24px;").join("font-size: 1.2rem;")
-        //    console.log("I NOT AM HERE")
+            const contentArray = post.content.split(" ");
+            const newContentArray = [];
+            for(let i = 0; i<contentArray.length; i++) {
+                newContentArray.push(contentArray[i]);
+                if (i === Math.floor(contentArray.length / 2)) {
+                    newContentArray.push(`<ins class="adsbygoogle" align='center' style="display:block; text-align:center; margin:13px 0" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2505151384138527" data-ad-slot="3697455905"></ins>`);
+                }
+            }
+            post.content = newContentArray.join(" ");
         }
-        // console.log("I AM HERE", firebaseUID, category, postSlugId, postId)
+        
         off(allPostsReference); 
         res.json({ websiteDetails, post, firebaseUID });
     });
