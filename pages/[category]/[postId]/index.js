@@ -193,15 +193,6 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                 </div>
 
                 <Divider sx={{marginTop:'10px'}} />
-                <div className={Styles.homeAdsContainer}>
-                    <ins className="adsbygoogle"
-                         style={{display:'inline-block', margin:'20px auto',width:'350px', height:'90px', border:'1px solid black'}}
-                         data-ad-client="ca-pub-2505151384138527"
-                         data-ad-slot="1655269971"
-        
-                    />
-                </div>
-                <Divider sx={{marginTop:'10px'}} />
                 <div className={Styles.latestNewsContainer}>
                     <h2 className={Styles.latestPostLabel}>Latest News</h2>
                     <div className={Styles.latestPostList} >
