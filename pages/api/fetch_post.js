@@ -14,7 +14,9 @@ export default async function handler(req, res) {
         if (allPostSnapshot.exists()) {
            post = await allPostSnapshot.val();
            post.content = post.content.split("font-size: 24px;").join("font-size: 1.2rem;")
+        //    console.log("I NOT AM HERE")
         }
+        // console.log("I AM HERE", firebaseUID, category, postSlugId, postId)
         off(allPostsReference); 
         res.json({ websiteDetails, post, firebaseUID });
     });
