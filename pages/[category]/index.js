@@ -28,6 +28,7 @@ const CategoryWisePosts = ({ category, data, websiteDetails }) => {
                 <meta property="og:title"              content={`${category} - ${websiteDetails.fullName} ${websiteDetails.tagline? `- ${websiteDetails.tagline}` : ""}`} />
                 <meta property="og:description"        content={websiteDetails.description} />
                 <meta property="og:image"              content={websiteDetails.logo} />
+                <link id="favicon" rel="shortcut icon" type="image/png" href={websiteDetails.logo} />
             </Head>
             <Navigation logo={websiteDetails.logo} />
             <div className={Styles.content}>

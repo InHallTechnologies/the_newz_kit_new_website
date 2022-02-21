@@ -2,13 +2,16 @@ import { CircularProgress, Divider } from '@mui/material';
 import { get, limitToLast, query, ref } from 'firebase/database';
 import Head from 'next/head';
 import router from 'next/router';
-import React, { createElement, useEffect, useState } from 'react';
+import React, { createElement, useContext, useEffect, useState } from 'react';
 import { firebaseDatabase } from '../../../backend/firebaseHandler';
 import Footer from '../../../components/Footer.component';
 import Navigation from '../../../components/Navigation.component';
 import PostArch from '../../../components/PostArch.component';
 import Styles from '../../../styles/ViewPostPage.module.scss';
 import CategoryListContainer from '../../../components/CategoryListContianer.component'
+import { uuid } from 'uuidv4';
+import Context from '../../../context/appContext';
+import logView from '../../../backend/logView';
 
 const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => {
     const [crimeNewsList, setCrimeNewsList] = useState([]);
@@ -16,10 +19,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
     const [loading, setLoading] = useState(true);
     const { headline, bannerName, bannerPhoto, content, reporterName, postReleaseDate, postReleaseTime } = post;
     const [contentDescription, setContentDescription] = useState('');
-    
-    
-   
-
+    const [sessionId, setSessionId] = useContext(Context);
 
     const fetchCategoryNews = async () => {
         const categoryNewsRef = ref(firebaseDatabase, `CATEGORY_WISE_POSTS/${firebaseUID}/${category}`);
@@ -66,13 +66,25 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
         fetchCategoryNews();
         fetchLatestpost();
         
+        if (!sessionId) {
+            const uid = uuid()
+            setSessionId(uid);
+        }
+
+    
         let tmp = document.createElement("DIV");
         tmp.innerHTML = content;
         setContentDescription(`${tmp.innerText.substring(0, 100)} ...`)
 
     }, []);
 
+    useEffect(() => {
+        if (sessionId) {
+            logView(post.slug?post.slug:post.postId, sessionId);
+        }
+    }, [sessionId, post])
 
+    
 
     const handleClick = (item) => {
         router.push(`/${item.category}/${item.slug?item.slug:item.postId}`);
@@ -89,6 +101,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                 <meta property="og:title"              content={`${headline} | ${category} | ${websiteDetails.fullName}`} />
                 <meta property="og:description"        content={contentDescription} />
                 <meta property="og:image"              content={post.bannerPhoto} />
+                <link id="favicon" rel="shortcut icon" type="image/png" href={websiteDetails.logo} />
             </Head>
             <header>
                 <Navigation logo={websiteDetails.logo} />

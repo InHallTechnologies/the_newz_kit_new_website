@@ -11,6 +11,7 @@ import { hotjar } from 'react-hotjar'
 
 
 
+
 const theme = createTheme({
     palette: {
         primary: {
@@ -23,7 +24,8 @@ const theme = createTheme({
 });
 
 function MyApp({ Component, pageProps }) {
-
+    
+    
     const progress = new ProgressBar({
         size: 5,
         color: "#E9494B",
@@ -39,7 +41,6 @@ function MyApp({ Component, pageProps }) {
         }
         logCurrentEvents(window.location.pathname)
         hotjar.initialize(2726846,6)
-
         Router.events.on("routeChangeStart", progress.start);
         Router.events.on("routeChangeComplete", (url) => {
             progress.finish();

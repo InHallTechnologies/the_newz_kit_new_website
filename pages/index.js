@@ -33,6 +33,7 @@ export default function Home({ latest, allCategoryPosts, websiteDetails }) {
                 <meta property="og:title"              content={`${websiteDetails.fullName} ${websiteDetails.tagline? `- ${websiteDetails.tagline}` : ""}`} />
                 <meta property="og:description"        content={websiteDetails.description} />
                 <meta property="og:image"              content={websiteDetails.logo} />
+                <link id="favicon" rel="shortcut icon" type="image/png" href={websiteDetails.logo} />
             </Head>
             <header>
                 <Navigation logo={websiteDetails.logo} />
