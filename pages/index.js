@@ -28,6 +28,11 @@ export default function Home({ latest, allCategoryPosts, websiteDetails }) {
         <div className={styles.container}>
             <Head>
                 <title>{websiteDetails.fullName} {websiteDetails.tagline? `- ${websiteDetails.tagline}` : ""}</title>
+                <meta property="og:url"                content={`https://${websiteDetails.name}.thenewzkit.com/`} />
+                <meta property="og:type"               content="website" />
+                <meta property="og:title"              content={`${websiteDetails.fullName} ${websiteDetails.tagline? `- ${websiteDetails.tagline}` : ""}`} />
+                <meta property="og:description"        content={websiteDetails.description} />
+                <meta property="og:image"              content={websiteDetails.logo} />
             </Head>
             <header>
                 <Navigation logo={websiteDetails.logo} />

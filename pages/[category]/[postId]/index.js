@@ -15,6 +15,12 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
     const [latestPost, setLatestPost] = useState([]);
     const [loading, setLoading] = useState(true);
     const { headline, bannerName, bannerPhoto, content, reporterName, postReleaseDate, postReleaseTime } = post;
+    
+    function RemoveHTMLTags(s) {
+        const pattern = new RegExp("\\<.*?\\>");
+        s = new String(s).replace(pattern, "");
+        return s;
+    }
 
 
     const fetchCategoryNews = async () => {
@@ -71,6 +77,11 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
         <div className={Styles.ViewPostPageContainer} >
             <Head>
                 <title>{headline} | {category} | {websiteDetails.fullName}</title>
+                <meta property="og:url"                content={`https://${websiteDetails.name}.thenewzkit.com/${category}/${post.slug?post.slug:post.postId}`} />
+                <meta property="og:type"               content="article" />
+                <meta property="og:title"              content={`${headline} | ${category} | ${websiteDetails.fullName}`} />
+                <meta property="og:description"        content={RemoveHTMLTags(post.content).substring(0, 100)} />
+                <meta property="og:image"              content={post.bannerPhoto} />
             </Head>
             <header>
                 <Navigation logo={websiteDetails.logo} />
@@ -160,7 +171,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                                     <>
                                         <PostArch key={item.postId} item={item} />
                                         {
-                                            index % 3 ===0
+                                            index % 3 === 0
                                                 ?
                                                 <div align={'center'}>
                                                     <ins className="adsbygoogle"

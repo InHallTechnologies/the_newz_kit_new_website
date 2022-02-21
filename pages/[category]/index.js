@@ -23,6 +23,11 @@ const CategoryWisePosts = ({ category, data, websiteDetails }) => {
         <div className={Styles.categoryWisePostsContainer}>
             <Head>
                 <title>{category} - {websiteDetails.fullName} {websiteDetails.tagline? `- ${websiteDetails.tagline}` : ""}</title>
+                <meta property="og:url"                content={`https://${websiteDetails.name}.thenewzkit.com/${category}`} />
+                <meta property="og:type"               content="website" />
+                <meta property="og:title"              content={`${category} - ${websiteDetails.fullName} ${websiteDetails.tagline? `- ${websiteDetails.tagline}` : ""}`} />
+                <meta property="og:description"        content={websiteDetails.description} />
+                <meta property="og:image"              content={websiteDetails.logo} />
             </Head>
             <Navigation logo={websiteDetails.logo} />
             <div className={Styles.content}>
