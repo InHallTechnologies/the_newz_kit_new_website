@@ -16,7 +16,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
     const [loading, setLoading] = useState(true);
     const { headline, bannerName, bannerPhoto, content, reporterName, postReleaseDate, postReleaseTime } = post;
     const [contentDescription, setContentDescription] = useState('');
-    const []
+    
     
    
 
@@ -51,7 +51,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
             setLatestPost(data);
         }
 
-        
+
         var ads = document.getElementsByClassName("adsbygoogle").length;
         for (var i = 0; i < ads; i++) {
             try {
