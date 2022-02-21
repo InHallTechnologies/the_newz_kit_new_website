@@ -2,7 +2,7 @@ import { CircularProgress, Divider } from '@mui/material';
 import { get, limitToLast, query, ref } from 'firebase/database';
 import Head from 'next/head';
 import router from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { createElement, useEffect, useState } from 'react';
 import { firebaseDatabase } from '../../../backend/firebaseHandler';
 import Footer from '../../../components/Footer.component';
 import Navigation from '../../../components/Navigation.component';
@@ -15,12 +15,9 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
     const [latestPost, setLatestPost] = useState([]);
     const [loading, setLoading] = useState(true);
     const { headline, bannerName, bannerPhoto, content, reporterName, postReleaseDate, postReleaseTime } = post;
+    const [contentDescription, setContentDescription] = useState('');
     
-    function RemoveHTMLTags(s) {
-        const pattern = new RegExp("\\<.*?\\>");
-        s = new String(s).replace(pattern, "");
-        return s;
-    }
+   
 
 
     const fetchCategoryNews = async () => {
@@ -65,6 +62,11 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
 
             }
         }
+
+        let tmp = document.createElement("DIV");
+        tmp.innerHTML = content;
+        setContentDescription(tmp.substring(0, 100));
+
     }, []);
 
 
@@ -72,6 +74,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
         router.push(`/${item.category}/${item.slug?item.slug:item.postId}`);
     }
 
+    
 
     return (
         <div className={Styles.ViewPostPageContainer} >
@@ -80,7 +83,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                 <meta property="og:url"                content={`https://${websiteDetails.name}.thenewzkit.com/${category}/${post.slug?post.slug:post.postId}`} />
                 <meta property="og:type"               content="article" />
                 <meta property="og:title"              content={`${headline} | ${category} | ${websiteDetails.fullName}`} />
-                <meta property="og:description"        content={RemoveHTMLTags(post.content).substring(0, 100)} />
+                <meta property="og:description"        content={contentDescription} />
                 <meta property="og:image"              content={post.bannerPhoto} />
             </Head>
             <header>
