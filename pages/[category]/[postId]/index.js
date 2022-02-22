@@ -25,20 +25,27 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
     const fetchCategoryNews = async () => {
         const categoryNewsRef = ref(firebaseDatabase, `CATEGORY_WISE_POSTS/${firebaseUID}/${category}`);
         const categoryNewsQuery = query(categoryNewsRef, limitToLast(10));
-        onValue(categoryNewsQuery,async (categoryNewsSnapshot) => {
-            if (categoryNewsSnapshot.exists()) {
-                const data = [];
-                for (const key in categoryNewsSnapshot.val()) {
-                    const post = categoryNewsSnapshot.child(key).val();
-                    data.push(post)
+        const promise = new Promise((resolve, reject) => {
+            onValue(categoryNewsQuery,async (categoryNewsSnapshot) => {
+                if (categoryNewsSnapshot.exists()) {
+                    const data = [];
+                    for (const key in categoryNewsSnapshot.val()) {
+                        const post = categoryNewsSnapshot.child(key).val();
+                        data.push(post)
+                    }
+                    data.reverse()
+                    resolve(data);
+                    // setCrimeNewsList(data);
+
                 }
-                data.reverse()
-                setCrimeNewsList(data);
 
-            }
+                setLoading(false);
+            }, {onlyOnce:true});
+        })
 
-            setLoading(false);
-        }, {onlyOnce:true});
+        const data = await promise.then();
+        setCrimeNewsList(data);
+
 
     }
 
