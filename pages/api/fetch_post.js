@@ -27,7 +27,7 @@ export default async function handler(req, res) {
                 }
             }
             // post.content = `<div style="font-size: 1.2rem;">${newContentArray.join(" ")}</div>`;
-
+            post.content = newContentArray.join(" ")
 
         }
 
