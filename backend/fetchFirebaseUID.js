@@ -3,8 +3,7 @@ import { ref, get, query } from 'firebase/database';
 
 const fetchFirebaseUID = async (subdomain) => {
     const firebaseUIDref = ref(firebaseDatabase, `SITE_NAME_ID_MAP/${subdomain.toLowerCase()}`);
-    const firebaseUIDQuery = query(firebaseUIDref);
-    const firebaseUIDSnapshot = await get(firebaseUIDQuery);
+    const firebaseUIDSnapshot = await get(firebaseUIDref);
     if (firebaseUIDSnapshot.exists()) {
         return firebaseUIDSnapshot.val();
     }else {
@@ -14,8 +13,8 @@ const fetchFirebaseUID = async (subdomain) => {
 
 export const fetchWebsiteDetails = async (firebaseUID) => {
     const websiteDetailsRef = ref(firebaseDatabase, `WEBSITE_DETAILS_ARCHIVE/${firebaseUID}`);
-    const websiteDetailsQuery = query(websiteDetailsRef);
-    const websiteDetailsSnapshot = await get(websiteDetailsQuery);
+
+    const websiteDetailsSnapshot = await get(websiteDetailsRef);
     if (websiteDetailsSnapshot.exists()) {
         return websiteDetailsSnapshot.val();
     }else {
@@ -25,8 +24,8 @@ export const fetchWebsiteDetails = async (firebaseUID) => {
 
 export const fetchPostId = async (postSlug) => {
     const postSlugRef = ref(firebaseDatabase, `SLUG_MAP/${postSlug}`);
-    const postSlugQuery = query(postSlugRef);
-    const postSlugSnapshot = await get(postSlugQuery);
+
+    const postSlugSnapshot = await get(postSlugRef);
     if (postSlugSnapshot.exists()){
         const postId = await postSlugSnapshot.val();
         return postId;
@@ -36,8 +35,8 @@ export const fetchPostId = async (postSlug) => {
 
 export const fetchUPI = async (firebaseUID) => {
     const upiRef = ref(firebaseDatabase, `UPI_ARCHIVE/${firebaseUID}`);
-    const upiQuery = query(upiRef);
-    const upiSnapshot = await get(upiQuery);
+
+    const upiSnapshot = await get(upiRef);
     if (upiSnapshot.exists()) {
         const upi = upiSnapshot.val();
         return upi;
