@@ -251,8 +251,9 @@ export async function getServerSideProps(context) {
         subdomain = "NewzKit";
     }
     const { category, postId } = context.query;
-    const fetchURL = `https://www.thenewzkit.com/api/fetch_post?subdomain=${subdomain}&category=${category}&postId=${postId}`
+    const fetchURL = `http://www.thenewzkit.com/api/fetch_post?subdomain=${subdomain}&category=${category}&postId=${postId}`
     // const fetchURL = `http://localhost:3000/api/fetch_post?subdomain=${subdomain}&category=${category}&postId=${postId}`
+    console.log(fetchURL);
     const response = await fetch(fetchURL);
     const responseData = await response.json();
   
