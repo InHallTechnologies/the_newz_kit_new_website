@@ -68,8 +68,9 @@ export async function getServerSideProps(context) {
     if (subdomain === 'localhost:3000' || subdomain === 'thenewzkit' || subdomain === 'www'){
         subdomain = "home";
     }
-    const url = `http://localhost:3000/api/hello?subdomain=${subdomain}`;
-    // const url = `https://www.thenewzkit.com/api/hello?subdomain=${subdomain}`;
+    // const url = `http://localhost:3000/api/hello?subdomain=${subdomain}`;
+    const url = `https://www.thenewzkit.com/api/hello?subdomain=${subdomain}`;
+
     let list = [];
     if (subdomain === 'home'){
         const listRef = ref(firebaseDatabase, `RANK_WISE_CHANNEL`);
