@@ -94,8 +94,10 @@ export default function HomePage({ list }) {
               <h1 className={Styles.tagline}>Publish. Monetize. Grow</h1>
               <p className={Styles.subLine}>We are a publishing platform for small news organizations. Our no-code platform allows local or small news organizations and independent journalists to launch news websites in just 3 simple steps.</p>
               <div className={Styles.heroActionContainer}>
-                <a href='https://play.google.com/store/apps/details?id=com.obuv.thenewzkit&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img  className={Styles.playStoreIcon} alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
-                <Button className={Styles.dashboardButton} onClick={handleDashboard} style={{backgroundColor:'black', borderColor:'black', color:'white', fontWeight:'bold'}} >Go to Dashboard</Button>
+                <a href='https://play.google.com/store/apps/details?id=com.obuv.thenewzkit&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+                  <img  className={Styles.playStoreIcon} alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/>
+                </a>
+                <Button className={Styles.dashboardButton} onClick={handleDashboard} style={{backgroundColor:'black', borderColor:'black', color:'white', fontWeight:'bold', fontSize:'0.8rem'}} >Go to Dashboard</Button>
               </div>
           </div>
 
