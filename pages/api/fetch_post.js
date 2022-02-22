@@ -15,9 +15,9 @@ export default async function handler(req, res) {
         let post = {}
         if (allPostSnapshot.exists()) {
             post = await allPostSnapshot.val();
-            post.content = DOMPurify.sanitize(post.content);
-            post.content = post.content.split("font-size: 24px;").join("font-size: 20px;");
 
+            post.content = post.content.split("font-size: 24px;").join("font-size: 1.2rem;");
+            post.content = DOMPurify.sanitize(post.content);
             const contentArray = post.content.split(" ");
             const newContentArray = [];
             for(let i = 0; i<contentArray.length; i++) {
@@ -26,8 +26,8 @@ export default async function handler(req, res) {
                     newContentArray.push(`<ins class="adsbygoogle" align='center' style="display:block; text-align:center; margin:13px 0" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2505151384138527" data-ad-slot="3697455905"></ins>`);
                 }
             }
-            // post.content = `<div style="font-size: 1.2rem;">${newContentArray.join(" ")}</div>`;
-            post.content = newContentArray.join(" ")
+            post.content = `<div style="font-size: 1.2rem;">${newContentArray.join(" ")}</div>`;
+
 
         }
 
