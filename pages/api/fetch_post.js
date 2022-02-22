@@ -23,7 +23,10 @@ export default async function handler(req, res) {
                 }
             }
             post.content = newContentArray.join(" ");
+            
         }
+
+      
         
         off(allPostsReference); 
         res.json({ websiteDetails, post, firebaseUID });

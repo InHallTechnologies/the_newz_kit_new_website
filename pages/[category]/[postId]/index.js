@@ -229,15 +229,17 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
 
 export async function getServerSideProps(context) {
     let subdomain = context.req.headers.host.split('.')[0];
-    if (subdomain === 'localhost:3000' || subdomain === 'themasalakhabar' || subdomain === 'www'){
-        subdomain = "newsazamgarh";
+    if (subdomain === 'localhost:3000' || subdomain === 'thenewzkit' || subdomain === 'www'){
+        subdomain = "NewzKit";
     }
     const { category, postId } = context.query;
     const fetchURL = `https://www.thenewzkit.com/api/fetch_post?subdomain=${subdomain}&category=${category}&postId=${postId}`
     // const fetchURL = `http://localhost:3000/api/fetch_post?subdomain=${subdomain}&category=${category}&postId=${postId}`
     const response = await fetch(fetchURL);
     const responseData = await response.json();
+  
     const { websiteDetails, post, firebaseUID } = responseData;
+   
     return {
         props: {websiteDetails, post, postId, category, firebaseUID},
     }
