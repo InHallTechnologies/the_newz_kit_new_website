@@ -26,8 +26,7 @@ export default async function handler(req, res) {
                     newContentArray.push(`<ins class="adsbygoogle" align='center' style="display:block; text-align:center; margin:13px 0" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2505151384138527" data-ad-slot="3697455905"></ins>`);
                 }
             }
-            post.content = `<div style="font-size: 1.2rem;">${newContentArray.join(" ")}</div>`;
-
+            post.content = `<div style="font-size: 1.2rem;">${newContentArray.join(" ")}</div>`;                     
 
         }
 
