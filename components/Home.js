@@ -9,6 +9,7 @@ import { AiFillPlayCircle } from 'react-icons/ai';
 import { Button } from "@mui/material";
 import router from 'next/router'
 import Script from 'next/script';
+import Link from 'next/link'
 
 
 export default function HomePage({ list }) {
@@ -51,35 +52,35 @@ export default function HomePage({ list }) {
 
       <header className={Styles.headerContainer}>
         <nav style={{width:'100%', backgroundColor:'white'}} className="navbar navbar-expand-lg navbar-light">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+        <div className="container-fluid" style={{padding:0}}>
+          <Link className="navbar-brand" href="/">
             <img className={Styles.logo} src="/logo.png" />
-          </a>
+          </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
           </button>
         <div  className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul style={{marginLeft:'auto'}} className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">Home</a>
+              <Button className="nav-link active" aria-current="page" href="/">Home</Button>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#HowItWorks">How It Works</a>
+              <Button className="nav-link" href="#HowItWorks">How It Works</Button>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="about-us">About Us</a>
-            </li>
-
-            <li className="nav-item">
-              <a className="nav-link" href="/contact-us">Contact Us</a>
+              <Button className="nav-link" href="about-us">About Us</Button>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="/privacy-policy">Privacy Policy</a>
+              <Button className="nav-link" href="/contact-us">Contact Us</Button>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="#Team">Team</a>
+              <Button className="nav-link" href="/privacy-policy">Privacy Policy</Button>
+            </li>
+
+            <li className="nav-item">
+              <Button className="nav-link" href="#Team">Team</Button>
             </li>
           </ul>
           </div>

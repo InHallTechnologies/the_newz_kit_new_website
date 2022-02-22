@@ -2,6 +2,7 @@ import React from 'react';
 import Styles from '../../styles/AboutUs.module.scss';
 import Head from 'next/head'
 import Script from 'next/script';
+import { Button } from '@mui/material';
 
 const AboutUs = () => {
 
@@ -30,20 +31,20 @@ const AboutUs = () => {
             </Head>
             <header className={Styles.headerContainer}>
                 <nav style={{width:'100%', backgroundColor:'white'}} className="navbar navbar-expand-lg navbar-light">
-                <div className="container-fluid">
-                <a className="navbar-brand" href="/">
+                <div className="container-fluid" style={{padding:0}} >
+                <Button className="navbar-brand" href="/" sx={{padding:'0'}}>
                     <img className={Styles.logo} src="/logo.png" />
-                </a>
+                </Button>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 < span className="navbar-toggler-icon"></span>
                 </button>
                 <div  className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul style={{marginLeft:'auto'}} className="navbar-nav">
                 <li className="nav-item">
-                  <a className="nav-link" aria-current="page" href="/">Home</a>
+                  <Button className="nav-link" aria-current="page" href="/">Home</Button>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" href="#">About Us</a>
+                  <Button className="nav-link active" href="/about-us">About Us</Button>
                 </li>
                 </ul>
                  </div>

@@ -6,10 +6,12 @@ import Navigation from "../components/Navigation.component";
 import NoPostUploaded from "../components/NoPostUploaded.component";
 import styles from "../styles/Home.module.css";
 import {useEffect} from "react";
+import { query, ref, get } from 'firebase/database';
 import HomePage from "../components/Home";
+import { firebaseDatabase } from "../backend/firebaseHandler";
 
 
-export default function Home({ latest, allCategoryPosts, websiteDetails, subdomain }) {
+export default function Home({ latest, allCategoryPosts, websiteDetails, subdomain, list }) {
 
     
 
@@ -25,7 +27,7 @@ export default function Home({ latest, allCategoryPosts, websiteDetails, subdoma
     }, [])
 
     if (subdomain === "home") {
-        return <HomePage />
+        return <HomePage list={list} />
     }
 
     if (!latest.length) {
@@ -67,6 +69,17 @@ export async function getServerSideProps(context) {
         subdomain = "home";
     }
     const url = `https://www.thenewzkit.com/api/hello?subdomain=${subdomain}`;
+    let list = [];
+    if (subdomain === 'home'){
+        const listRef = ref(firebaseDatabase, `RANK_WISE_CHANNEL`);
+        const listQuery = query(listRef);
+        const listSnapshot = await get(listQuery);
+        
+        if (listSnapshot.exists()) {
+            list = listSnapshot.val();
+        }
+    }
+    
 
     const dataResponse = await fetch(url);
     const data = await dataResponse.json();
@@ -75,7 +88,8 @@ export async function getServerSideProps(context) {
             latest: data.data,
             allCategoryPosts: data.allCategoryPosts,
             websiteDetails: data.websiteDetails,
-            subdomain:subdomain
+            subdomain:subdomain,
+            list
         },
     };
 }
