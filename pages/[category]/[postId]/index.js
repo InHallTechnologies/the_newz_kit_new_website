@@ -1,5 +1,5 @@
 import { CircularProgress, Divider } from '@mui/material';
-import { get, limitToLast, query, ref } from 'firebase/database';
+import {get, limitToLast, query, ref, onValue, off} from 'firebase/database';
 import Head from 'next/head';
 import router from 'next/router';
 import React, { useContext, useEffect, useState } from 'react';
@@ -25,32 +25,38 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
     const fetchCategoryNews = async () => {
         const categoryNewsRef = ref(firebaseDatabase, `CATEGORY_WISE_POSTS/${firebaseUID}/${category}`);
         const categoryNewsQuery = query(categoryNewsRef, limitToLast(10));
-        const categoryNewsSnapshot = await get(categoryNewsQuery);
-        if (categoryNewsSnapshot.exists()) {
-            const data = [];
-            for (const key in categoryNewsSnapshot.val()) {
-                const post = categoryNewsSnapshot.child(key).val();
-                data.push(post)
-            }
-            data.reverse()
-            setCrimeNewsList(data);
+        onValue(categoryNewsQuery,async (categoryNewsSnapshot) => {
+            if (categoryNewsSnapshot.exists()) {
+                const data = [];
+                for (const key in categoryNewsSnapshot.val()) {
+                    const post = categoryNewsSnapshot.child(key).val();
+                    data.push(post)
+                }
+                data.reverse()
+                setCrimeNewsList(data);
 
-        }
-        setLoading(false);
+            }
+
+            setLoading(false);
+        }, {onlyOnce:true});
+
     }
 
     const fetchLatestpost = async () => {
         const latestNewsRef = ref(firebaseDatabase, `POST_ARCHIVE/${firebaseUID}`);
         const latestPostQuery = query(latestNewsRef, limitToLast(10));
-        const latestPostSnapshot = await get(latestPostQuery);
-        if (latestPostSnapshot.exists()) {
-            const data = [];
-            for (const key in latestPostSnapshot.val()) {
-                const post = latestPostSnapshot.child(key).val();
-                data.push(post);
+        onValue(latestPostQuery, async (latestPostSnapshot) => {
+            if (latestPostSnapshot.exists()) {
+                const data = [];
+                for (const key in latestPostSnapshot.val()) {
+                    const post = latestPostSnapshot.child(key).val();
+                    data.push(post);
+                }
+
+                setLatestPost(data);
             }
-            setLatestPost(data);
-        }
+        }, { onlyOnce:true })
+
 
 
         var ads = document.getElementsByClassName("adsbygoogle").length;
@@ -64,6 +70,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
     }
 
     useEffect(() => {
+
         fetchCategoryNews();
         fetchLatestpost();
         
@@ -82,6 +89,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
     useEffect(() => {
         if (sessionId) {
             logView(post.slug?post.slug:post.postId, sessionId);
+
         }
     }, [sessionId, post])
 
@@ -236,8 +244,8 @@ export async function getServerSideProps(context) {
         subdomain = "NewzKit";
     }
     const { category, postId } = context.query;
-    const fetchURL = `https://www.thenewzkit.com/api/fetch_post?subdomain=${subdomain}&category=${category}&postId=${postId}`
-    // const fetchURL = `http://localhost:3000/api/fetch_post?subdomain=${subdomain}&category=${category}&postId=${postId}`
+    // const fetchURL = `https://www.thenewzkit.com/api/fetch_post?subdomain=${subdomain}&category=${category}&postId=${postId}`
+    const fetchURL = `http://localhost:3000/api/fetch_post?subdomain=${subdomain}&category=${category}&postId=${postId}`
     const response = await fetch(fetchURL);
     const responseData = await response.json();
   

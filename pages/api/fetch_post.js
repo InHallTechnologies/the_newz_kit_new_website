@@ -30,7 +30,6 @@ export default async function handler(req, res) {
 
         }
 
-
         off(allPostsReference);
         res.json({ websiteDetails, post, firebaseUID });
     });

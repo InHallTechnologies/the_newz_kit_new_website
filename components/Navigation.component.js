@@ -18,8 +18,6 @@ const Navigation = ({ logo }) => {
     }catch(err){
 
     }
-
-    console.log(subdomain);
     
     
     const handleHome = () => {
