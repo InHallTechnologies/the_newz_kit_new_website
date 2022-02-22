@@ -13,6 +13,7 @@ import { uuid } from 'uuidv4';
 import Context from '../../../context/appContext';
 import logView from '../../../backend/logView';
 
+
 const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => {
     const [crimeNewsList, setCrimeNewsList] = useState([]);
     const [latestPost, setLatestPost] = useState([]);
@@ -135,6 +136,8 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                         <div className={Styles.contentContainer} dangerouslySetInnerHTML={{__html:content}}>
 
                         </div>
+
+                        
                     </div>
 
                     <div className={Styles.segmentDividerContainer} >

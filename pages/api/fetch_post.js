@@ -1,6 +1,8 @@
 import { ref, get, limitToLast, query, onValue, off } from "firebase/database";
 import fetchFirebaseUID, { fetchPostId, fetchWebsiteDetails } from "../../backend/fetchFirebaseUID";
 import { firebaseDatabase } from "../../backend/firebaseHandler";
+import DOMPurify from 'isomorphic-dompurify';
+
 
 export default async function handler(req, res) {
 
@@ -12,8 +14,9 @@ export default async function handler(req, res) {
     onValue(allPostsReference, async (allPostSnapshot) => {
         let post = {}
         if (allPostSnapshot.exists()) {
-           post = await allPostSnapshot.val();
-           post.content = post.content.split("font-size: 24px;").join("font-size: 1.2rem;")
+            post = await allPostSnapshot.val();
+
+            post.content = post.content.split("font-size: 24px;").join("font-size: 20px;");
             const contentArray = post.content.split(" ");
             const newContentArray = [];
             for(let i = 0; i<contentArray.length; i++) {
@@ -22,14 +25,14 @@ export default async function handler(req, res) {
                     newContentArray.push(`<ins class="adsbygoogle" align='center' style="display:block; text-align:center; margin:13px 0" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2505151384138527" data-ad-slot="3697455905"></ins>`);
                 }
             }
-            post.content = newContentArray.join(" ");
-            
+            // post.content = `<div style="font-size: 1.2rem;">${newContentArray.join(" ")}</div>`;
+            post.content = DOMPurify.sanitize(post.content);
+
         }
 
-      
-        
-        off(allPostsReference); 
+
+        off(allPostsReference);
         res.json({ websiteDetails, post, firebaseUID });
     });
-    
+
 }
