@@ -15,8 +15,9 @@ export default async function handler(req, res) {
         let post = {}
         if (allPostSnapshot.exists()) {
             post = await allPostSnapshot.val();
-
+            post.content = DOMPurify.sanitize(post.content);
             post.content = post.content.split("font-size: 24px;").join("font-size: 20px;");
+
             const contentArray = post.content.split(" ");
             const newContentArray = [];
             for(let i = 0; i<contentArray.length; i++) {
@@ -26,7 +27,7 @@ export default async function handler(req, res) {
                 }
             }
             // post.content = `<div style="font-size: 1.2rem;">${newContentArray.join(" ")}</div>`;
-            post.content = DOMPurify.sanitize(post.content);
+
 
         }
 
