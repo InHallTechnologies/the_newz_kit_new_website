@@ -97,7 +97,7 @@ export default function HomePage({ list }) {
                 <a href='https://play.google.com/store/apps/details?id=com.obuv.thenewzkit&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
                   <img  className={Styles.playStoreIcon} alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/>
                 </a>
-                <Button className={Styles.dashboardButton} onClick={handleDashboard} style={{backgroundColor:'black', borderColor:'black', color:'white', fontWeight:'bold', fontSize:'0.8rem'}} >Go to Dashboard</Button>
+                <Button className={Styles.dashboardButton} onClick={handleDashboard} style={{backgroundColor:'black', borderColor:'black', color:'white', fontWeight:'bold', fontSize:'0.8rem', padding:"0px 10px"}} >Go to Dashboard</Button>
               </div>
           </div>
 

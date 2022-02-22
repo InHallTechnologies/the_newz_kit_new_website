@@ -56,14 +56,21 @@
 .heroActionContainer {
     display: flex;
     align-items:center;
-    margin-bottom:40px
+    margin-bottom:40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
 }
 
 .dashboardButton {
-    margin-top:19px;
-    height:45px;
+    height: 47px;
     background-color:black;
-    font-weight:bold
+    font-weight:bold;
+    margin-left: 10px;
+}
+
+.playStoreIcon {
+    max-height: 70px;
+    margin-left:-10px
 }
 
 .infoContainer {
@@ -85,10 +92,7 @@
     margin-top: 10px;
 }
 
-.playStoreIcon {
-    width: 180px;
-    margin-top: 20px;
-}
+
 
 .mainIllustration {
     width: 100%;
