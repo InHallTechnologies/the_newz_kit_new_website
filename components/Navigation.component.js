@@ -3,10 +3,25 @@ import React from "react";
 import Styles from "../styles/Navigation.module.scss";
 import { BsFacebook, BsTwitter, BsYoutube } from "react-icons/bs";
 import Router from "next/router";
-import LocationAlert from "./LocationAlert.component";
 import MobileNavigation from "./MobileNavigation.component";
 
 const Navigation = ({ logo }) => {
+    
+    let subdomain = "";
+    try {
+        if (window){
+            subdomain = window.location.host;
+            if (subdomain === 'localhost:3000' || subdomain === 'thenewzkit' || subdomain === 'www') {
+                subdomain = "NewzKit";
+            }
+        }
+    }catch(err){
+
+    }
+
+    console.log(subdomain);
+    
+    
     const handleHome = () => {
         Router.push("/");
     };
@@ -17,7 +32,7 @@ const Navigation = ({ logo }) => {
                 <div className={Styles.iconContainer} onClick={handleHome}>
                     <img
                         className={Styles.icon}
-                        src={logo}
+                        src={logo?logo:'/logo.png'}
                         alt="Newzy"
                     />
                 </div>
@@ -49,10 +64,24 @@ const Navigation = ({ logo }) => {
                     />
                 </div>
                 <div className={Styles.iconContainer}>
-                    <Button href="/support-us" sx={{ marginLeft: "20px" }} variant='contained' >Support Us</Button>
+                    {
+                        subdomain === "NewzKit"
+                        ?
+                        null
+                        :
+                        <Button href="/support-us" sx={{ marginLeft: "20px" }} variant='contained' >Support Us</Button>
+
+                    }
                 </div>
                 <div className={Styles.changeLocation}>
-                    <Button href="/support-us" variant={'contained'}  >Support Us</Button>
+                    {
+                        subdomain === "NewzKit"
+                        ?
+                        null
+                        :
+                        <Button href="/support-us" variant={'contained'}  >Support Us</Button>
+                    }
+                    
                 </div>
             </div>
             <Divider />

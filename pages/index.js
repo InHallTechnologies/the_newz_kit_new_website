@@ -6,8 +6,12 @@ import Navigation from "../components/Navigation.component";
 import NoPostUploaded from "../components/NoPostUploaded.component";
 import styles from "../styles/Home.module.css";
 import {useEffect} from "react";
+import HomePage from "../components/Home";
 
-export default function Home({ latest, allCategoryPosts, websiteDetails }) {
+
+export default function Home({ latest, allCategoryPosts, websiteDetails, subdomain }) {
+
+    
 
     useEffect(() => {
         var ads = document.getElementsByClassName("adsbygoogle").length;
@@ -19,6 +23,10 @@ export default function Home({ latest, allCategoryPosts, websiteDetails }) {
             }
         }
     }, [])
+
+    if (subdomain === "home") {
+        return <HomePage />
+    }
 
     if (!latest.length) {
         return (<NoPostUploaded websiteDetails={websiteDetails} />)
@@ -55,8 +63,8 @@ export default function Home({ latest, allCategoryPosts, websiteDetails }) {
 
 export async function getServerSideProps(context) {
     let subdomain = context.req.headers.host.split('.')[0];
-    if (subdomain === 'localhost:3000' || subdomain === 'themasalakhabar' || subdomain === 'www'){
-        subdomain = "newsazamgarh";
+    if (subdomain === 'localhost:3000' || subdomain === 'thenewzkit' || subdomain === 'www'){
+        subdomain = "home";
     }
     const url = `https://www.thenewzkit.com/api/hello?subdomain=${subdomain}`;
 
@@ -66,7 +74,8 @@ export async function getServerSideProps(context) {
         props: {
             latest: data.data,
             allCategoryPosts: data.allCategoryPosts,
-            websiteDetails: data.websiteDetails
+            websiteDetails: data.websiteDetails,
+            subdomain:subdomain
         },
     };
 }

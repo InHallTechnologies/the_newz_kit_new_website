@@ -12,7 +12,7 @@ import Styles from '../../styles/ContactUs.module.scss';
 const ContactUs = ({ firebaseUID, websiteDetails }) => {
     const [contactUs, setContactUs] = useState({name:'', emailId:'', phoneNumber:'', message:''});
     const [loading, setLoading] = useState(false);
-
+   
 
     const handleChange = (event) => {
         const  { name, value } = event.target;
@@ -90,10 +90,18 @@ const ContactUs = ({ firebaseUID, websiteDetails }) => {
 export async function getServerSideProps(context) {
     let subdomain = context.req.headers.host.split('.')[0]; 
     if (subdomain === 'localhost:3000' || subdomain === 'themasalakhabar' || subdomain === 'www'){
-        subdomain = "newsazamgarh";
+        subdomain = "NewzKit";
     }
-    const firebaseUID = await fetchFirebaseUID(subdomain);
-    const websiteDetails = await fetchWebsiteDetails(firebaseUID);
+    let firebaseUID = await fetchFirebaseUID(subdomain);
+    let websiteDetails = await fetchWebsiteDetails(firebaseUID);
+    if (!firebaseUID) {
+        firebaseUID = "HOME"
+    }
+
+    console.log(websiteDetails);
+    if (websiteDetails === "NOT FOUND") {
+        websiteDetails = {logo:'/logo.png'}
+    }
     return {
       props: {
           firebaseUID, websiteDetails

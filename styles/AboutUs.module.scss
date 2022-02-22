@@ -1,0 +1,84 @@
+.aboutUsContainer {
+    max-width: 90%;
+    margin: 0px auto;
+    .headerContainer {
+        .logo {
+            width: 150px;  
+            cursor: pointer;
+            padding: 20px 0;
+        }  
+    }
+
+    .mainContainer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+        min-height: 70vh;
+        .content {
+            display: flex;
+            flex-direction: column;
+            width:45%;
+            margin-top: 3%;
+            .sectionTitle {
+                border-bottom: 2px solid red;
+                align-self: flex-start;
+            }
+            
+            .paraOne, .paraTwo {
+                font-size: 1.2rem;
+            }
+            .paraOne {
+                margin-top: 20px;
+            }
+        }
+        .illustrationContainer {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .illustration {
+                width: 90%;
+            }
+        }
+    }
+
+    .footer {
+        background-color: #FF7D51;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 15px;
+        font-weight: bold;
+        color: white;
+        margin-top: 100px;
+        
+    }
+    
+}
+
+
+@media (max-width:1124px) {
+    .aboutUsContainer {
+        
+    
+        .mainContainer {
+            flex-direction: column;
+            .content {
+                width: 100%;
+            }
+            .illustrationContainer {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .illustration {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    
+}

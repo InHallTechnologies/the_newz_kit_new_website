@@ -36,8 +36,8 @@ const SupportUs = ({upiAddress, websiteDetails}) => {
 
 export async function getServerSideProps(context) {
     let subdomain = context.req.headers.host.split('.')[0];
-    if (subdomain === 'localhost:3000' || subdomain === 'themasalakhabar' || subdomain === 'www') {
-        subdomain = "newsazamgarh";
+    if (subdomain === 'localhost:3000' || subdomain === 'thenewzkit' || subdomain === 'www') {
+        subdomain = "NewzKit";
     }
     const firebaseUID = await fetchFirebaseUID(subdomain);
     const websiteDetails = await fetchWebsiteDetails(firebaseUID);
@@ -46,7 +46,8 @@ export async function getServerSideProps(context) {
         props: {
             upiAddress,
             firebaseUID,
-            websiteDetails
+            websiteDetails,
+            
         }, // will be passed to the page component as props
     }
 }

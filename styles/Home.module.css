@@ -4,3 +4,333 @@
     justify-content: center;
     align-items: center;
 }
+
+.container{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+    margin: 0 auto;
+}
+
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+    padding: 5px 0;
+}
+
+.navigationBackground {
+    position: absolute;
+    z-index: -2;
+    left: 0;
+    top: 0;
+    height: 200px;  
+}
+
+
+
+.logo {
+    width: 150px;  
+    cursor: pointer;
+    padding: 20px 0;
+}
+
+.navigationItem {
+   margin-left: 50px;  
+   text-decoration: none;
+   color: black;
+}
+
+
+/* Hero Space */
+
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.heroActionContainer {
+    display: flex;
+    align-items:center;
+    margin-bottom:40px
+}
+
+.dashboardButton {
+    margin-top:18px;
+    height:48px;
+    background-color:black;
+    font-weight:bold
+}
+
+.infoContainer {
+    margin-top: 10%;
+    width: 55%;
+}
+
+.illustrationContainer {
+    width: 45%;
+}
+
+.tagline {
+    color: #000;
+    font-size: 2.5rem;
+}
+.subLine {
+    font-size: 1.5rem;
+    color: #444;
+    margin-top: 10px;
+}
+
+.playStoreIcon {
+    width: 190px;
+    margin-top: 20px;
+}
+
+.mainIllustration {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* How it works */
+.howItWorksContainer {
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionTitle {
+    border-bottom: 2px solid red;
+    margin: 0 auto;
+}
+
+.howItWorksContent {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.featuresListContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin-top: 5rem;
+    grid-gap: 50px;
+}
+
+.featureContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fetureIcon {
+    width: 110px;
+}
+
+.featureLabel {
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+.featureDef {
+    font-size: 1.1rem;
+    margin-top: 2px;
+}
+
+
+/* A Complete Package */
+.packageListContainer {
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.packageListsContent {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 50px;
+}
+
+.packageLabel {
+    margin-top: 20px;
+}
+
+.packageContainer {
+   font-size: 1.1rem;
+}
+
+
+/* Footer */
+.footer {
+    background-color: #FF7D51;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+    font-weight: bold;
+    color: white;
+    margin-top: 100px;
+    
+}
+
+/* Teams Container */
+
+.teamsContainer {
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.teamListContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 60px;
+}
+
+.teamMemberContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.teamPicture {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 500px;
+}
+
+.teamName {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+.teamPosition {
+    font-size: 1rem;
+}
+
+
+.nothingToShowContainer {
+    display: flex;
+    height: 80vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.underConstruction {
+    margin-top: 20px;
+}
+
+.releaseStories {
+    font-size: 1.2rem;
+}
+
+.nothingToShowLogo {
+    width: 150px;
+}
+
+
+.topPerformersContainer {
+    
+}
+
+.performersList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap:20px;
+    max-height:500px;
+    overflow-y:scroll;
+}
+
+.performersContainer {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    cursor: pointer
+}
+
+.performersLogo {
+    width:150px;
+    height:150px;
+    border-radius:5px;
+    object-fit:contain;
+}
+
+.performersName {
+    font-size: 0.9rem;
+    margin-top:5px;
+    height:20px;
+}
+
+
+
+@media (max-width:1220px) {
+    .mainContainer {
+        flex-direction: column;
+       
+    }
+
+    .illustrationContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .infoContainer {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .mainIllustration {
+        width: 70%;
+        overflow: hidden;
+    }
+    
+}
+
+
+
+@media (max-width:1150px) {
+   
+
+    .mainContainer {
+        margin-top: 5%;
+    }
+}
+
+
+@media (max-width:750px) {
+    .mainIllustration {
+        width: 90%;
+        overflow: hidden;
+    }
+    
+}
+@media (max-width:640px) {
+    .packageContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
