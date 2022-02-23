@@ -12,9 +12,17 @@ const CategoryListContainer = ({ selectedCategories }) => {
 
     return (
         <div className={Styles.categoriesList}>
-           <div className={Styles.homeButtonContainer} onClick={_=> handleCategorySelect("")} >
-               <BiHomeAlt size={20} color={'#000'} />
-           </div>
+            <Button
+                onClick={(_) => handleCategorySelect("")}
+                sx={{
+                    marginRight: "10px",
+                    fontSize: "0.8rem",
+                    color: "black",
+                    minWidth: "110px",
+                    fontWeight: 'bold'
+                }}>
+                Home
+            </Button>
             {selectedCategories.map((item) => (
                 <Button
                     onClick={(_) => handleCategorySelect(item)}
@@ -24,7 +32,7 @@ const CategoryListContainer = ({ selectedCategories }) => {
                         fontSize: "0.8rem",
                         color: "black",
                         minWidth: "110px",
-                        fontWeight:'bold'
+                        fontWeight: 'bold'
                     }}
                 >
                     {item}

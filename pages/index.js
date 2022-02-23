@@ -70,7 +70,6 @@ export async function getServerSideProps(context) {
     }
     // const url = `http://localhost:3000/api/hello?subdomain=${subdomain}`;
     const url = `https://www.thenewzkit.com/api/hello?subdomain=${subdomain}`;
-
     let list = [];
     if (subdomain === 'home'){
         const listRef = ref(firebaseDatabase, `RANK_WISE_CHANNEL`);
