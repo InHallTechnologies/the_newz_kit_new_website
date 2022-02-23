@@ -47,7 +47,7 @@ export default function HomePage({ list }) {
           crossOrigin="anonymous"
         />
         
-        
+        {/* <link id="favicon" rel="shortcut icon" type="image/png" href={'/logo.png'} /> */}
       </Head>
 
       <header className={Styles.headerContainer}>
