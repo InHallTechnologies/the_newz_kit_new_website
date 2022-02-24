@@ -95,7 +95,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
 
     useEffect(() => {
         if (sessionId) {
-            logView(post.slug?post.slug:post.postId, sessionId);
+            logView(post.slug?post.slug:post.postId, sessionId, post.postId);
 
         }
     }, [sessionId, post])
