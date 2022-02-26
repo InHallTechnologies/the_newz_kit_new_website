@@ -26,7 +26,7 @@ const SupportUs = ({upiAddress, websiteDetails}) => {
                         </div>
                     </>
                     :
-                    <p><strong>{websiteDetails.fullName}</strong> has not updated there bank details.</p>
+                    <p><strong>{websiteDetails.fullName}</strong> has not updated there their details.</p>
                 }
                 
             </div>
