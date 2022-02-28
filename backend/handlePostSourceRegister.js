@@ -6,7 +6,7 @@ const handlePostSourceRegister = async (userId, sourceType, post) => {
     const date = new Date();
 
     if (eventType) {
-        var full = window.location.host
+        var full = eventType
         //window.location.host is subdomain.domain.com
         var parts = full.split('.')
         var domain = parts[1];
