@@ -22,7 +22,7 @@ const handlePostSourceRegister = async (userId, sourceType, post) => {
                 if (snapshot.exists()) {
                     await set(referenceRef, {
                         ...snapshot.val(),
-                        [eventType]: snapshot.val()[eventType] + 1
+                        [eventType]: snapshot.val()[eventType] ? snapshot.val()[eventType] + 1 : 1
                     });
                 }else {
                     await set(referenceRef, {
@@ -42,7 +42,8 @@ const handlePostSourceRegister = async (userId, sourceType, post) => {
                     await set(referenceRef, {
                         ...snapshot.val(),
                         views: {
-                            [eventType]: snapshot.val().views[eventType] + 1
+                            ...snapshot.val().views,
+                            [eventType]: snapshot.val().views[eventType] ?  snapshot.val().views[eventType] + 1 : 1
                         }
                     });
                 }else {

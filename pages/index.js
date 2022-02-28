@@ -27,7 +27,7 @@ export default function Home({ latest, allCategoryPosts, websiteDetails, subdoma
     }, [])
 
     if (subdomain === "home") {
-        return <HomePage list={list} />
+        return <HomePage list={list}  />
     }
 
     if (!latest.length) {
@@ -80,7 +80,6 @@ export async function getServerSideProps(context) {
             list = listSnapshot.val();
         }
     }
-    
 
     const dataResponse = await fetch(url);
     const data = await dataResponse.json();
@@ -90,7 +89,8 @@ export async function getServerSideProps(context) {
             allCategoryPosts: data.allCategoryPosts,
             websiteDetails: data.websiteDetails,
             subdomain:subdomain,
-            list
+            list,
+            
         },
     };
 }
