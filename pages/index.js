@@ -9,14 +9,13 @@ import {useEffect} from "react";
 import { query, ref, get, set } from 'firebase/database';
 import HomePage from "../components/Home";
 import { firebaseDatabase } from "../backend/firebaseHandler";
-import handlePostSourceRegister, { postSourceTypes } from "../backend/handlePostSourceRegister";
 
 
 export default function Home({ latest, allCategoryPosts, websiteDetails, subdomain, list }) {
 
 
     useEffect(() => {
-        handlePostSourceRegister("Home", postSourceTypes.WEBSITE)
+        
         var ads = document.getElementsByClassName("adsbygoogle").length;
         for (var i = 0; i < ads; i++) {
             try {

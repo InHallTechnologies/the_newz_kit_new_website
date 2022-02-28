@@ -10,9 +10,15 @@ import { Button } from "@mui/material";
 import router from 'next/router'
 import Script from 'next/script';
 import Link from 'next/link'
+import { useEffect } from 'react';
+import handlePostSourceRegister, { postSourceTypes } from '../backend/handlePostSourceRegister';
 
 
 export default function HomePage({ list }) {
+
+  useEffect(() => {
+    handlePostSourceRegister("Home", postSourceTypes.WEBSITE)
+  }, [])
 
   const handleDashboard = () => {
     router.push('https://dashboard.thenewzkit.com/')
