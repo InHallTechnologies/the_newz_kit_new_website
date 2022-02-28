@@ -13,19 +13,8 @@ import { firebaseDatabase } from "../backend/firebaseHandler";
 
 export default function Home({ latest, allCategoryPosts, websiteDetails, subdomain, list }) {
 
-    
 
     useEffect(() => {
-
-        const registerEvents = async () => {
-            console.log("hehehe")
-            const eventType = document.referrer;
-            const refereereRef = ref(firebaseDatabase, `REFERENCE_EVENTS/homepage/sample`);
-            await set(refereereRef, eventType);
-        }
-
-        registerEvents();
-
         var ads = document.getElementsByClassName("adsbygoogle").length;
         for (var i = 0; i < ads; i++) {
             try {

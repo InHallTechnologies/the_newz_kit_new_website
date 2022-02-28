@@ -16,7 +16,7 @@ export const fetchWebsiteDetails = async (firebaseUID) => {
 
     const websiteDetailsSnapshot = await get(websiteDetailsRef);
     if (websiteDetailsSnapshot.exists()) {
-        return websiteDetailsSnapshot.val();
+        return {...websiteDetailsSnapshot.val(), uid: firebaseUID};
     }else {
         return "NOT FOUND"
     }
