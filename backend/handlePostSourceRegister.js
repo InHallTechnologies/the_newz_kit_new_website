@@ -4,7 +4,17 @@ import { firebaseDatabase } from "./firebaseHandler";
 const handlePostSourceRegister = async (userId, sourceType, post) => {
     let eventType = document.referrer;
     const date = new Date();
-    eventType = eventType? eventType : "Organic";
+
+    if (eventType) {
+        var full = window.location.host
+        //window.location.host is subdomain.domain.com
+        var parts = full.split('.')
+        var domain = parts[1];
+        eventType = domain;
+    }else {
+        eventType = "Organic"
+    }
+    
     if (sourceType === postSourceTypes.WEBSITE) {
         const promise = new Promise(async (resolve, reject) => {
             const referenceRef = ref(firebaseDatabase, `REFERENCE_EVENTS/${userId}/${sourceType}/${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`);
@@ -12,12 +22,11 @@ const handlePostSourceRegister = async (userId, sourceType, post) => {
                 if (snapshot.exists()) {
                     await set(referenceRef, {
                         ...snapshot.val(),
-                        views: snapshot.val().views + 1
+                        [eventType]: snapshot.val()[eventType] + 1
                     });
                 }else {
                     await set(referenceRef, {
-                        views: 1,
-                        eventType: eventType,
+                        [eventType]: 1,
                     });
                 }
                 resolve();
@@ -32,7 +41,9 @@ const handlePostSourceRegister = async (userId, sourceType, post) => {
                 if (snapshot.exists()) {
                     await set(referenceRef, {
                         ...snapshot.val(),
-                        views: snapshot.val().views + 1
+                        views: {
+                            [eventType]: snapshot.val().views[eventType] + 1
+                        }
                     });
                 }else {
                     await set(referenceRef, {
@@ -41,8 +52,10 @@ const handlePostSourceRegister = async (userId, sourceType, post) => {
                         slug: post.slug?post.slug : post.postId,
                         postId: post.postId,
                         headline: post.headline,
-                        views: 1,
-                        eventType: eventType
+                        views: {
+                            [eventType]: 1
+                        },
+                       
                     });
                 }
                 resolve();
