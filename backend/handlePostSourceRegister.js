@@ -5,16 +5,17 @@ const handlePostSourceRegister = async (userId, sourceType, post) => {
     let eventType = document.referrer;
     const date = new Date();
 
-    if (eventType.includes('t.co')) {
-        eventType = "twitter"
-    }
+   
 
     if (eventType) {
-        var full = eventType
-        //window.location.host is subdomain.domain.com
-        var parts = full.split('.')
-        var domain = parts[1];
-        eventType = domain;
+        if (eventType.includes('t.co')) {
+            eventType = "twitter"
+        }else {
+            var full = eventType
+            var parts = full.split('.')
+            var domain = parts[1];
+            eventType = domain;
+        } 
     }else {
         eventType = "Organic"
     }
