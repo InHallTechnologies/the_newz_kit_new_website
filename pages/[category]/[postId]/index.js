@@ -12,6 +12,7 @@ import CategoryListContainer from '../../../components/CategoryListContianer.com
 import { uuid } from 'uuidv4';
 import Context from '../../../context/appContext';
 import logView from '../../../backend/logView';
+import handlePostSourceRegister, { postSourceTypes } from '../../../backend/handlePostSourceRegister';
 
 
 const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => {
@@ -77,7 +78,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
     }
 
     useEffect(() => {
-
+        
         fetchCategoryNews();
         fetchLatestpost();
         
@@ -95,6 +96,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
 
     useEffect(() => {
         if (sessionId) {
+            handlePostSourceRegister(websiteDetails.uid, postSourceTypes.STORY, post);
             logView(post.slug?post.slug:post.postId, sessionId, post.postId);
         }
     }, [sessionId, post])

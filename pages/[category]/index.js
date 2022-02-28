@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React, {useEffect} from 'react';
+import handlePostSourceRegister, { postSourceTypes } from '../../backend/handlePostSourceRegister';
 import CategoryListContainer from '../../components/CategoryListContianer.component';
 import Navigation from '../../components/Navigation.component';
 import PostArch from '../../components/PostArch.component';
@@ -8,6 +9,7 @@ import Styles from '../../styles/CategoryWisePosts.module.scss';
 const CategoryWisePosts = ({ category, data, websiteDetails }) => {
 
     useEffect(() => {
+        handlePostSourceRegister(websiteDetails.uid, postSourceTypes.WEBSITE);
         var ads = document.getElementsByClassName("adsbygoogle").length;
         for (var i = 0; i < ads; i++) {
             try {
