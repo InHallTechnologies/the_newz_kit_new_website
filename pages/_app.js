@@ -10,7 +10,7 @@ import { logEvent, setCurrentScreen } from 'firebase/analytics';
 import { hotjar } from 'react-hotjar'
 
 
-
+ThemeProvider
 
 const theme = createTheme({
     palette: {

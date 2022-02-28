@@ -6,7 +6,7 @@ import Navigation from "../components/Navigation.component";
 import NoPostUploaded from "../components/NoPostUploaded.component";
 import styles from "../styles/Home.module.css";
 import {useEffect} from "react";
-import { query, ref, get } from 'firebase/database';
+import { query, ref, get, set } from 'firebase/database';
 import HomePage from "../components/Home";
 import { firebaseDatabase } from "../backend/firebaseHandler";
 
@@ -16,6 +16,16 @@ export default function Home({ latest, allCategoryPosts, websiteDetails, subdoma
     
 
     useEffect(() => {
+
+        const registerEvents = async () => {
+            console.log("hehehe")
+            const eventType = document.referrer;
+            const refereereRef = ref(firebaseDatabase, `REFERENCE_EVENTS/homepage/sample`);
+            await set(refereereRef, eventType);
+        }
+
+        registerEvents();
+
         var ads = document.getElementsByClassName("adsbygoogle").length;
         for (var i = 0; i < ads; i++) {
             try {
