@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 
 export default function Document() {
-   
+
     return (
         <Html>
             <Head>
@@ -19,12 +19,12 @@ export default function Document() {
 
             </Head>
             <body>
-            <Main />
-            <NextScript />
-            <script
-                data-ad-client="ca-pub-2505151384138527"
-                async
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
+                <Main />
+                <NextScript />
+                <script
+                    data-ad-client="ca-pub-2505151384138527"
+                    async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
             </body>
         </Html>
     );
