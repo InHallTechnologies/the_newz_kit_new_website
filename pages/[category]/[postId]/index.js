@@ -23,8 +23,6 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
     const [contentDescription, setContentDescription] = useState('');
     const [sessionId, setSessionId] = useContext(Context);
 
-    console.log(content)
-
     const fetchCategoryNews = async () => {
         const categoryNewsRef = ref(firebaseDatabase, `CATEGORY_WISE_POSTS/${firebaseUID}/${category}`);
         const categoryNewsQuery = query(categoryNewsRef, limitToLast(10));
@@ -152,7 +150,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                         {
                             type === 'YOUTUBE'
                             ?
-                            <iframe width="100%" height="512" src={`https://www.youtube.com/embed/${videoUrl.split('/')[3]}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            <iframe className={Styles.mainPostImage} src={`https://www.youtube.com/embed/${videoUrl.split('/')[3]}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                             :
                             <img className={Styles.mainPostImage} src={bannerPhoto} alt={bannerName?bannerName:headline} />
 
@@ -230,16 +228,16 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                                         <PostArch key={item.postId} item={item} />
                                         {
                                             index % 3 === 0
-                                                ?
-                                                <div align={'center'}>
-                                                    <ins className="adsbygoogle"
-                                                         style={{display:"inline-block",width:"250px",height:"250px"}}
-                                                         data-ad-client="ca-pub-2505151384138527"
-                                                         align='center'
-                                                         data-ad-slot="9168079861"></ins>
-                                                </div>
-                                                :
-                                                null
+                                            ?
+                                            <div align={'center'}>
+                                                <ins className="adsbygoogle"
+                                                     style={{display:"inline-block",width:"250px",height:"250px"}}
+                                                     data-ad-client="ca-pub-2505151384138527"
+                                                     align='center'
+                                                     data-ad-slot="9168079861"></ins>
+                                            </div>
+                                            :
+                                            null
                                         }
                                     </>
                                 )
