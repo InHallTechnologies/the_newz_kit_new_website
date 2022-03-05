@@ -19,9 +19,11 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
     const [crimeNewsList, setCrimeNewsList] = useState([]);
     const [latestPost, setLatestPost] = useState([]);
     const [loading, setLoading] = useState(true);
-    const { headline, bannerName, bannerPhoto, content, reporterName, postReleaseDate, postReleaseTime } = post;
+    const { headline, bannerName, bannerPhoto, content, reporterName, postReleaseDate, postReleaseTime, type, videoUrl } = post;
     const [contentDescription, setContentDescription] = useState('');
     const [sessionId, setSessionId] = useContext(Context);
+
+    console.log(content)
 
     const fetchCategoryNews = async () => {
         const categoryNewsRef = ref(firebaseDatabase, `CATEGORY_WISE_POSTS/${firebaseUID}/${category}`);
@@ -122,7 +124,6 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
             </Head>
             <header>
                 <Navigation logo={websiteDetails.logo} />
-
             </header>
             
             <main>
@@ -148,7 +149,14 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                             <p style={{color:'#444'}}>{postReleaseDate}</p>
                             <p style={{marginLeft:'15px', color:'#444'}}>{postReleaseTime} IST</p>
                         </div>
-                        <img className={Styles.mainPostImage} src={bannerPhoto} alt={bannerName?bannerName:headline} />
+                        {
+                            type === 'YOUTUBE'
+                            ?
+                            <iframe width="100%" height="512" src={`https://www.youtube.com/embed/${videoUrl.split('/')[3]}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            :
+                            <img className={Styles.mainPostImage} src={bannerPhoto} alt={bannerName?bannerName:headline} />
+
+                        }
                         <div className={Styles.contentContainer} dangerouslySetInnerHTML={{__html:content}}>
 
                         </div>
