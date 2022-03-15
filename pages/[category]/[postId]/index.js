@@ -23,6 +23,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
     const [contentDescription, setContentDescription] = useState('');
     const [sessionId, setSessionId] = useContext(Context);
 
+
     const fetchCategoryNews = async () => {
         const categoryNewsRef = ref(firebaseDatabase, `CATEGORY_WISE_POSTS/${firebaseUID}/${category}`);
         const categoryNewsQuery = query(categoryNewsRef, limitToLast(10));

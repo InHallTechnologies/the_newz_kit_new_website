@@ -11,10 +11,12 @@ export default async function handler(req, res) {
     const websiteDetails = await fetchWebsiteDetails(firebaseUID);
     const postSlugId = await fetchPostId(postId)
     const allPostsReference = ref(firebaseDatabase,`CATEGORY_WISE_POSTS/${firebaseUID}/${category}/${postSlugId}`);
+    
     onValue(allPostsReference, async (allPostSnapshot) => {
         let post = {}
         if (allPostSnapshot.exists()) {
             post = await allPostSnapshot.val();
+            
             post.content = post.content.split("font-size: 24px;").join("font-size: 1.2rem;");
             post.content = DOMPurify.sanitize(post.content, { ADD_TAGS: ["iframe"], ADD_ATTR: ['allowfullscreen', 'scrolling'] });
             

@@ -86,6 +86,10 @@ export default function HomePage({ list }) {
             </li>
 
             <li className="nav-item">
+              <Button className="nav-link" href="/terms-of-service">Terms and Conditions</Button>
+            </li>
+
+            <li className="nav-item">
               <Button className="nav-link" href="#Team">Team</Button>
             </li>
           </ul>
