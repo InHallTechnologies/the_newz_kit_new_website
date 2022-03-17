@@ -1,0 +1,225 @@
+.container {
+    .mainContent {
+        max-width: 95%;
+        margin: 0 auto;
+        .logo {
+            height: 90px;
+            margin-top: 20px;
+        }
+
+        .heroSpace {
+            display: flex;
+            align-items: center;
+            .contentContainer {
+                flex: 0.5;
+
+                .sectionTitle {
+                    font-size: 2.7rem;
+                    color: #020202;
+                }
+                .contentText {
+                    font-size: 1.7rem;
+                    color: #2e2e2e;
+                }
+            }
+
+            .heroIllustrationContainer {
+                flex: 0.5;
+                .heroIllustration {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .categoryContainer {
+            margin-top: 5rem;
+            .sectionTitle {
+                font-size: 2rem;
+                color: #020202;
+            }
+            .contentText {
+                font-size: 1.3rem;
+                color: #2e2e2e;
+            }
+            .contentList {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-gap: 20px;
+                margin-top: 20px;
+                .categoriesItemContainer {
+                    display: flex;
+                    align-items: center;
+                    background-color: #dfdfdf1e;
+                    padding: 15px 20px;
+                    .categoriesIcon {
+                        width: 50px;
+                        height: 50px;
+                    }
+                    .categoriesName {
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+
+        .featuresContainer {
+            margin-top: 5rem;
+            .sectionTitle {
+                font-size: 2rem;
+                color: #020202;
+            }
+
+            .contentList {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-gap: 20px;
+                margin-top: 20px;
+                .categoriesItemContainer {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    padding: 15px 20px;
+                    background-color: #dfdfdf1e;
+                    .categoriesIcon {
+                        width: 80px;
+                        height: 80px;
+                    }
+                    .categoriesName {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .footerContainer {
+        background-color: #ff0000;
+        margin-top: 50px;
+        padding: 10px;
+        font-weight: bold;
+        color: white;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1300px) {
+    .container {
+        .mainContent {
+            .logo {
+                height: 80px;
+            }
+
+            .heroSpace {
+                display: flex;
+                align-items: center;
+                .contentContainer {
+                    flex: 0.6;
+                    .sectionTitle {
+                        font-size: 2.4rem;
+                    }
+                    .contentText {
+                        font-size: 1.4rem;
+                    }
+                }
+
+                .heroIllustrationContainer {
+                    flex: 0.4;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        .mainContent {
+            .logo {
+                height: 80px;
+            }
+
+            .heroSpace {
+                display: flex;
+                align-items: center;
+                margin-top: 20px;
+                .contentContainer {
+                    flex: 0.5;
+                    .sectionTitle {
+                        font-size: 2.4rem;
+                    }
+                    .contentText {
+                        font-size: 1.4rem;
+                    }
+                }
+
+                .heroIllustrationContainer {
+                    flex: 0.5;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .container {
+        .mainContent {
+            .logo {
+                height: 80px;
+            }
+
+            .heroSpace {
+                display: flex;
+                align-items: center;
+                margin-top: 20px;
+                flex-direction: column;
+                .contentContainer {
+                    flex: 1;
+                    .sectionTitle {
+                        font-size: 2.4rem;
+                    }
+                    .contentText {
+                        font-size: 1.4rem;
+                    }
+                }
+
+                .heroIllustrationContainer {
+                    flex: 1;
+                    width: 500px;
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        .mainContent {
+            .logo {
+                height: 80px;
+            }
+
+            .heroSpace {
+                display: flex;
+                align-items: center;
+                margin-top: 20px;
+                flex-direction: column;
+                .contentContainer {
+                    flex: 1;
+                    .sectionTitle {
+                        font-size: 2rem;
+                    }
+                    .contentText {
+                        font-size: 1.1rem;
+                    }
+                }
+
+                .heroIllustrationContainer {
+                    flex: 1;
+                    width: 300px;
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+}
