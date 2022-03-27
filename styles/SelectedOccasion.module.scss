@@ -1,0 +1,98 @@
+.container {
+    display: flex;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 30px;
+    .mediaContainer {
+        flex: 0.5;
+        .media {
+            width: 100%;
+            object-fit: cover;
+            height: 500px;
+            border-radius: 10px;
+        }
+    }
+    .occasionDetail {
+        margin: 15px;
+        flex: 0.5;
+    }
+    .commentsContainer {
+        margin-top: 20px;
+        .commentsList {
+            display: grid;
+            grid-gap: 20px;
+            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            .wishContainer {
+                background-color: rgb(243, 243, 243);
+                padding: 10px 15px;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    .container {
+        .mediaContainer {
+            flex: 0.6;
+            .media {
+                width: 100%;
+                height: 550px;
+            }
+        }
+        .occasionDetail {
+            margin: 15px;
+            flex: 0.4;
+        }
+    }
+}
+
+@media (max-width: 1166px) {
+    .container {
+        .mediaContainer {
+            flex: 0.5;
+            .media {
+                width: 100%;
+                height: 550px;
+            }
+        }
+        .occasionDetail {
+            margin: 5px 10px;
+            flex: 0.5;
+        }
+    }
+}
+
+@media (max-width: 936px) {
+    .container {
+        flex-direction: column;
+        .mediaContainer {
+            flex: 1;
+            .media {
+                width: 100%;
+                height: 500px;
+            }
+        }
+        .occasionDetail {
+            margin: 5px 0px;
+            flex: 1;
+        }
+    }
+}
+
+@media (max-width: 552px) {
+    .container {
+        .mediaContainer {
+            .media {
+                width: 100%;
+                height: 400px;
+            }
+        }
+        .occasionDetail {
+            margin: 5px 0px;
+        }
+    }
+}

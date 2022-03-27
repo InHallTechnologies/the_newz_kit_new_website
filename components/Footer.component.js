@@ -2,6 +2,7 @@ import React from 'react';
 import Styles from '../styles/Footer.module.scss';
 import { BsFacebook, BsTwitter, BsYoutube } from "react-icons/bs";
 import Link from 'next/link';
+import Router from 'next/router';
 
 
 const Footer = ({style}) => {
@@ -10,8 +11,8 @@ const Footer = ({style}) => {
         <footer style={style} className={Styles.footerContainer}>
             <div className={Styles.topContainer}>
                 <div className={Styles.socialIconsContainer}>
-                    <BsFacebook size={25} color="#fff" />
-                    <BsTwitter size={25} color="#fff" style={{margin: "0 20px"}} />
+                    <BsFacebook size={25} color="#fff" onClick={_ => Router.push('https://www.facebook.com/thenewzkit')} />
+                    <BsTwitter size={25} color="#fff" style={{margin: "0 20px"}} onClick={_ => Router.push('https://twitter.com/thenewzkit')} />
                     <BsYoutube size={25} color="#fff" />
                 </div>
                 <div className={Styles.actionContainer}>

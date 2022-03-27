@@ -1,0 +1,62 @@
+.Container {
+    display: flex;
+    background-color: white;
+    padding: 15px 10px;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: 2px 1px 5px 0px rgba(231, 231, 231, 0.75);
+    -webkit-box-shadow: 2px 1px 5px 0px rgba(231, 231, 231, 0.75);
+    -moz-box-shadow: 2px 1px 5px 0px rgba(231, 231, 231, 0.75);
+    .mediaContainer {
+        .media {
+            border-radius: 10px;
+            height: 100%;
+            object-fit: cover;
+            width: 190px;
+            max-height: 190px;
+            min-height: 190px;
+        }
+    }
+    .adsContentContainer {
+        margin-left: 20px;
+        .type {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+        .occationFor {
+        }
+        .occasionMessage {
+            margin-top: 5px;
+        }
+    }
+}
+
+
+@media (max-width:650px) {
+    .Container {
+        flex-direction: column;
+        .mediaContainer {
+            width: 100%;
+            
+            .media {
+                border-radius: 10px;
+                height: 160px;
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+        .adsContentContainer {
+            margin-left: 20px;
+            .type {
+                font-size: 1.4rem;
+                margin: 0;
+            }
+            .occationFor {
+            }
+            .occasionMessage {
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
