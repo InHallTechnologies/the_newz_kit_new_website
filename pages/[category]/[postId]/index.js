@@ -216,7 +216,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                     </div>
                 </div>
                 <Divider sx={{marginTop:'10px'}} />
-                <div id="M775976ScriptRootC1290887"></div>
+                
                 <div className={Styles.latestNewsContainer}>
                     <h2 className={Styles.latestPostLabel}>Latest News</h2>
                     <div className={Styles.latestPostList} >
@@ -244,7 +244,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                         }
                     </div>
                 </div>
-
+                <div id="M775976ScriptRootC1290887"></div>
             </main>
             <Footer />
         </div>
