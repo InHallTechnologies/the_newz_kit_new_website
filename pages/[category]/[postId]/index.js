@@ -131,12 +131,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                 </div>
 
                 <div className={Styles.homeAdsContainer}>
-                    <ins className="adsbygoogle"
-                         style={{display:'inline-block', margin:'20px auto',width:'350px', height:'90px', border:'1px solid black'}}
-                         data-ad-client="ca-pub-2505151384138527"
-                         data-ad-slot="1655269971"
-
-                    />
+                    <div style={{minHeight:"300px", border:'1px solid black'}} id="M775976ScriptRootC1290883"></div>
                 </div>
 
                 <div className={Styles.viewPostContent}>
@@ -159,6 +154,8 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                         <div className={Styles.contentContainer} dangerouslySetInnerHTML={{__html:content}}>
 
                         </div>
+
+                        
 
                         
                     </div>
@@ -209,6 +206,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                                 })
                             }
                         </div>
+                        
                         <ins className="adsbygoogle"
                              style={{display:"block", textAlign:'center', marginTop:'20px'}}
                              data-ad-layout="in-article"
@@ -217,8 +215,8 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                              data-ad-slot="3697455905"></ins>
                     </div>
                 </div>
-
                 <Divider sx={{marginTop:'10px'}} />
+                <div id="M775976ScriptRootC1290887"></div>
                 <div className={Styles.latestNewsContainer}>
                     <h2 className={Styles.latestPostLabel}>Latest News</h2>
                     <div className={Styles.latestPostList} >

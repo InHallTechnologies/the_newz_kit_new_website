@@ -17,6 +17,7 @@ export default function Document() {
                     rel="stylesheet"
                 />
                 <script src="https://jsc.mgid.com/t/h/thenewzkit.com.1290883.js" async></script>
+                <script src="https://jsc.mgid.com/t/h/thenewzkit.com.1290887.js" async></script>
             </Head>
             <body>
                 <Main />

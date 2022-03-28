@@ -1,8 +1,7 @@
 .ViewPostPageContainer {
     .homeAdsContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+       max-width: 95%;
+       margin: 0 auto;
     }
     .categoryListContainer {
         width: 95%;
