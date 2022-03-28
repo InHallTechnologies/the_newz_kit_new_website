@@ -131,7 +131,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                 </div>
 
                 <div className={Styles.homeAdsContainer}>
-                    <div style={{minHeight:"300px", border:'1px solid black'}} id="M775976ScriptRootC1290883"></div>
+                    <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div>
                 </div>
 
                 <div className={Styles.viewPostContent}>
