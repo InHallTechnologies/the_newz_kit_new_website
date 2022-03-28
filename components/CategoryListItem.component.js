@@ -8,14 +8,14 @@ import styles from "../styles/Home.module.css";
 const CategoryListItem = ({ item }) => {
 
     useEffect(() => {
-        var ads = document.getElementsByClassName("adsbygoogle").length;
-        for (var i = 0; i < ads; i++) {
-            try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            } catch (e) {
+        // var ads = document.getElementsByClassName("adsbygoogle").length;
+        // for (var i = 0; i < ads; i++) {
+        //     try {
+        //         (adsbygoogle = window.adsbygoogle || []).push({});
+        //     } catch (e) {
 
-            }
-        }
+        //     }
+        // }
     }, [])
 
     const handleCategoryClick = (category) => {
@@ -40,13 +40,14 @@ const CategoryListItem = ({ item }) => {
                 }
             </div>
             <div align={'center'} style={{margin:'50px 0'}} >
-                <ins className="adsbygoogle"
+            <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div>
+                {/* <ins className="adsbygoogle"
                      style={{display:'block', marginTop:'20px'}}
                      data-ad-client="ca-pub-2505151384138527"
                      data-ad-slot="7050275925"
                      data-ad-format="auto"
                      align="center"
-                     data-full-width-responsive="true"></ins>
+                     data-full-width-responsive="true"></ins> */}
             </div>
         </div>
     );

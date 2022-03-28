@@ -16,7 +16,7 @@ export default function Document() {
                     href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap"
                     rel="stylesheet"
                 />
-
+                <script src="https://jsc.mgid.com/t/h/thenewzkit.com.1290883.js" async></script>
             </Head>
             <body>
                 <Main />
