@@ -3,11 +3,11 @@ import React from "react";
 import Styles from '../styles/NewzKitAdsArch.module.scss';
 
 
-const NewzKitAdsArch = ({occasion, handlePress}) => {
+const NewzKitAdsArch = ({occasion, handlePress, style}) => {
    
 
     return(
-        <div className={Styles.Container}>
+        <div className={Styles.Container}  style={style?style: {maxWidth:'400px'}}>
             <div className={Styles.mediaContainer}>
                 <img className={Styles.media} src={occasion.mediaUrl} />
             </div>

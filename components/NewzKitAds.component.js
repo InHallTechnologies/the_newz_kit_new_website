@@ -13,7 +13,7 @@ const NewzKitAds = () => {
 
     useEffect(() => {
         const globalClassifiedRef = ref(firebaseDatabase, `NEWZKIT_ADS_ARCHIVE/GLOBAL`);
-        const firebaseQuery = query(globalClassifiedRef, limitToLast(3));
+        const firebaseQuery = query(globalClassifiedRef, limitToLast(5));
         onValue(firebaseQuery, (snapshot) => {
             if (snapshot.exists()){
                 const data = [];
@@ -21,6 +21,7 @@ const NewzKitAds = () => {
                     const post = snapshot.child(postKey).val();
                     data.push(post)
                 }
+                data.reverse()
                setOccasion(data)
                setLoading(false)
             }
@@ -46,7 +47,13 @@ const NewzKitAds = () => {
                 :
                 <div className={Styles.archArchList}>
                     {
-                        occasion.map(item => <NewzKitAdsArch handlePress={handleOccasionAction} key={item.adsUID} occasion={item} />)
+                        occasion.map(item => {
+                            return (
+                                <div className={Styles.archWrapper} key={item.adsUID}>
+                                     <NewzKitAdsArch handlePress={handleOccasionAction} occasion={item} />
+                                </div>
+                            )
+                        })
                     }
                 </div>
             }
