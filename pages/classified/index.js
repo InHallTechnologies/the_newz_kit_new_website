@@ -17,12 +17,8 @@ const Classified = ({ websiteDetails, firebaseUID, occasionList }) => {
     const [title, setTitle] = useState("")
 
     useEffect(() => {
-        router.events.on("routeChangeStart", handlePostSelection)
         handlePostSelection()
-        return () => {
-            router.events.off('routeChangeStart', handlePostSelection)
-        }
-    }, [])
+    }, [router.query.occasion_id])
 
     const handlePostSelection = () => {
         if (router.query.occasion_id) {
@@ -38,6 +34,7 @@ const Classified = ({ websiteDetails, firebaseUID, occasionList }) => {
     }
 
     const handleOccasionAction = (occasionId) => {
+        console.log(occasionId)
         router.push(`/classified?occasion_id=${occasionId}`)
     }
 
