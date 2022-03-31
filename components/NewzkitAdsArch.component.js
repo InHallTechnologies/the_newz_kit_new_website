@@ -7,7 +7,7 @@ const NewzKitAdsArch = ({occasion, handlePress, style}) => {
    
 
     return(
-        <div className={Styles.Container}  style={style?style: {maxWidth:'400px'}}>
+        <div className={Styles.Container}  style={style?style: {maxWidth:'290px'}}>
             <div className={Styles.mediaContainer}>
                 <img className={Styles.media} src={occasion.mediaUrl} />
             </div>
