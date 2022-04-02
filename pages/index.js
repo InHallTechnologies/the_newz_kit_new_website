@@ -47,7 +47,7 @@ export default function Home({ latest, allCategoryPosts, websiteDetails, subdoma
                 
             </Head>
             <header>
-                <Navigation logo={websiteDetails.logo} />
+                <Navigation logo={websiteDetails.logo} facebookUrl={websiteDetails.facebookUrl} twitterUrl={websiteDetails.twitterUrl} youtubeLink={websiteDetails.youtubeLink} />
             </header>
             <div className={styles.homeAdsContainer}>
                 <ins className="adsbygoogle"

@@ -5,7 +5,7 @@ import { BsFacebook, BsTwitter, BsYoutube } from "react-icons/bs";
 import Router from "next/router";
 import MobileNavigation from "./MobileNavigation.component";
 
-const Navigation = ({ logo }) => {
+const Navigation = ({ logo, youtubeLink, facebookUrl, twitterUrl }) => {
     
     let subdomain = "";
     try {
@@ -23,6 +23,10 @@ const Navigation = ({ logo }) => {
     const handleHome = () => {
         Router.push("/");
     };
+
+    const handleSocialIcons = (link) => {
+        Router.push(link)
+    }
 
     return (
         <div className={Styles.navigationContainer}>
@@ -49,16 +53,19 @@ const Navigation = ({ logo }) => {
                         className={Styles.socialIcons}
                         size={20}
                         color="#444"
+                        onClick={ _ => handleSocialIcons(facebookUrl)}
                     />
                     <BsTwitter
                         className={Styles.socialIcons}
                         size={20}
                         color="#444"
+                        onClick={ _ => handleSocialIcons(twitterUrl)}
                     />
                     <BsYoutube
                         className={Styles.socialIcons}
                         size={20}
                         color="#444"
+                        onClick={ _ => handleSocialIcons(youtubeLink)}
                     />
                 </div>
                 <div className={Styles.iconContainer}>
