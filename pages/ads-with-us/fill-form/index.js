@@ -70,7 +70,7 @@ const FillForms = ({ subdomain, firebaseUID }) => {
                 <img className={Styles.logo} src='/logo.png' />
                 <div className={Styles.content} >
                     <h1>Lets begin!</h1>
-                    <p>Please provide some basic details so we get a better understanding of your ads</p>
+                    <p>Please provide more details for your ads</p>
 
                     <div className={Styles.formContainer} >
                         <TextField name="name" value={formData.name} onChange={handleChange} className={Styles.firstHalf} id="outlined-basic" label="Name" variant="outlined" />
