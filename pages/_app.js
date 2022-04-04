@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
         const logCurrentEvents = (url) => {
             logEvent(analytics, 'screen_view');
             setCurrentScreen(analytics, url);
-            logEvent(analytics, window.location.hostname);
+            // logEvent(analytics, window.location.hostname);
         }
         logCurrentEvents(window.location.pathname)
         hotjar.initialize(2726846,6)
