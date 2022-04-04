@@ -5,6 +5,7 @@ import Styles from '../../../styles/FillForm.module.scss';
 import { ref, set, push } from 'firebase/database'
 import { firebaseDatabase } from '../../../backend/firebaseHandler';
 import Head from 'next/head';
+import NewzKitAds from '../../../components/NewzKitAds.component';
 
 
 const FillForms = ({ subdomain, firebaseUID }) => {
@@ -98,7 +99,11 @@ const FillForms = ({ subdomain, firebaseUID }) => {
 
                         <TextField name='location' value={formData.location} onChange={handleChange} className={Styles.endToEnd} id="outlined-basic" label="Location"  variant="outlined" placeholder='City, District, State' />
                         <Button onClick={handleSubmit} className={Styles.endToEnd} variant='contained' sx={{width:"200px", margin:'0 auto'}} >Submit Form</Button>
+                        
                     </div>
+                    {/* <div className={Styles.adsContainer}>
+                        <NewzKitAds />
+                    </div> */}
                 </div>
             </div>
 
