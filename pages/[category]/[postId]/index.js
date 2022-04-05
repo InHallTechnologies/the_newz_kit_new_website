@@ -69,6 +69,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
 
 
         var ads = document.getElementsByClassName("adsbygoogle").length;
+        console.log(ads)
         for (var i = 0; i < ads; i++) {
             try {
                 (adsbygoogle = window.adsbygoogle || []).push({});
@@ -234,7 +235,15 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                     </div>
                 </div>
                 <Divider sx={{marginTop:'10px'}} />
-                
+                <div className={Styles.homeAdsContainer}>
+                    {/* <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div> */}
+                    <ins className="adsbygoogle"
+                        style={{display:'block'}}
+                        data-ad-client="ca-pub-2505151384138527"
+                        data-ad-slot="9623915408"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                </div>
                 <div className={Styles.latestNewsContainer}>
                     <h2 className={Styles.latestPostLabel}>Latest News</h2>
                     <div className={Styles.latestPostList} >
@@ -242,31 +251,21 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                             latestPost.map((item, index) => {
                                 return (
                                     <>
-                                        <PostArch key={item.postId} item={item} />
-                                        {
-                                            index % 3 === 0
-                                            ?
-                                            <div align={'center'}>
-                                                {/* <ins className="adsbygoogle"
-                                                     style={{display:"inline-block",width:"250px",height:"250px"}}
-                                                     data-ad-client="ca-pub-2505151384138527"
-                                                     align='center'
-                                                     data-ad-slot="9168079861"></ins> */}
-                                                     <ins className="adsbygoogle"
-                                                        style={{display:'block', textAlign:'center'}}
-                                                        data-ad-layout="in-article"
-                                                        data-ad-format="fluid"
-                                                        data-ad-client="ca-pub-2505151384138527"
-                                                        data-ad-slot="3697455905"></ins>
-                                            </div>
-                                            :
-                                            null
-                                        }
+                                        <PostArch key={item.postId} item={item} />  
                                     </>
                                 )
                             })
                         }
                     </div>
+                </div>
+                <div className={Styles.homeAdsContainer}>
+                    {/* <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div> */}
+                    <ins className="adsbygoogle"
+                        style={{display:'block'}}
+                        data-ad-client="ca-pub-2505151384138527"
+                        data-ad-slot="9623915408"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
                 </div>
                 <div style={{width:'95%', margin:'0 auto'}} id="M775976ScriptRootC1290887"></div>
             </main>
