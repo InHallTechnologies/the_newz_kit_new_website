@@ -140,7 +140,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                     <CategoryListContainer selectedCategories={websiteDetails.selectedCategories}  />
                 </div>
 
-                <div className={Styles.homeAdsContainer}>
+                <div align="center" className={Styles.homeAdsContainer}>
                     {/* <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div> */}
                     <ins className="adsbygoogle"
                         style={{display:'block'}}
@@ -235,7 +235,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                     </div>
                 </div>
                 <Divider sx={{marginTop:'10px'}} />
-                <div className={Styles.homeAdsContainer}>
+                <div align="center" className={Styles.homeAdsContainer}>
                     {/* <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div> */}
                     <ins className="adsbygoogle"
                         style={{display:'block'}}
@@ -258,7 +258,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                         }
                     </div>
                 </div>
-                <div className={Styles.homeAdsContainer}>
+                <div align="center" className={Styles.homeAdsContainer}>
                     {/* <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div> */}
                     <ins className="adsbygoogle"
                         style={{display:'block'}}
