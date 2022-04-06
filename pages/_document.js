@@ -26,6 +26,11 @@ export default function Document() {
                     data-ad-client="ca-pub-2505151384138527"
                     async
                     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
+                   
+                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-624d499d1b655f34">
+                    
+                </script>
+
             </body>
         </Html>
     );
