@@ -13,6 +13,7 @@ import { uuid } from 'uuidv4';
 import Context from '../../../context/appContext';
 import logView from '../../../backend/logView';
 import handlePostSourceRegister, { postSourceTypes } from '../../../backend/handlePostSourceRegister';
+import InArticleAds from '../../../components/InArticleAds.component';
 
 
 const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => {
@@ -219,7 +220,10 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                                             <div className={Styles.dividerContainer} >
                                                 <Divider sx={{margin: "10px 0"}} />
                                             </div>
-
+                                            <InArticleAds />
+                                            <div className={Styles.dividerContainer} >
+                                                <Divider sx={{margin: "10px 0"}} />
+                                            </div>
                                         </div>
                                     )
                                 })
