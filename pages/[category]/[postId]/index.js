@@ -270,6 +270,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                 <div style={{width:'95%', margin:'0 auto'}} id="M775976ScriptRootC1290887"></div>
             </main>
             <Footer />
+            
         </div>
     )
 }
