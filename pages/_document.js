@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 
 export default function Document() {
@@ -18,6 +19,7 @@ export default function Document() {
                 />
                 <script src="https://jsc.mgid.com/t/h/thenewzkit.com.1290883.js" async></script>
                 <script src="https://jsc.mgid.com/t/h/thenewzkit.com.1290887.js" async></script>
+                <Script async src="https://www.googletagmanager.com/gtag/js?id=G-5FHLR48Z3F"></Script>
             </Head>
             <body>
                 <Main />

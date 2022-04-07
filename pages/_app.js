@@ -7,10 +7,10 @@ import Router from "next/router";
 import ProgressBar from "@badrap/bar-of-progress";
 import {analytics} from "../backend/firebaseHandler";
 import { logEvent, setCurrentScreen } from 'firebase/analytics';
-import { hotjar } from 'react-hotjar'
+import { hotjar } from 'react-hotjar';
+import ReactGA from 'react-ga';
 
 
-ThemeProvider
 
 const theme = createTheme({
     palette: {
@@ -34,13 +34,23 @@ function MyApp({ Component, pageProps }) {
     });
 
     useEffect(() => {
+
+        // Firebase analytics
         const logCurrentEvents = (url) => {
             logEvent(analytics, 'screen_view');
             setCurrentScreen(analytics, url);
+            ReactGA.pageview(url);
             // logEvent(analytics, window.location.hostname);
         }
         logCurrentEvents(window.location.pathname)
         hotjar.initialize(2726846,6)
+
+
+        // Google Analytics setup
+        ReactGA.initialize("G-5FHLR48Z3F")
+        
+
+        // Web progress Setup
         Router.events.on("routeChangeStart", progress.start);
         Router.events.on("routeChangeComplete", (url) => {
             progress.finish();
@@ -48,6 +58,8 @@ function MyApp({ Component, pageProps }) {
         });
         Router.events.on("routeChangeError", progress.finish);
 
+
+        // Clarity setup
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
