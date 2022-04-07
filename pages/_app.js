@@ -8,8 +8,7 @@ import ProgressBar from "@badrap/bar-of-progress";
 import {analytics} from "../backend/firebaseHandler";
 import { logEvent, setCurrentScreen } from 'firebase/analytics';
 import { hotjar } from 'react-hotjar';
-import ReactGA from 'react-ga';
-
+import ReactGA from 'react-ga4';
 
 
 const theme = createTheme({
@@ -39,7 +38,7 @@ function MyApp({ Component, pageProps }) {
         const logCurrentEvents = (url) => {
             logEvent(analytics, 'screen_view');
             setCurrentScreen(analytics, url);
-            ReactGA.pageview(url);
+            ReactGA.send({ hitType: "pageview", page: url });
             // logEvent(analytics, window.location.hostname);
         }
         logCurrentEvents(window.location.pathname)
@@ -47,7 +46,7 @@ function MyApp({ Component, pageProps }) {
 
 
         // Google Analytics setup
-        ReactGA.initialize("G-5FHLR48Z3F")
+        ReactGA.initialize("G-5FHLR48Z3F");
         
 
         // Web progress Setup
