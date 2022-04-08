@@ -44,7 +44,7 @@ export default function Home({ latest, allCategoryPosts, websiteDetails, subdoma
                 <meta property="og:description"        content={websiteDetails.description} />
                 <meta property="og:image"              content={websiteDetails.logo} />
                 <link id="favicon" rel="shortcut icon" type="image/png" href={websiteDetails.logo} />
-                
+                <meta name="Description" CONTENT={websiteDetails.description} ></meta>
             </Head>
             <header>
                 <Navigation logo={websiteDetails.logo} facebookUrl={websiteDetails.facebookUrl} twitterUrl={websiteDetails.twitterUrl} youtubeLink={websiteDetails.youtubeLink} />
