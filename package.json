@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.3.1",
     "@mui/material": "^5.4.0",
+    "axios": "^0.26.1",
     "firebase": "^9.6.7",
     "isomorphic-dompurify": "^0.18.0",
     "next": "12.0.10",
@@ -23,9 +24,10 @@
     "react-hotjar": "^4.0.0",
     "react-icons": "^4.3.1",
     "react-qr-code": "^2.0.3",
+    "react-share": "^4.4.0",
     "sanitize-html": "^2.7.0",
     "sass": "^1.49.7",
-    "uuidv4": "^6.2.12"
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^4.2.7",

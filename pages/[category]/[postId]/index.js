@@ -14,9 +14,10 @@ import Context from '../../../context/appContext';
 import logView from '../../../backend/logView';
 import handlePostSourceRegister, { postSourceTypes } from '../../../backend/handlePostSourceRegister';
 import InArticleAds from '../../../components/InArticleAds.component';
+import Comments from '../../../components/Comments.component';
 
 
-const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => {
+const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subdomain}) => {
     const [crimeNewsList, setCrimeNewsList] = useState([]);
     const [latestPost, setLatestPost] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -172,7 +173,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID}) => 
                         <div className={Styles.contentContainer} dangerouslySetInnerHTML={{__html:content}}>
 
                         </div>
-
+                        <Comments postId={post.postId} post={post} subdomain={subdomain} firebaseUID={firebaseUID} />
                         <div className={Styles.homeAdsContainer}>
                             <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div>
                         </div>
@@ -293,7 +294,7 @@ export async function getServerSideProps(context) {
     const { websiteDetails, post, firebaseUID } = responseData;
    
     return {
-        props: {websiteDetails, post, postId, category, firebaseUID},
+        props: {websiteDetails, post, postId, category, firebaseUID, subdomain},
     }
 }
 

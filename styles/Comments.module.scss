@@ -1,0 +1,46 @@
+.commentsContainer {
+    background-color: rgb(238, 237, 237);
+    padding: 10px;
+    .commentsActions {
+        display: flex;
+        justify-content: space-between;
+        .upVoteContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(221, 218, 224);
+            cursor: pointer;
+            width: 85px;
+            border-radius: 20px;
+            .upVoteCount {
+                font-size: 0.8rem;
+                font-weight: bold;
+                margin-left: 2px;
+            }
+        }
+
+        .shareContainer {
+            display: flex;
+           
+            .socialShareContainer {
+                margin-left: 15px;
+                cursor: pointer;
+            }
+        }
+    }
+    .commentInput {
+        border: none;
+        width: 100%;
+        padding: 5px 20px;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .viewComments  {
+        font-weight: bold;
+        font-size: 0.7rem;
+        margin-left: 5px;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
