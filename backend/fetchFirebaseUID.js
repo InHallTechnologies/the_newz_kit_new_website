@@ -16,7 +16,13 @@ export const fetchWebsiteDetails = async (firebaseUID) => {
 
     const websiteDetailsSnapshot = await get(websiteDetailsRef);
     if (websiteDetailsSnapshot.exists()) {
-        return {...websiteDetailsSnapshot.val(), uid: firebaseUID};
+        const details = websiteDetailsSnapshot.val();
+        let seoDescription = '`RSnews24 News is a news website which writes about local, national, international news'
+        if (details.selectedCategories) {
+            seoDescription = `RSnews24 News is a news website which writes about local ${details.selectedCategories.join(", ")} news`
+        }
+        
+        return {...details, uid: firebaseUID, seoDescription:seoDescription};
     }else {
         return "NOT FOUND"
     }

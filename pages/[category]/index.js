@@ -28,10 +28,10 @@ const CategoryWisePosts = ({ category, data, websiteDetails }) => {
                 <meta property="og:url"                content={`https://${websiteDetails.name}.thenewzkit.com/${category}`} />
                 <meta property="og:type"               content="website" />
                 <meta property="og:title"              content={`${category} - ${websiteDetails.fullName} ${websiteDetails.tagline? `- ${websiteDetails.tagline}` : ""}`} />
-                <meta property="og:description"        content={websiteDetails.description} />
+                <meta property="og:description"        content={websiteDetails.seoDescription} />
                 <meta property="og:image"              content={websiteDetails.logo} />
                 <link id="favicon" rel="shortcut icon" type="image/png" href={websiteDetails.logo} />
-                <meta name="Description" CONTENT={websiteDetails.description} ></meta>
+                <meta name="Description" CONTENT={websiteDetails.seoDescription} ></meta>
             </Head>
             <Navigation logo={websiteDetails.logo} />
             <div className={Styles.content}>

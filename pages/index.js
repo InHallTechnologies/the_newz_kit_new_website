@@ -41,10 +41,10 @@ export default function Home({ latest, allCategoryPosts, websiteDetails, subdoma
                 <meta property="og:url"                content={`https://${websiteDetails.name}.thenewzkit.com/`} />
                 <meta property="og:type"               content="website" />
                 <meta property="og:title"              content={`${websiteDetails.fullName} ${websiteDetails.tagline? `- ${websiteDetails.tagline}` : ""}`} />
-                <meta property="og:description"        content={websiteDetails.description} />
+                <meta property="og:description"        content={websiteDetails.seoDescription} />
                 <meta property="og:image"              content={websiteDetails.logo} />
                 <link id="favicon" rel="shortcut icon" type="image/png" href={websiteDetails.logo} />
-                <meta name="Description" CONTENT={websiteDetails.description} ></meta>
+                <meta name="Description" CONTENT={websiteDetails.seoDescription} ></meta>
             </Head>
             <header>
                 <Navigation logo={websiteDetails.logo} facebookUrl={websiteDetails.facebookUrl} twitterUrl={websiteDetails.twitterUrl} youtubeLink={websiteDetails.youtubeLink} />
