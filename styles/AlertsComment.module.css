@@ -1,0 +1,17 @@
+.commentsListText {
+    max-width: 300px;
+}
+
+@media (max-width:450px) {
+    .commentsListText {
+        max-width: 250px;
+    }
+    
+}
+
+@media (max-width:414px) {
+    .commentsListText {
+        max-width: 200px;
+    }
+    
+}

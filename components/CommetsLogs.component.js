@@ -9,6 +9,7 @@ import { Link } from '@mui/material';
 import { onValue, ref } from 'firebase/database';
 import { firebaseDatabase } from '../backend/firebaseHandler';
 import { CgProfile } from 'react-icons/cg';
+import Styles from '../styles/AlertsComment.module.css'
 
 export default function CommentsLogs({postId}) {
   const [open, setOpen] = React.useState(false);
@@ -56,14 +57,14 @@ export default function CommentsLogs({postId}) {
         <DialogTitle id="alert-dialog-title">
           {"Comments"}
         </DialogTitle>
-        <DialogContent>
+        <DialogContent >
             {
                 comments.map(item => {
                     return(
                         <div key={item.commentsId}>
-                           <div style={{display:'flex', alignItems:'flex-start', minWidth:'350px', padding:'5px 5px'}} >
+                           <div style={{display:'flex', alignItems:'flex-start', maxWidth:'350px', padding:'5px 5px'}} >
                                 <CgProfile  size={20} color="#444" style={{marginTop:'5px'}}/>
-                                <p style={{marginLeft:'10px', maxWidth:"300px", wordBreak:'break-all'}}>{item.value}</p>
+                                <p className={Styles.commentsListText} style={{marginLeft:'10px', wordBreak:'break-all'}}>{item.value}</p>
                                
                            </div>
                            <div style={{textAlign:'right'}}>

@@ -190,7 +190,16 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
                         <div className={Styles.contentContainer} dangerouslySetInnerHTML={{__html:content}}>
 
                         </div>
+
+                        <ins className="adsbygoogle"
+                        style={{display:'block', marginTop:'20px'}}
+                        data-ad-client="ca-pub-2505151384138527"
+                        data-ad-slot="9623915408"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                        
                         <Comments fullName={websiteDetails.fullName} currentUrl={currentUrl} postId={post.postId} post={post} subdomain={subdomain} firebaseUID={firebaseUID} />
+                        
                         <div className={Styles.homeAdsContainer}>
                             <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div>
                         </div>
