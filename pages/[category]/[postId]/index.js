@@ -17,7 +17,7 @@ import InArticleAds from '../../../components/InArticleAds.component';
 import Comments from '../../../components/Comments.component';
 
 
-const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subdomain}) => {
+const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subdomain, description}) => {
     const [crimeNewsList, setCrimeNewsList] = useState([]);
     const [latestPost, setLatestPost] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -119,9 +119,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
     const handleClick = (item) => {
         router.push(`/${item.category}/${item.slug?item.slug:item.postId}`);
     }
-
     
-
     return (
         <div className={Styles.ViewPostPageContainer} >
             <Head>
@@ -129,8 +127,9 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
                 <meta property="og:url"                content={`https://${websiteDetails.name}.thenewzkit.com/${category}/${post.slug?post.slug:post.postId}`} />
                 <meta property="og:type"               content="article" />
                 <meta property="og:title"              content={`${headline} | ${category} | ${websiteDetails.fullName}`} />
-                <meta property="og:description"        content={contentDescription} />
+                <meta property="og:description"        content={description} />
                 <meta property="og:image"              content={post.bannerPhoto} />
+                <meta property="description"        content={description} />
                 <link id="favicon" rel="shortcut icon" type="image/png" href={websiteDetails.logo} />
             </Head>
             <header>
@@ -173,7 +172,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
                         <div className={Styles.contentContainer} dangerouslySetInnerHTML={{__html:content}}>
 
                         </div>
-                        <Comments postId={post.postId} post={post} subdomain={subdomain} firebaseUID={firebaseUID} />
+                        <Comments fullName={websiteDetails.fullName} postId={post.postId} post={post} subdomain={subdomain} firebaseUID={firebaseUID} />
                         <div className={Styles.homeAdsContainer}>
                             <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div>
                         </div>
@@ -292,9 +291,10 @@ export async function getServerSideProps(context) {
     const responseData = await response.json();
   
     const { websiteDetails, post, firebaseUID } = responseData;
+    const content = post.content.replace(/(<([^>]+)>)/gi, "").substring(0, 100);
    
     return {
-        props: {websiteDetails, post, postId, category, firebaseUID, subdomain},
+        props: {websiteDetails, post, postId, category, firebaseUID, subdomain, description: `${content}...`},
     }
 }
 

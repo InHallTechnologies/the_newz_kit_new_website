@@ -10,7 +10,7 @@ import CommentsLogs from './CommetsLogs.component';
 import axios from 'axios';
 import { WhatsappShareButton, FacebookShareButton, TwitterShareButton,  } from 'react-share'
 
-const Comments  = ({ postId, post, subdomain, firebaseUID }) => {
+const Comments  = ({ postId, post, subdomain, firebaseUID, fullName }) => {
     const [upvotes, setUpvotes] = useState(null);
     const [comment, setComment] = useState('');
     const seessionId = useRef();
@@ -18,7 +18,7 @@ const Comments  = ({ postId, post, subdomain, firebaseUID }) => {
 
 
     useEffect(() => {
-        setCurrentUrl(`https://${subdomain}.thenewzkit.com/${post.category}/${postId}`)
+        setCurrentUrl(`https://${subdomain}.thenewzkit.com/${post.category}/${post.slug?post.slug:post.postId}`)
 
         seessionId.current = uuid();
         const upvoteRef = ref(firebaseDatabase, `UPVOTES_LOGS/${postId}`);
@@ -35,7 +35,7 @@ const Comments  = ({ postId, post, subdomain, firebaseUID }) => {
 
     const incrementUpvote = () => {
         
-        const upvoteRef = ref(firebaseDatabase, `UPVOTES_LOGS/${postId}/${seessionId.current}`);
+        const upvoteRef = ref(firebaseDatabase, `UPVOTES_LOGS/${post.ostId}/${seessionId.current}`);
         set(upvoteRef, dateString).then(result => {
             setUpvotes(data => data + 1);
         })
@@ -43,8 +43,8 @@ const Comments  = ({ postId, post, subdomain, firebaseUID }) => {
 
     const handleCommentSubmit = (e) => {
         if (e.key === 'Enter') {
-            const commentId = push(ref(firebaseDatabase, `COMMENTS_LOGS/${postId}/${seessionId.current}`)).key;
-            const upvoteRef = ref(firebaseDatabase, `COMMENTS_LOGS/${postId}/${seessionId.current}/${commentId}`);
+            const commentId = push(ref(firebaseDatabase, `COMMENTS_LOGS/${post.postId}/${seessionId.current}`)).key;
+            const upvoteRef = ref(firebaseDatabase, `COMMENTS_LOGS/${post.postId}/${seessionId.current}/${commentId}`);
             set(upvoteRef, {
                 date: dateString,
                 time: timeString,
@@ -59,7 +59,7 @@ const Comments  = ({ postId, post, subdomain, firebaseUID }) => {
 
     const sendCommentNotification = async (comment) => {
         const encoded = encodeURIComponent(post.bannerPhoto);
-        const response = await axios(`http://theinhall.localhost:3000/api/sendNotifications?category=${post.category}&postId=${post.postId}&siteUID=${firebaseUID}&type=Comment&newViews=200&image=${encoded}&comment=${comment}`)
+        const response = await axios(`https://thenewzkit.com/api/sendNotifications?category=${post.category}&postId=${post.postId}&siteUID=${firebaseUID}&type=Comment&newViews=200&image=${encoded}&comment=${comment}`)
         const data = await response.data;
         console.log(data)
     }
@@ -76,19 +76,19 @@ const Comments  = ({ postId, post, subdomain, firebaseUID }) => {
                 <div className={Styles.shareContainer}>
                     Share:
                     <div className={Styles.socialShareContainer}>
-                        <WhatsappShareButton title={post.headline+"\n\n"} url={currentUrl} >
+                        <WhatsappShareButton url={`https://${subdomain}.thenewzkit.com/ads-with-us/fill-form`} title={post.headline+`\n${currentUrl}\n.\n.\n.\n${fullName} पर विज्ञापन दें और अपना प्रचार अपने शहर वासियों के फोन पर पहुंचाएं।\n`}  >
                             <BsWhatsapp size={16}  />
                         </WhatsappShareButton>
                     </div>
 
                     <div className={Styles.socialShareContainer}>
-                        <FacebookShareButton  quote={post.headline+"\n\n"} url={currentUrl}  >
+                        <FacebookShareButton  quote={post.headline+`\n\n${fullName} पर विज्ञापन दें और अपना प्रचार अपने शहर वासियों के फोन पर पहुंचाएं।\nhttps://${subdomain}.thenewzkit.com/ads-with-us/fill-form`} url={currentUrl}  >
                             <BsFacebook size={16}  />
                         </FacebookShareButton>
                     </div>
                     
                     <div className={Styles.socialShareContainer}>
-                        <TwitterShareButton title={post.headline+"\n\n"} url={currentUrl}  >
+                        <TwitterShareButton title={post.headline+`\n\n${fullName} पर विज्ञापन दें और अपना प्रचार अपने शहर वासियों के फोन पर पहुंचाएं।\nhttps://${subdomain}.thenewzkit.com/ads-with-us/fill-form`} url={currentUrl}  >
                             <BsTwitter size={16}  />
                         </TwitterShareButton>
                     </div>
