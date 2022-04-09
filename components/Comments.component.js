@@ -94,7 +94,7 @@ const Comments  = ({ postId, post, subdomain, firebaseUID, fullName, currentUrl 
                    
                 </div>
             </div>
-            <input className={Styles.commentInput} placeholder='Write your comment here' value={comment} onChange={event => setComment(event.target.value)} onKeyDown={handleCommentSubmit} />
+            <textarea  className={Styles.commentInput} placeholder='Write your comment here' value={comment} onChange={event => setComment(event.target.value)} onKeyDown={handleCommentSubmit} />
             {/* <span className={Styles.viewComments}>View all comments</span> */}
             <CommentsLogs postId={postId} />
         </div>
