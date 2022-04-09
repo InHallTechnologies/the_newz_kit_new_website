@@ -21,14 +21,14 @@ export default function CommentsLogs({postId}) {
             const data = []
             for (const sessionId in snapshot.val()) {
                 for (const commentsId in snapshot.child(sessionId).val()){
-                    const comments = snapshot.child(sessionId).child(commentsId).val();
-                    data.push({...comments, key: commentsId});
-                    
+                  const comments = snapshot.child(sessionId).child(commentsId).val();
+                  data.push({...comments, key: commentsId});
                 } 
             }
+            data.reverse()
             setComments(data)
         }
-    }, { onlyOnce:true })
+    }, { onlyOnce:false })
   }, [])
 
   const handleClickOpen = () => {

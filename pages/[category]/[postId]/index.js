@@ -15,6 +15,7 @@ import logView from '../../../backend/logView';
 import handlePostSourceRegister, { postSourceTypes } from '../../../backend/handlePostSourceRegister';
 import InArticleAds from '../../../components/InArticleAds.component';
 import Comments from '../../../components/Comments.component';
+import { WhatsappShareButton, FacebookShareButton, TwitterShareButton, WhatsappIcon, FacebookIcon, TwitterIcon } from 'react-share'
 
 
 const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subdomain, description}) => {
@@ -24,7 +25,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
     const { headline, bannerName, bannerPhoto, content, reporterName, postReleaseDate, postReleaseTime, type, videoUrl } = post;
     const [contentDescription, setContentDescription] = useState('');
     const [sessionId, setSessionId] = useContext(Context);
-
+    const [currentUrl, setCurrentUrl] = useState();
 
     const fetchCategoryNews = async () => {
         const categoryNewsRef = ref(firebaseDatabase, `CATEGORY_WISE_POSTS/${firebaseUID}/${category}`);
@@ -82,7 +83,8 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
     }
 
     useEffect(() => {
-        
+        setCurrentUrl(`https://${subdomain}.thenewzkit.com/${post.category}/${post.slug?post.slug:post.postId}`)
+
         fetchCategoryNews();
         fetchLatestpost();
         
@@ -161,6 +163,22 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
                             <p style={{color:'#444'}}>{postReleaseDate}</p>
                             <p style={{marginLeft:'15px', color:'#444'}}>{postReleaseTime} IST</p>
                         </div>
+                        
+                        <div>
+                            <WhatsappShareButton url={`https://${subdomain}.thenewzkit.com/ads-with-us/fill-form`} title={post.headline+`\n${currentUrl}\n.\n.\n.\n${websiteDetails.fullName} पर विज्ञापन दें और अपना प्रचार अपने शहर वासियों के फोन पर पहुंचाएं।\n`}  >
+                                <WhatsappIcon size={30}  />
+                            </WhatsappShareButton>
+
+                            <FacebookShareButton style={{margin:'5px 10px'}} quote={post.headline+`\n\n${websiteDetails.fullName} पर विज्ञापन दें और अपना प्रचार अपने शहर वासियों के फोन पर पहुंचाएं।\nhttps://${subdomain}.thenewzkit.com/ads-with-us/fill-form`} url={currentUrl}  >
+                                <FacebookIcon size={30}  />
+                            </FacebookShareButton>
+
+                            <TwitterShareButton  quote={post.headline+`\n\n${websiteDetails.fullName} पर विज्ञापन दें और अपना प्रचार अपने शहर वासियों के फोन पर पहुंचाएं।\nhttps://${subdomain}.thenewzkit.com/ads-with-us/fill-form`} url={currentUrl}  >
+                                <TwitterIcon size={30}  />
+                            </TwitterShareButton>
+                            
+                        </div>
+
                         {
                             type === 'YOUTUBE'
                             ?
@@ -172,7 +190,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
                         <div className={Styles.contentContainer} dangerouslySetInnerHTML={{__html:content}}>
 
                         </div>
-                        <Comments fullName={websiteDetails.fullName} postId={post.postId} post={post} subdomain={subdomain} firebaseUID={firebaseUID} />
+                        <Comments fullName={websiteDetails.fullName} currentUrl={currentUrl} postId={post.postId} post={post} subdomain={subdomain} firebaseUID={firebaseUID} />
                         <div className={Styles.homeAdsContainer}>
                             <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div>
                         </div>
@@ -291,7 +309,7 @@ export async function getServerSideProps(context) {
     const responseData = await response.json();
   
     const { websiteDetails, post, firebaseUID } = responseData;
-    const content = post.content.replace(/(<([^>]+)>)/gi, "").substring(0, 100);
+    const content = post.content.replace(/(<([^>]+)>)/gi, "").substring(0, 150);
    
     return {
         props: {websiteDetails, post, postId, category, firebaseUID, subdomain, description: `${content}...`},

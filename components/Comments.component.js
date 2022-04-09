@@ -10,15 +10,14 @@ import CommentsLogs from './CommetsLogs.component';
 import axios from 'axios';
 import { WhatsappShareButton, FacebookShareButton, TwitterShareButton,  } from 'react-share'
 
-const Comments  = ({ postId, post, subdomain, firebaseUID, fullName }) => {
+const Comments  = ({ postId, post, subdomain, firebaseUID, fullName, currentUrl }) => {
     const [upvotes, setUpvotes] = useState(null);
     const [comment, setComment] = useState('');
     const seessionId = useRef();
-    const [currentUrl, setCurrentUrl] = useState();
+  
 
 
     useEffect(() => {
-        setCurrentUrl(`https://${subdomain}.thenewzkit.com/${post.category}/${post.slug?post.slug:post.postId}`)
 
         seessionId.current = uuid();
         const upvoteRef = ref(firebaseDatabase, `UPVOTES_LOGS/${postId}`);
