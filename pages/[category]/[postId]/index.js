@@ -16,6 +16,7 @@ import handlePostSourceRegister, { postSourceTypes } from '../../../backend/hand
 import InArticleAds from '../../../components/InArticleAds.component';
 import Comments from '../../../components/Comments.component';
 import { WhatsappShareButton, FacebookShareButton, TwitterShareButton, WhatsappIcon, FacebookIcon, TwitterIcon } from 'react-share'
+import NewzKitAds from '../../../components/NewzKitAds.component';
 
 
 const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subdomain, description}) => {
@@ -200,6 +201,8 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
                         
                         <Comments fullName={websiteDetails.fullName} currentUrl={currentUrl} postId={post.postId} post={post} subdomain={subdomain} firebaseUID={firebaseUID} />
                         
+                       
+
                         <div className={Styles.homeAdsContainer}>
                             <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div>
                         </div>
@@ -207,13 +210,19 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
                         
                     </div>
 
+                    
+
                     <div className={Styles.segmentDividerContainer} >
                         <Divider />
+                       
                     </div>
 
                     <div className={Styles.similarCategoryNewsListContainer} >
+
+                       
+
                         <ins className="adsbygoogle"
-                             style={{display:"block", textAlign:'center', marginBottom:'20px'}}
+                             style={{display:"block", textAlign:'center', marginBottom:'20px', marginTop:'10px'}}
                              data-ad-layout="in-article"
                              data-ad-format="fluid"
                              data-ad-client="ca-pub-2505151384138527"
@@ -264,12 +273,17 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
                              data-ad-client="ca-pub-2505151384138527"
                              data-ad-slot="3697455905"></ins>
                     </div>
+                    
                 </div>
+
+                
+
                 <Divider sx={{marginTop:'10px'}} />
                 <div align="center" className={Styles.homeAdsContainer}>
                     {/* <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div> */}
+                    <NewzKitAds />
                     <ins className="adsbygoogle"
-                        style={{display:'block'}}
+                        style={{display:'block',marginTop:'10px'}}
                         data-ad-client="ca-pub-2505151384138527"
                         data-ad-slot="9623915408"
                         data-ad-format="auto"
