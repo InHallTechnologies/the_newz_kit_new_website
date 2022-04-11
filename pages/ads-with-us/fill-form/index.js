@@ -6,6 +6,7 @@ import { ref, set, push } from 'firebase/database'
 import { firebaseDatabase } from '../../../backend/firebaseHandler';
 import Head from 'next/head';
 import NewzKitAds from '../../../components/NewzKitAds.component';
+import { dateString, timeString } from '../../../backend/getDateAndTime';
 
 
 const FillForms = ({ subdomain, firebaseUID }) => {
@@ -50,7 +51,9 @@ const FillForms = ({ subdomain, firebaseUID }) => {
         await set(requestRef, {
             ...formData,
             subdomain, 
-            firebaseUID:firebaseUID?firebaseUID:"NewzKit"
+            firebaseUID:firebaseUID?firebaseUID:"NewzKit",
+            requestDate: dateString,
+            requestTime: timeString
         })
         alert("We have received your request. We will contact you within 3 hrs.")
         setFormData({
