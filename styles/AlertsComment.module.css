@@ -2,6 +2,24 @@
     max-width: 300px;
 }
 
+.upVoteContainer {
+    display: flex;
+    margin-right: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(221, 218, 224);
+    cursor: pointer;
+    width: 85px;
+    border-radius: 20px;
+    
+}
+
+.upVoteCount {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
 @media (max-width:450px) {
     .commentsListText {
         max-width: 250px;

@@ -10,10 +10,13 @@ import { onValue, ref } from 'firebase/database';
 import { firebaseDatabase } from '../backend/firebaseHandler';
 import { CgProfile } from 'react-icons/cg';
 import Styles from '../styles/AlertsComment.module.css'
+import { SiGooglemessages } from 'react-icons/si';
 
-export default function CommentsLogs({postId}) {
+
+export default function CommentsLogs({postId, commentCountButton}) {
   const [open, setOpen] = React.useState(false);
   const [comments, setComments] = React.useState([]);
+  
 
   React.useEffect(() => {
     const commentsRef = ref(firebaseDatabase, `COMMENTS_LOGS/${postId}`);
@@ -26,7 +29,7 @@ export default function CommentsLogs({postId}) {
                   data.push({...comments, key: commentsId});
                 } 
             }
-            data.reverse()
+           
             setComments(data)
         }
     }, { onlyOnce:false })
@@ -42,11 +45,23 @@ export default function CommentsLogs({postId}) {
 
   return (
     <div>
-        <div style={{marginTop:"5px"}}>
+        
+
+        {
+          commentCountButton
+          ?
+          <div className={Styles.upVoteContainer} onClick={handleClickOpen} style={{height:'100%'}}  >
+            <SiGooglemessages   size={17}  />
+            <span className={Styles.upVoteCount}>{comments.length}</span>
+          </div>
+          :
+          <div style={{marginTop:"5px"}}>
             <Link sx={{ fontSize:"0.9rem", marginLeft:'5px', cursor:'pointer' }} variant="outlined" onClick={handleClickOpen}>
               View all comments
             </Link>
-        </div>
+          </div>
+        }
+        
       
       <Dialog
         open={open}

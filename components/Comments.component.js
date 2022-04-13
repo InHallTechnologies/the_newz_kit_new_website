@@ -8,17 +8,16 @@ import { uuid } from 'uuidv4';
 import { dateString, timeString } from '../backend/getDateAndTime';
 import CommentsLogs from './CommetsLogs.component';
 import axios from 'axios';
+import { AiFillLike } from 'react-icons/ai';
 import { WhatsappShareButton, FacebookShareButton, TwitterShareButton,  } from 'react-share'
 
 const Comments  = ({ postId, post, subdomain, firebaseUID, fullName, currentUrl }) => {
     const [upvotes, setUpvotes] = useState(null);
     const [comment, setComment] = useState('');
     const seessionId = useRef();
-  
 
 
     useEffect(() => {
-
         seessionId.current = uuid();
         const upvoteRef = ref(firebaseDatabase, `UPVOTES_LOGS/${postId}`);
         onValue(upvoteRef, snapshot => {
@@ -28,8 +27,7 @@ const Comments  = ({ postId, post, subdomain, firebaseUID, fullName, currentUrl 
             }else {
                 setUpvotes(0);
             }
-        }, {onlyOnce:true})
-        
+        }, {onlyOnce:true})     
     }, [])
 
     const incrementUpvote = () => {
@@ -67,9 +65,14 @@ const Comments  = ({ postId, post, subdomain, firebaseUID, fullName, currentUrl 
     return(
         <div className={Styles.commentsContainer}>
             <div className={Styles.commentsActions}>
-                <div className={Styles.upVoteContainer} onClick={incrementUpvote}>
-                    <IoMdArrowDropup size={20}  />
-                    <span className={Styles.upVoteCount}>{upvotes}</span>
+                <div className={Styles.postAnalyticsContainer}>
+                    <div className={Styles.upVoteContainer} onClick={incrementUpvote}>
+                        <AiFillLike  size={17}  />
+                        <span className={Styles.upVoteCount}>{upvotes}</span>
+                    </div>
+
+                    <CommentsLogs postId={postId} commentCountButton={true} />
+
                 </div>
 
                 <div className={Styles.shareContainer}>
