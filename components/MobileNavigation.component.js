@@ -1,10 +1,12 @@
 import { Button, Divider, SwipeableDrawer } from '@mui/material';
-import React, { useState }  from 'react';
+import React from 'react';
 import Styles from '../styles/MobileNavigation.module.css';
 import { BiMenu } from 'react-icons/bi';
+import { FaWhatsappSquare } from 'react-icons/fa';
+import Router from 'next/router';
 
 
-const MobileNavigation = ({ logo }) => {
+const MobileNavigation = ({ logo, whatsappGroupUrl }) => {
     const [state, setState] = React.useState({
         top: false,
         left: false,
@@ -24,11 +26,25 @@ const MobileNavigation = ({ logo }) => {
         setState({ ...state, [anchor]: open });
       };
 
+      const handleWhatsappGroup = () => {
+        Router.push(whatsappGroupUrl)
+      }
+
     return (
         <div className={Styles.navigationIconContainer}>
           <div className={Styles.downloadContainer} >
             <div >
-              
+              {
+                whatsappGroupUrl
+                ?
+                <Button onClick={handleWhatsappGroup} sx={{fontSize:"0.7rem", backgroundColor:'#25D366', marginRight:1}} variant='contained'  >
+                  <FaWhatsappSquare color='#fff' size={20} style={{marginRight:5}} />
+                  Join Whatsapp Group
+                </Button>
+                :
+                null
+              }
+                
             </div>
             <BiMenu size={30} color='#000' onClick={toggleDrawer('right', true)}/>
           </div>

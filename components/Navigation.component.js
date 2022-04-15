@@ -4,8 +4,10 @@ import Styles from "../styles/Navigation.module.scss";
 import { BsFacebook, BsTwitter, BsYoutube } from "react-icons/bs";
 import Router from "next/router";
 import MobileNavigation from "./MobileNavigation.component";
+import { FaWhatsappSquare } from 'react-icons/fa';
 
-const Navigation = ({ logo, youtubeLink, facebookUrl, twitterUrl }) => {
+
+const Navigation = ({ logo, youtubeLink, facebookUrl, twitterUrl, whatsappGroupUrl }) => {
     
     let subdomain = "";
     try {
@@ -28,6 +30,11 @@ const Navigation = ({ logo, youtubeLink, facebookUrl, twitterUrl }) => {
         Router.push(link)
     }
 
+    const handleWhatsappGroup = () => {
+        Router.push(whatsappGroupUrl)
+      }
+
+
     return (
         <div className={Styles.navigationContainer}>
             <div className={Styles.topSection}>
@@ -40,11 +47,21 @@ const Navigation = ({ logo, youtubeLink, facebookUrl, twitterUrl }) => {
                 </div>
 
                 <div className={Styles.loginButtonContainer}>
+                      {
+                      whatsappGroupUrl
+                      ?
+                      <Button onClick={handleWhatsappGroup} sx={{fontSize:"0.7rem", backgroundColor:'#25D366', marginRight:1}} variant='contained'  >
+                        <FaWhatsappSquare color='#fff' size={20} style={{marginRight:5}} />
+                        Join Whatsapp Group
+                      </Button>
+                      :
+                      null
+                    }
                     <Button sx={{ marginRight: "20px" }} href='/privacy-policy' >Privacy Policy</Button>
                     <Button href="/contact-us" >Contact Us</Button>
 
                 </div>
-               <MobileNavigation logo={logo} />
+               <MobileNavigation logo={logo} whatsappGroupUrl={whatsappGroupUrl} />
             </div>
             <Divider />
             <div className={Styles.buttomSection}>
