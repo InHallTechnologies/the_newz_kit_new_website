@@ -33,7 +33,7 @@ const CategoryWisePosts = ({ category, data, websiteDetails }) => {
                 <link id="favicon" rel="shortcut icon" type="image/png" href={websiteDetails.logo} />
                 <meta name="Description" CONTENT={websiteDetails.seoDescription} ></meta>
             </Head>
-            <Navigation logo={websiteDetails.logo} />
+            <Navigation logo={websiteDetails.logo} facebookUrl={websiteDetails.facebookUrl} twitterUrl={websiteDetails.twitterUrl} youtubeLink={websiteDetails.youtubeLink} whatsappGroupUrl={websiteDetails.whatsappGroupUrl} />
             <div className={Styles.content}>
                 <CategoryListContainer selectedCategories={websiteDetails.selectedCategories} />
 
