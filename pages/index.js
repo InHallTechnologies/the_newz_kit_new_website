@@ -9,6 +9,7 @@ import {useEffect} from "react";
 import { query, ref, get, set } from 'firebase/database';
 import HomePage from "../components/Home";
 import { firebaseDatabase } from "../backend/firebaseHandler";
+import FloatingWhatsappButton from "../components/FloatingWhatsappButton.component";
 
 
 export default function Home({ latest, allCategoryPosts, websiteDetails, subdomain, list }) {
@@ -59,6 +60,7 @@ export default function Home({ latest, allCategoryPosts, websiteDetails, subdoma
             </div>
             <HeroSpace latestData={latest} selectedCategories={websiteDetails.selectedCategories} />
             <CategoriesList list={allCategoryPosts} />
+            <FloatingWhatsappButton whatsappGroupUrl={websiteDetails.whatsappGroupUrl} />
             <Footer />
         </div>
     );

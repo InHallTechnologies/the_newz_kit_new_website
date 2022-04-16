@@ -32,7 +32,7 @@ const Navigation = ({ logo, youtubeLink, facebookUrl, twitterUrl, whatsappGroupU
 
     const handleWhatsappGroup = () => {
         Router.push(whatsappGroupUrl)
-      }
+    }
 
 
     return (

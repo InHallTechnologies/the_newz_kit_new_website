@@ -33,7 +33,7 @@ const MobileNavigation = ({ logo, whatsappGroupUrl }) => {
     return (
         <div className={Styles.navigationIconContainer}>
           <div className={Styles.downloadContainer} >
-            <div >
+            <div>
               {
                 whatsappGroupUrl
                 ?

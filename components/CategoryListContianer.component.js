@@ -2,7 +2,6 @@ import { Button } from "@mui/material";
 import Router from "next/router";
 import React from "react";
 import Styles from "../styles/CategoryListContainer.module.scss";
-import { BiHomeAlt } from 'react-icons/bi';
 
 const CategoryListContainer = ({ selectedCategories }) => {
 

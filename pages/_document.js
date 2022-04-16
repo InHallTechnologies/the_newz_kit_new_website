@@ -26,9 +26,6 @@ export default function Document() {
                     data-ad-client="ca-pub-2505151384138527"
                     async
                     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
-                   
-             
-
             </body>
         </Html>
     );

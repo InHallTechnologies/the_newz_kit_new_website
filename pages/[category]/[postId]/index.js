@@ -17,6 +17,7 @@ import InArticleAds from '../../../components/InArticleAds.component';
 import Comments from '../../../components/Comments.component';
 import { WhatsappShareButton, FacebookShareButton, TwitterShareButton, WhatsappIcon, FacebookIcon, TwitterIcon } from 'react-share'
 import NewzKitAds from '../../../components/NewzKitAds.component';
+import FloatingWhatsappButton from '../../../components/FloatingWhatsappButton.component';
 
 
 const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subdomain, description}) => {
@@ -313,9 +314,10 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
                         data-full-width-responsive="true"></ins>
                 </div>
                 <div style={{width:'95%', margin:'0 auto'}} id="M775976ScriptRootC1290887"></div>
+                <FloatingWhatsappButton whatsappGroupUrl={websiteDetails.whatsappGroupUrl} />
             </main>
             <Footer />
-            
+           
         </div>
     )
 }

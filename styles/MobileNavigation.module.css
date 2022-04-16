@@ -1,5 +1,7 @@
 .navigationIconContainer {
     display: none;
+    
+    
 }
 .mobileNavigationContainer {
     min-width: 70%;
@@ -8,6 +10,7 @@
 .downloadContainer {
     display: flex;
     align-items: center;
+    
 }
 
 .logo {
@@ -16,6 +19,7 @@
     object-fit: contain;
     margin: 5px 20px;
     margin-top: 15px;
+    
 }
 
 .actionContainer {
