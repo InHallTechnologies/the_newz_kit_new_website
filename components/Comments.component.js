@@ -46,10 +46,10 @@ const Comments  = ({ postId, post, subdomain, firebaseUID, fullName, currentUrl 
                 date: dateString,
                 time: timeString,
                 value: comment
-            }).then(result => {
-                sendCommentNotification("Hello")
+            }).then( async (result) => {
+                await sendCommentNotification(comment)
                 setComment("");
-                sendCommentNotification()
+               
             })
         }
     }
