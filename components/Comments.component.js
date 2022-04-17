@@ -56,7 +56,7 @@ const Comments  = ({ postId, post, subdomain, firebaseUID, fullName, currentUrl 
 
     const sendCommentNotification = async (comment) => {
         const encoded = encodeURIComponent(post.bannerPhoto);
-        const response = await axios(`https://thenewzkit.com/api/sendNotifications?category=${post.category}&postId=${post.postId}&siteUID=${firebaseUID}&type=Comment&newViews=200&image=${encoded}&comment=${comment}`)
+        const response = await axios(`https://${subdomain}.thenewzkit.com/api/sendNotifications?category=${post.category}&postId=${post.postId}&siteUID=${firebaseUID}&type=Comment&newViews=200&image=${encoded}&comment=${comment}`)
         const data = await response.data;
         console.log(data)
     }
