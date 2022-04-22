@@ -18,6 +18,7 @@ import Comments from '../../../components/Comments.component';
 import { WhatsappShareButton, FacebookShareButton, TwitterShareButton, WhatsappIcon, FacebookIcon, TwitterIcon } from 'react-share'
 import NewzKitAds from '../../../components/NewzKitAds.component';
 import FloatingWhatsappButton from '../../../components/FloatingWhatsappButton.component';
+import Link from 'next/link';
 
 
 const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subdomain, description}) => {
@@ -242,26 +243,28 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
                             {
                                 crimeNewsList.map(item => {
                                     return (
-                                        <div key={item.postId}>
-                                            <div className={Styles.latestListArch}  onClick={ _ => handleClick(item)} >
-                                                <img className={Styles.latestImage} src={item.bannerPhoto} alt={item.bannerName ? item.bannerName: item.headline} />
-                                                <div>
-                                                    <h2 className={Styles.latestHeadline} >{item.headline.substring(0, 90)} ...</h2>
-                                                    <div className={Styles.latestReporterContainer}>
-                                                        <p style={{color:'#E9494B', marginRight:'15px', fontWeight:'bold', fontSize:'0.9rem'}} >{item.reporterName? `${item.reporterName} ` : `Reporter `}</p>
-                                                        <p style={{color:'#444', fontSize:'0.8rem'}}>{item.postReleaseDate}</p>
+                                        <Link key={item.postId} passHref href={`/${item.category}/${item.slug?item.slug:item.postId}`}>
+                                            <a style={{color:'#222', textDecoration:'none'}}>
+                                                <div className={Styles.latestListArch}>
+                                                    <img className={Styles.latestImage} src={item.bannerPhoto} alt={item.bannerName ? item.bannerName: item.headline} />
+                                                    <div>
+                                                        <h2 className={Styles.latestHeadline} >{item.headline.substring(0, 90)} ...</h2>
+                                                        <div className={Styles.latestReporterContainer}>
+                                                            <p style={{color:'#E9494B', marginRight:'15px', fontWeight:'bold', fontSize:'0.9rem'}} >{item.reporterName? `${item.reporterName} ` : `Reporter `}</p>
+                                                            <p style={{color:'#444', fontSize:'0.8rem'}}>{item.postReleaseDate}</p>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                            </div>
-                                            <div className={Styles.dividerContainer} >
-                                                <Divider sx={{margin: "10px 0"}} />
-                                            </div>
-                                            <InArticleAds />
-                                            <div className={Styles.dividerContainer} >
-                                                <Divider sx={{margin: "10px 0"}} />
-                                            </div>
-                                        </div>
+                                                </div>
+                                                <div className={Styles.dividerContainer} >
+                                                    <Divider sx={{margin: "10px 0"}} />
+                                                </div>
+                                                <InArticleAds />
+                                                <div className={Styles.dividerContainer} >
+                                                    <Divider sx={{margin: "10px 0"}} />
+                                                </div>
+                                            </a>
+                                        </Link>
                                     )
                                 })
                             }

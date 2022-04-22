@@ -28,7 +28,7 @@ const CategoryListItem = ({ item }) => {
     return (
         <div className={Styles.categoriesListItemContainer}>
             <div className={Styles.titleContainer} >
-                <h1 className={Styles.sectionTitle}>{item.name}</h1>
+                <h2 className={Styles.sectionTitle}>{item.name}</h2>
                 <div className={Styles.viewAllContainer} onClick={_ => handleCategoryClick(item.name.replace(" News",""))} >
                     <p className={Styles.viewAllLabel}>View All</p>
                     <AiOutlineArrowRight className={Styles.arrowIcon} size={20} color='#E9494B' />

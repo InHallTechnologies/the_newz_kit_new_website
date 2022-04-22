@@ -24,7 +24,7 @@ const HeroSpace = ({ latestData, selectedCategories }) => {
                     <img className={Styles.latestPostImage} src={latestPost.bannerPhoto} alt={latestPost.bannerName ? latestPost.bannerName: latestPost.headline} />
                     <div className={Styles.latestPostContent} >
                         <p className={Styles.category}>{latestPost.category}</p>
-                        <h2 className={Styles.headline} >{latestPost.headline}</h2>
+                        <h1 className={Styles.headline} >{latestPost.headline}</h1>
                         <p className={Styles.content}>{latestData.content}</p>
 
                         <div className={Styles.reporterContainer}>
