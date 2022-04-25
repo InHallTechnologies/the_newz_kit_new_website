@@ -28,7 +28,8 @@
     "react-share": "^4.4.0",
     "sanitize-html": "^2.7.0",
     "sass": "^1.49.7",
-    "uuidv4": "^6.2.13"
+    "uuidv4": "^6.2.13",
+    "razorpay": "^2.0.7"
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^4.2.7",
