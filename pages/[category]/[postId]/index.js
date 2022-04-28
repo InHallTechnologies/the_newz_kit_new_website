@@ -311,12 +311,11 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
                     {/* <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div> */}
                     <ins className="adsbygoogle"
                         style={{display:'block'}}
+                        data-ad-format="autorelaxed"
                         data-ad-client="ca-pub-2505151384138527"
-                        data-ad-slot="9623915408"
-                        data-ad-format="auto"
-                        data-full-width-responsive="true"></ins>
+                        data-ad-slot="2240995234"></ins>
                 </div>
-                <div style={{width:'95%', margin:'0 auto'}} id="M775976ScriptRootC1290887"></div>
+                {/* <div style={{width:'95%', margin:'0 auto'}} id="M775976ScriptRootC1290887"></div> */}
                 <FloatingWhatsappButton whatsappGroupUrl={websiteDetails.whatsappGroupUrl} />
             </main>
             <Footer />
