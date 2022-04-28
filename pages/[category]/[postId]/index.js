@@ -203,7 +203,14 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
                         
                         <Comments fullName={websiteDetails.fullName} currentUrl={currentUrl} postId={post.postId} post={post} subdomain={subdomain} firebaseUID={firebaseUID} />
                         
-                       
+                        <div align="center" className={Styles.homeAdsContainer}>
+                            {/* <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div> */}
+                            <ins className="adsbygoogle"
+                            style={{display:'block'}}
+                            data-ad-format="autorelaxed"
+                            data-ad-client="ca-pub-2505151384138527"
+                            data-ad-slot="2240995234"></ins>
+                        </div>
 
                         <div className={Styles.homeAdsContainer}>
                             <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div>
@@ -307,14 +314,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
                         }
                     </div>
                 </div>
-                <div align="center" className={Styles.homeAdsContainer}>
-                    {/* <div style={{minHeight:"300px"}} id="M775976ScriptRootC1290883"></div> */}
-                    <ins className="adsbygoogle"
-                        style={{display:'block'}}
-                        data-ad-format="autorelaxed"
-                        data-ad-client="ca-pub-2505151384138527"
-                        data-ad-slot="2240995234"></ins>
-                </div>
+               
                 {/* <div style={{width:'95%', margin:'0 auto'}} id="M775976ScriptRootC1290887"></div> */}
                 <FloatingWhatsappButton whatsappGroupUrl={websiteDetails.whatsappGroupUrl} />
             </main>
