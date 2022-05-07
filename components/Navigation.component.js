@@ -7,7 +7,7 @@ import MobileNavigation from "./MobileNavigation.component";
 import { FaWhatsappSquare } from 'react-icons/fa';
 
 
-const Navigation = ({ logo, youtubeLink, facebookUrl, twitterUrl, whatsappGroupUrl }) => {
+const Navigation = ({ logo, youtubeLink, facebookUrl, twitterUrl, whatsappGroupUrl, aboutUs }) => {
     
     let subdomain = "";
     try {
@@ -58,7 +58,15 @@ const Navigation = ({ logo, youtubeLink, facebookUrl, twitterUrl, whatsappGroupU
                       null
                     }
                     <Button sx={{ marginRight: "20px" }} href='/privacy-policy' >Privacy Policy</Button>
-                    <Button href="/contact-us" >Contact Us</Button>
+                    <Button sx={{ marginRight: aboutUs?"20px":"0px" }} href="/contact-us" >Contact Us</Button>
+                    {
+                        aboutUs
+                        ?
+                        <Button href="/about-us" >About Us</Button>
+                        :
+                        null
+                    }
+                   
 
                 </div>
                <MobileNavigation logo={logo} whatsappGroupUrl={whatsappGroupUrl} />

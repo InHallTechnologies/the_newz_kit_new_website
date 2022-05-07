@@ -138,7 +138,7 @@ const ViewPostPage = ({websiteDetails, post, postId, category, firebaseUID, subd
                 <link id="favicon" rel="shortcut icon" type="image/png" href={websiteDetails.logo} />
             </Head>
             <header>
-                <Navigation logo={websiteDetails.logo} whatsappGroupUrl={websiteDetails.whatsappGroupUrl} />
+                <Navigation aboutUs={websiteDetails.aboutUs} logo={websiteDetails.logo} whatsappGroupUrl={websiteDetails.whatsappGroupUrl} />
             </header>
             
             <main>

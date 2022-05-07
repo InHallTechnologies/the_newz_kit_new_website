@@ -26,6 +26,7 @@ export default function HomePage({ list }) {
 
   const handleVisitLink = (item) => {
     window.open(`https://${item.name}.thenewzkit.com/`, '_blank')
+    
     // router.push(`https://${item.name}.thenewzkit.com/`)
   }
 
@@ -39,6 +40,7 @@ export default function HomePage({ list }) {
         <meta property="og:type"               content="website" />
         <meta property="og:title"              content="NewzKit - Platform for News Outlets" />
         <meta property="og:description"        content="We are a publishing platform for small news organizations. Our no-code platform allows local or small news organizations and independent journalists to launch news websites in just 3 simple steps, via an app." />
+
         <meta property="og:image"              content={"https://firebasestorage.googleapis.com/v0/b/thenewzkit.appspot.com/o/Hints%2F1.png?alt=media&token=3dd168b5-6615-497f-aaed-3d42b7d1ef82"} />
         <meta property="og:image:width" content="630"></meta>
         <meta property="og:image:height" content="473"></meta>
