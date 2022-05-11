@@ -47,7 +47,7 @@ const Navigation = ({ logo, youtubeLink, facebookUrl, twitterUrl, whatsappGroupU
                 </div>
 
                 <div className={Styles.loginButtonContainer}>
-                      {
+                    {
                       whatsappGroupUrl
                       ?
                       <Button onClick={handleWhatsappGroup} sx={{fontSize:"0.7rem", backgroundColor:'#25D366', marginRight:1}} variant='contained'  >
@@ -69,7 +69,7 @@ const Navigation = ({ logo, youtubeLink, facebookUrl, twitterUrl, whatsappGroupU
                    
 
                 </div>
-               <MobileNavigation logo={logo} whatsappGroupUrl={whatsappGroupUrl} />
+               <MobileNavigation logo={logo} whatsappGroupUrl={whatsappGroupUrl} aboutUs={aboutUs?true:false} />
             </div>
             <Divider />
             <div className={Styles.buttomSection}>

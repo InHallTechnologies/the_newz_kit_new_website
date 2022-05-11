@@ -6,7 +6,7 @@ import { FaWhatsappSquare } from 'react-icons/fa';
 import Router from 'next/router';
 
 
-const MobileNavigation = ({ logo, whatsappGroupUrl }) => {
+const MobileNavigation = ({ logo, whatsappGroupUrl, aboutUs }) => {
     const [state, setState] = React.useState({
         top: false,
         left: false,
@@ -69,6 +69,15 @@ const MobileNavigation = ({ logo, whatsappGroupUrl }) => {
                         <Button href='/privacy-policy'>Privacy Policy</Button>
                         <Divider />
                         <Button href='/support-us'>Support Us</Button>
+                        <Divider />
+
+                        {
+                          aboutUs
+                          ?
+                          <Button href="/about-us" >About Us</Button>
+                          :
+                          null
+                        }
                     </div>
                 </div>
             </div>
